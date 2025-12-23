@@ -5,12 +5,20 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "Z:\\יד תשפו\\זק טובה\\dotnett\\פרויקט מעודכן\\Dotnet-core-project\\IceCream\\wwwroot\\html\\login.html",
+      "PackagePath": "staticwebassets\\html\\login.html"
+    },
+    {
       "Id": "Z:\\יד תשפו\\זק טובה\\dotnett\\פרויקט מעודכן\\Dotnet-core-project\\IceCream\\wwwroot\\html\\user.html",
       "PackagePath": "staticwebassets\\html\\user.html"
     },
     {
       "Id": "Z:\\יד תשפו\\זק טובה\\dotnett\\פרויקט מעודכן\\Dotnet-core-project\\IceCream\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "Z:\\יד תשפו\\זק טובה\\dotnett\\פרויקט מעודכן\\Dotnet-core-project\\IceCream\\wwwroot\\js\\login.js",
+      "PackagePath": "staticwebassets\\js\\login.js"
     },
     {
       "Id": "Z:\\יד תשפו\\זק טובה\\dotnett\\פרויקט מעודכן\\Dotnet-core-project\\IceCream\\wwwroot\\js\\site.js",

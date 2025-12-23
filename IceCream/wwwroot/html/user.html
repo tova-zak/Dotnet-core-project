@@ -5,6 +5,12 @@
     <meta charset="UTF-8">
     <title>Pizza CRUD</title>
     <link rel="stylesheet" href="../css/site.css" />
+    <script>
+        // Check for token
+        if (!localStorage.getItem('token')) {
+            window.location.href = 'login.html'; // Redirect to the login page if no token is found
+        }
+    </script>
 </head>
 
 <body>

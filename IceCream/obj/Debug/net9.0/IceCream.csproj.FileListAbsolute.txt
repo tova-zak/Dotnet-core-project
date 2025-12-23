@@ -83,5 +83,14 @@ Z:\יד תשפו\זק טובה\dotnett\פרויקט מעודכן\Dotnet-core-pro
 Z:\יד תשפו\זק טובה\dotnett\פרויקט מעודכן\Dotnet-core-project\IceCream\obj\Debug\net9.0\IceCream.pdb
 Z:\יד תשפו\זק טובה\dotnett\פרויקט מעודכן\Dotnet-core-project\IceCream\obj\Debug\net9.0\IceCream.genruntimeconfig.cache
 Z:\יד תשפו\זק טובה\dotnett\פרויקט מעודכן\Dotnet-core-project\IceCream\obj\Debug\net9.0\ref\IceCream.dll
-Z:\יד תשפו\זק טובה\dotnett\פרויקט מעודכן\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\8lgwfcn7m8-4vl63lnaga.gz
-Z:\יד תשפו\זק טובה\dotnett\פרויקט מעודכן\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\orvjxj9mlr-ptieax7q6q.gz
+Z:\יד תשפו\זק טובה\dotnett\פרויקט מעודכן\Dotnet-core-project\IceCream\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+Z:\יד תשפו\זק טובה\dotnett\פרויקט מעודכן\Dotnet-core-project\IceCream\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+Z:\יד תשפו\זק טובה\dotnett\פרויקט מעודכן\Dotnet-core-project\IceCream\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+Z:\יד תשפו\זק טובה\dotnett\פרויקט מעודכן\Dotnet-core-project\IceCream\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+Z:\יד תשפו\זק טובה\dotnett\פרויקט מעודכן\Dotnet-core-project\IceCream\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+Z:\יד תשפו\זק טובה\dotnett\פרויקט מעודכן\Dotnet-core-project\IceCream\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+Z:\יד תשפו\זק טובה\dotnett\פרויקט מעודכן\Dotnet-core-project\IceCream\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+Z:\יד תשפו\זק טובה\dotnett\פרויקט מעודכן\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\5exlu1226p-kfpgcytng3.gz
+Z:\יד תשפו\זק טובה\dotnett\פרויקט מעודכן\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\orvjxj9mlr-dpmlcoojp8.gz
+Z:\יד תשפו\זק טובה\dotnett\פרויקט מעודכן\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\8lgwfcn7m8-nuc7qcto7f.gz
+Z:\יד תשפו\זק טובה\dotnett\פרויקט מעודכן\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\3c2njt8xvc-els23qnlr8.gz
