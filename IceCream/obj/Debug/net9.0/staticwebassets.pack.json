@@ -1,0 +1,45 @@
+{
+  "Files": [
+    {
+      "Id": "Z:\\יד תשפו\\זק טובה\\IceCream\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "Z:\\יד תשפו\\זק טובה\\IceCream\\wwwroot\\html\\user.html",
+      "PackagePath": "staticwebassets\\html\\user.html"
+    },
+    {
+      "Id": "Z:\\יד תשפו\\זק טובה\\IceCream\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "Z:\\יד תשפו\\זק טובה\\IceCream\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "Z:\\יד תשפו\\זק טובה\\IceCream\\wwwroot\\js\\user.js",
+      "PackagePath": "staticwebassets\\js\\user.js"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.IceCream.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.IceCream.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.build.IceCream.props",
+      "PackagePath": "build\\IceCream.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildMultiTargeting.IceCream.props",
+      "PackagePath": "buildMultiTargeting\\IceCream.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildTransitive.IceCream.props",
+      "PackagePath": "buildTransitive\\IceCream.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

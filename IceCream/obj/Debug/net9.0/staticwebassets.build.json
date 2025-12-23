@@ -1,0 +1,1722 @@
+{
+  "Version": 1,
+  "Hash": "VwB5QN3skTgkqSI8vmy0WY8lJPCPemOrFeaaR8FKsdw=",
+  "Source": "IceCream",
+  "BasePath": "_content/IceCream",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "IceCream\\wwwroot",
+      "Source": "IceCream",
+      "ContentRoot": "Z:\\יד תשפו\\זק טובה\\IceCream\\wwwroot\\",
+      "BasePath": "_content/IceCream",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "Z:\\יד תשפו\\זק טובה\\IceCream\\obj\\Debug\\net9.0\\compressed\\0zvy2tdusf-sgwoq6jqpt.gz",
+      "SourceId": "IceCream",
+      "SourceType": "Discovered",
+      "ContentRoot": "Z:\\יד תשפו\\זק טובה\\IceCream\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/IceCream",
+      "RelativePath": "index#[.{fingerprint=sgwoq6jqpt}]?.html.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "Z:\\יד תשפו\\זק טובה\\IceCream\\wwwroot\\index.html",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "q6vth0x6x1",
+      "Integrity": "IoS0zjRH0udiR5Z/Ejej+fSJyoWrayJpMUklbhmmjFw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "Z:\\יד תשפו\\זק טובה\\IceCream\\wwwroot\\index.html"
+    },
+    {
+      "Identity": "Z:\\יד תשפו\\זק טובה\\IceCream\\obj\\Debug\\net9.0\\compressed\\3nqsdmvcnf-sbgzm9e5t2.gz",
+      "SourceId": "IceCream",
+      "SourceType": "Discovered",
+      "ContentRoot": "Z:\\יד תשפו\\זק טובה\\IceCream\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/IceCream",
+      "RelativePath": "js/site#[.{fingerprint=sbgzm9e5t2}]?.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "Z:\\יד תשפו\\זק טובה\\IceCream\\wwwroot\\js\\site.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "aczlh1i94d",
+      "Integrity": "1qRqWwLt1XeH32gBFjbEbVVhBdliDZKTE6zKli8uBi0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "Z:\\יד תשפו\\זק טובה\\IceCream\\wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "Z:\\יד תשפו\\זק טובה\\IceCream\\obj\\Debug\\net9.0\\compressed\\8lgwfcn7m8-90wmjvnr7e.gz",
+      "SourceId": "IceCream",
+      "SourceType": "Discovered",
+      "ContentRoot": "Z:\\יד תשפו\\זק טובה\\IceCream\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/IceCream",
+      "RelativePath": "html/user#[.{fingerprint=90wmjvnr7e}]?.html.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "Z:\\יד תשפו\\זק טובה\\IceCream\\wwwroot\\html\\user.html",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "j6m0b9q4gk",
+      "Integrity": "S7+6SVvP8CdOVnczhqXumf8P8vr9+8l/7ArjLJ5RIw4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "Z:\\יד תשפו\\זק טובה\\IceCream\\wwwroot\\html\\user.html"
+    },
+    {
+      "Identity": "Z:\\יד תשפו\\זק טובה\\IceCream\\obj\\Debug\\net9.0\\compressed\\ivkftqmjf8-zoxlk5se5i.gz",
+      "SourceId": "IceCream",
+      "SourceType": "Discovered",
+      "ContentRoot": "Z:\\יד תשפו\\זק טובה\\IceCream\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/IceCream",
+      "RelativePath": "css/site#[.{fingerprint=zoxlk5se5i}]?.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "Z:\\יד תשפו\\זק טובה\\IceCream\\wwwroot\\css\\site.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "6iwh808co5",
+      "Integrity": "MrkGjfJbtiTQKCqzljej72Njbw6vWKiTb/Xs3LUMWco=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "Z:\\יד תשפו\\זק טובה\\IceCream\\wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "Z:\\יד תשפו\\זק טובה\\IceCream\\obj\\Debug\\net9.0\\compressed\\orvjxj9mlr-20yvgos9ld.gz",
+      "SourceId": "IceCream",
+      "SourceType": "Discovered",
+      "ContentRoot": "Z:\\יד תשפו\\זק טובה\\IceCream\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/IceCream",
+      "RelativePath": "js/user#[.{fingerprint=20yvgos9ld}]?.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "Z:\\יד תשפו\\זק טובה\\IceCream\\wwwroot\\js\\user.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "h1lrauann5",
+      "Integrity": "u3rzFHSGZtTMWEuAY3ec7KClGnsWh5fPzIK3PZ/FGy8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "Z:\\יד תשפו\\זק טובה\\IceCream\\wwwroot\\js\\user.js"
+    },
+    {
+      "Identity": "Z:\\יד תשפו\\זק טובה\\IceCream\\wwwroot\\css\\site.css",
+      "SourceId": "IceCream",
+      "SourceType": "Discovered",
+      "ContentRoot": "Z:\\יד תשפו\\זק טובה\\IceCream\\wwwroot\\",
+      "BasePath": "_content/IceCream",
+      "RelativePath": "css/site#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "zoxlk5se5i",
+      "Integrity": "06WPOIW5/mIO+16lWWyaJd8OL4taYJX8l7d24pTFPC4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "Z:\\יד תשפו\\זק טובה\\IceCream\\wwwroot\\html\\user.html",
+      "SourceId": "IceCream",
+      "SourceType": "Discovered",
+      "ContentRoot": "Z:\\יד תשפו\\זק טובה\\IceCream\\wwwroot\\",
+      "BasePath": "_content/IceCream",
+      "RelativePath": "html/user#[.{fingerprint}]?.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "90wmjvnr7e",
+      "Integrity": "d7XE9Tpi7syovgca7TZIXBgQiprndY8RyZxdV0zbA84=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\html\\user.html"
+    },
+    {
+      "Identity": "Z:\\יד תשפו\\זק טובה\\IceCream\\wwwroot\\index.html",
+      "SourceId": "IceCream",
+      "SourceType": "Discovered",
+      "ContentRoot": "Z:\\יד תשפו\\זק טובה\\IceCream\\wwwroot\\",
+      "BasePath": "_content/IceCream",
+      "RelativePath": "index#[.{fingerprint}]?.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "sgwoq6jqpt",
+      "Integrity": "pGN2+l3Wtoqn8Z9NyxCwmKc45ZCf2hRnLHeymvIyNHU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "Z:\\יד תשפו\\זק טובה\\IceCream\\wwwroot\\js\\site.js",
+      "SourceId": "IceCream",
+      "SourceType": "Discovered",
+      "ContentRoot": "Z:\\יד תשפו\\זק טובה\\IceCream\\wwwroot\\",
+      "BasePath": "_content/IceCream",
+      "RelativePath": "js/site#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "sbgzm9e5t2",
+      "Integrity": "mAhkyt0bmBjsd4I4EDu1oPGix/QjaFjdZhziOQcOosg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "Z:\\יד תשפו\\זק טובה\\IceCream\\wwwroot\\js\\user.js",
+      "SourceId": "IceCream",
+      "SourceType": "Discovered",
+      "ContentRoot": "Z:\\יד תשפו\\זק טובה\\IceCream\\wwwroot\\",
+      "BasePath": "_content/IceCream",
+      "RelativePath": "js/user#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "20yvgos9ld",
+      "Integrity": "HtKQWyecMeXy578iIXmWwLZd4c/Vceg8MhURi4DqPiY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\user.js"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "css/site.css",
+      "AssetFile": "Z:\\יד תשפו\\זק טובה\\IceCream\\obj\\Debug\\net9.0\\compressed\\ivkftqmjf8-zoxlk5se5i.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.004651162791"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "214"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MrkGjfJbtiTQKCqzljej72Njbw6vWKiTb/Xs3LUMWco=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 18 Oct 2021 22:58:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"06WPOIW5/mIO+16lWWyaJd8OL4taYJX8l7d24pTFPC4=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-06WPOIW5/mIO+16lWWyaJd8OL4taYJX8l7d24pTFPC4="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.css",
+      "AssetFile": "Z:\\יד תשפו\\זק טובה\\IceCream\\wwwroot\\css\\site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "332"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"06WPOIW5/mIO+16lWWyaJd8OL4taYJX8l7d24pTFPC4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 18 Oct 2021 22:58:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-06WPOIW5/mIO+16lWWyaJd8OL4taYJX8l7d24pTFPC4="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.css.gz",
+      "AssetFile": "Z:\\יד תשפו\\זק טובה\\IceCream\\obj\\Debug\\net9.0\\compressed\\ivkftqmjf8-zoxlk5se5i.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "214"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MrkGjfJbtiTQKCqzljej72Njbw6vWKiTb/Xs3LUMWco=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 18 Oct 2021 22:58:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-MrkGjfJbtiTQKCqzljej72Njbw6vWKiTb/Xs3LUMWco="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.zoxlk5se5i.css",
+      "AssetFile": "Z:\\יד תשפו\\זק טובה\\IceCream\\obj\\Debug\\net9.0\\compressed\\ivkftqmjf8-zoxlk5se5i.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.004651162791"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "214"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MrkGjfJbtiTQKCqzljej72Njbw6vWKiTb/Xs3LUMWco=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 18 Oct 2021 22:58:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"06WPOIW5/mIO+16lWWyaJd8OL4taYJX8l7d24pTFPC4=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "zoxlk5se5i"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-06WPOIW5/mIO+16lWWyaJd8OL4taYJX8l7d24pTFPC4="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.zoxlk5se5i.css",
+      "AssetFile": "Z:\\יד תשפו\\זק טובה\\IceCream\\wwwroot\\css\\site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "332"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"06WPOIW5/mIO+16lWWyaJd8OL4taYJX8l7d24pTFPC4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 18 Oct 2021 22:58:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "zoxlk5se5i"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-06WPOIW5/mIO+16lWWyaJd8OL4taYJX8l7d24pTFPC4="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.zoxlk5se5i.css.gz",
+      "AssetFile": "Z:\\יד תשפו\\זק טובה\\IceCream\\obj\\Debug\\net9.0\\compressed\\ivkftqmjf8-zoxlk5se5i.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "214"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MrkGjfJbtiTQKCqzljej72Njbw6vWKiTb/Xs3LUMWco=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 18 Oct 2021 22:58:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "zoxlk5se5i"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-MrkGjfJbtiTQKCqzljej72Njbw6vWKiTb/Xs3LUMWco="
+        }
+      ]
+    },
+    {
+      "Route": "html/user.90wmjvnr7e.html",
+      "AssetFile": "Z:\\יד תשפו\\זק טובה\\IceCream\\obj\\Debug\\net9.0\\compressed\\8lgwfcn7m8-90wmjvnr7e.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001692047377"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "590"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"S7+6SVvP8CdOVnczhqXumf8P8vr9+8l/7ArjLJ5RIw4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 17:00:05 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"d7XE9Tpi7syovgca7TZIXBgQiprndY8RyZxdV0zbA84=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "90wmjvnr7e"
+        },
+        {
+          "Name": "label",
+          "Value": "html/user.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-d7XE9Tpi7syovgca7TZIXBgQiprndY8RyZxdV0zbA84="
+        }
+      ]
+    },
+    {
+      "Route": "html/user.90wmjvnr7e.html",
+      "AssetFile": "Z:\\יד תשפו\\זק טובה\\IceCream\\wwwroot\\html\\user.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1265"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"d7XE9Tpi7syovgca7TZIXBgQiprndY8RyZxdV0zbA84=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 17:00:05 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "90wmjvnr7e"
+        },
+        {
+          "Name": "label",
+          "Value": "html/user.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-d7XE9Tpi7syovgca7TZIXBgQiprndY8RyZxdV0zbA84="
+        }
+      ]
+    },
+    {
+      "Route": "html/user.90wmjvnr7e.html.gz",
+      "AssetFile": "Z:\\יד תשפו\\זק טובה\\IceCream\\obj\\Debug\\net9.0\\compressed\\8lgwfcn7m8-90wmjvnr7e.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "590"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"S7+6SVvP8CdOVnczhqXumf8P8vr9+8l/7ArjLJ5RIw4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 17:00:05 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "90wmjvnr7e"
+        },
+        {
+          "Name": "label",
+          "Value": "html/user.html.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-S7+6SVvP8CdOVnczhqXumf8P8vr9+8l/7ArjLJ5RIw4="
+        }
+      ]
+    },
+    {
+      "Route": "html/user.html",
+      "AssetFile": "Z:\\יד תשפו\\זק טובה\\IceCream\\obj\\Debug\\net9.0\\compressed\\8lgwfcn7m8-90wmjvnr7e.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001692047377"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "590"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"S7+6SVvP8CdOVnczhqXumf8P8vr9+8l/7ArjLJ5RIw4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 17:00:05 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"d7XE9Tpi7syovgca7TZIXBgQiprndY8RyZxdV0zbA84=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-d7XE9Tpi7syovgca7TZIXBgQiprndY8RyZxdV0zbA84="
+        }
+      ]
+    },
+    {
+      "Route": "html/user.html",
+      "AssetFile": "Z:\\יד תשפו\\זק טובה\\IceCream\\wwwroot\\html\\user.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1265"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"d7XE9Tpi7syovgca7TZIXBgQiprndY8RyZxdV0zbA84=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 17:00:05 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-d7XE9Tpi7syovgca7TZIXBgQiprndY8RyZxdV0zbA84="
+        }
+      ]
+    },
+    {
+      "Route": "html/user.html.gz",
+      "AssetFile": "Z:\\יד תשפו\\זק טובה\\IceCream\\obj\\Debug\\net9.0\\compressed\\8lgwfcn7m8-90wmjvnr7e.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "590"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"S7+6SVvP8CdOVnczhqXumf8P8vr9+8l/7ArjLJ5RIw4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 17:00:05 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-S7+6SVvP8CdOVnczhqXumf8P8vr9+8l/7ArjLJ5RIw4="
+        }
+      ]
+    },
+    {
+      "Route": "index.html",
+      "AssetFile": "Z:\\יד תשפו\\זק טובה\\IceCream\\obj\\Debug\\net9.0\\compressed\\0zvy2tdusf-sgwoq6jqpt.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001686340641"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "592"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"IoS0zjRH0udiR5Z/Ejej+fSJyoWrayJpMUklbhmmjFw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 16:53:38 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"pGN2+l3Wtoqn8Z9NyxCwmKc45ZCf2hRnLHeymvIyNHU=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-pGN2+l3Wtoqn8Z9NyxCwmKc45ZCf2hRnLHeymvIyNHU="
+        }
+      ]
+    },
+    {
+      "Route": "index.html",
+      "AssetFile": "Z:\\יד תשפו\\זק טובה\\IceCream\\wwwroot\\index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1279"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"pGN2+l3Wtoqn8Z9NyxCwmKc45ZCf2hRnLHeymvIyNHU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 16:53:38 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-pGN2+l3Wtoqn8Z9NyxCwmKc45ZCf2hRnLHeymvIyNHU="
+        }
+      ]
+    },
+    {
+      "Route": "index.html.gz",
+      "AssetFile": "Z:\\יד תשפו\\זק טובה\\IceCream\\obj\\Debug\\net9.0\\compressed\\0zvy2tdusf-sgwoq6jqpt.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "592"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"IoS0zjRH0udiR5Z/Ejej+fSJyoWrayJpMUklbhmmjFw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 16:53:38 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-IoS0zjRH0udiR5Z/Ejej+fSJyoWrayJpMUklbhmmjFw="
+        }
+      ]
+    },
+    {
+      "Route": "index.sgwoq6jqpt.html",
+      "AssetFile": "Z:\\יד תשפו\\זק טובה\\IceCream\\obj\\Debug\\net9.0\\compressed\\0zvy2tdusf-sgwoq6jqpt.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001686340641"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "592"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"IoS0zjRH0udiR5Z/Ejej+fSJyoWrayJpMUklbhmmjFw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 16:53:38 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"pGN2+l3Wtoqn8Z9NyxCwmKc45ZCf2hRnLHeymvIyNHU=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "sgwoq6jqpt"
+        },
+        {
+          "Name": "label",
+          "Value": "index.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-pGN2+l3Wtoqn8Z9NyxCwmKc45ZCf2hRnLHeymvIyNHU="
+        }
+      ]
+    },
+    {
+      "Route": "index.sgwoq6jqpt.html",
+      "AssetFile": "Z:\\יד תשפו\\זק טובה\\IceCream\\wwwroot\\index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1279"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"pGN2+l3Wtoqn8Z9NyxCwmKc45ZCf2hRnLHeymvIyNHU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 16:53:38 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "sgwoq6jqpt"
+        },
+        {
+          "Name": "label",
+          "Value": "index.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-pGN2+l3Wtoqn8Z9NyxCwmKc45ZCf2hRnLHeymvIyNHU="
+        }
+      ]
+    },
+    {
+      "Route": "index.sgwoq6jqpt.html.gz",
+      "AssetFile": "Z:\\יד תשפו\\זק טובה\\IceCream\\obj\\Debug\\net9.0\\compressed\\0zvy2tdusf-sgwoq6jqpt.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "592"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"IoS0zjRH0udiR5Z/Ejej+fSJyoWrayJpMUklbhmmjFw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 16:53:38 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "sgwoq6jqpt"
+        },
+        {
+          "Name": "label",
+          "Value": "index.html.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-IoS0zjRH0udiR5Z/Ejej+fSJyoWrayJpMUklbhmmjFw="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.js",
+      "AssetFile": "Z:\\יד תשפו\\זק טובה\\IceCream\\obj\\Debug\\net9.0\\compressed\\3nqsdmvcnf-sbgzm9e5t2.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000975609756"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1024"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1qRqWwLt1XeH32gBFjbEbVVhBdliDZKTE6zKli8uBi0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 02 Dec 2025 18:41:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"mAhkyt0bmBjsd4I4EDu1oPGix/QjaFjdZhziOQcOosg=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-mAhkyt0bmBjsd4I4EDu1oPGix/QjaFjdZhziOQcOosg="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.js",
+      "AssetFile": "Z:\\יד תשפו\\זק טובה\\IceCream\\wwwroot\\js\\site.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3656"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"mAhkyt0bmBjsd4I4EDu1oPGix/QjaFjdZhziOQcOosg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 02 Dec 2025 18:41:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-mAhkyt0bmBjsd4I4EDu1oPGix/QjaFjdZhziOQcOosg="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.js.gz",
+      "AssetFile": "Z:\\יד תשפו\\זק טובה\\IceCream\\obj\\Debug\\net9.0\\compressed\\3nqsdmvcnf-sbgzm9e5t2.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1024"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1qRqWwLt1XeH32gBFjbEbVVhBdliDZKTE6zKli8uBi0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 02 Dec 2025 18:41:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-1qRqWwLt1XeH32gBFjbEbVVhBdliDZKTE6zKli8uBi0="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.sbgzm9e5t2.js",
+      "AssetFile": "Z:\\יד תשפו\\זק טובה\\IceCream\\obj\\Debug\\net9.0\\compressed\\3nqsdmvcnf-sbgzm9e5t2.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000975609756"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1024"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1qRqWwLt1XeH32gBFjbEbVVhBdliDZKTE6zKli8uBi0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 02 Dec 2025 18:41:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"mAhkyt0bmBjsd4I4EDu1oPGix/QjaFjdZhziOQcOosg=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "sbgzm9e5t2"
+        },
+        {
+          "Name": "label",
+          "Value": "js/site.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-mAhkyt0bmBjsd4I4EDu1oPGix/QjaFjdZhziOQcOosg="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.sbgzm9e5t2.js",
+      "AssetFile": "Z:\\יד תשפו\\זק טובה\\IceCream\\wwwroot\\js\\site.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3656"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"mAhkyt0bmBjsd4I4EDu1oPGix/QjaFjdZhziOQcOosg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 02 Dec 2025 18:41:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "sbgzm9e5t2"
+        },
+        {
+          "Name": "label",
+          "Value": "js/site.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-mAhkyt0bmBjsd4I4EDu1oPGix/QjaFjdZhziOQcOosg="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.sbgzm9e5t2.js.gz",
+      "AssetFile": "Z:\\יד תשפו\\זק טובה\\IceCream\\obj\\Debug\\net9.0\\compressed\\3nqsdmvcnf-sbgzm9e5t2.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1024"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1qRqWwLt1XeH32gBFjbEbVVhBdliDZKTE6zKli8uBi0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 02 Dec 2025 18:41:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "sbgzm9e5t2"
+        },
+        {
+          "Name": "label",
+          "Value": "js/site.js.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-1qRqWwLt1XeH32gBFjbEbVVhBdliDZKTE6zKli8uBi0="
+        }
+      ]
+    },
+    {
+      "Route": "js/user.20yvgos9ld.js",
+      "AssetFile": "Z:\\יד תשפו\\זק טובה\\IceCream\\obj\\Debug\\net9.0\\compressed\\orvjxj9mlr-20yvgos9ld.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000965250965"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1035"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"u3rzFHSGZtTMWEuAY3ec7KClGnsWh5fPzIK3PZ/FGy8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 17:10:31 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"HtKQWyecMeXy578iIXmWwLZd4c/Vceg8MhURi4DqPiY=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "20yvgos9ld"
+        },
+        {
+          "Name": "label",
+          "Value": "js/user.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-HtKQWyecMeXy578iIXmWwLZd4c/Vceg8MhURi4DqPiY="
+        }
+      ]
+    },
+    {
+      "Route": "js/user.20yvgos9ld.js",
+      "AssetFile": "Z:\\יד תשפו\\זק טובה\\IceCream\\wwwroot\\js\\user.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3695"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"HtKQWyecMeXy578iIXmWwLZd4c/Vceg8MhURi4DqPiY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 17:10:31 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "20yvgos9ld"
+        },
+        {
+          "Name": "label",
+          "Value": "js/user.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-HtKQWyecMeXy578iIXmWwLZd4c/Vceg8MhURi4DqPiY="
+        }
+      ]
+    },
+    {
+      "Route": "js/user.20yvgos9ld.js.gz",
+      "AssetFile": "Z:\\יד תשפו\\זק טובה\\IceCream\\obj\\Debug\\net9.0\\compressed\\orvjxj9mlr-20yvgos9ld.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1035"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"u3rzFHSGZtTMWEuAY3ec7KClGnsWh5fPzIK3PZ/FGy8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 17:10:31 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "20yvgos9ld"
+        },
+        {
+          "Name": "label",
+          "Value": "js/user.js.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-u3rzFHSGZtTMWEuAY3ec7KClGnsWh5fPzIK3PZ/FGy8="
+        }
+      ]
+    },
+    {
+      "Route": "js/user.js",
+      "AssetFile": "Z:\\יד תשפו\\זק טובה\\IceCream\\obj\\Debug\\net9.0\\compressed\\orvjxj9mlr-20yvgos9ld.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000965250965"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1035"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"u3rzFHSGZtTMWEuAY3ec7KClGnsWh5fPzIK3PZ/FGy8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 17:10:31 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"HtKQWyecMeXy578iIXmWwLZd4c/Vceg8MhURi4DqPiY=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-HtKQWyecMeXy578iIXmWwLZd4c/Vceg8MhURi4DqPiY="
+        }
+      ]
+    },
+    {
+      "Route": "js/user.js",
+      "AssetFile": "Z:\\יד תשפו\\זק טובה\\IceCream\\wwwroot\\js\\user.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3695"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"HtKQWyecMeXy578iIXmWwLZd4c/Vceg8MhURi4DqPiY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 17:10:31 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-HtKQWyecMeXy578iIXmWwLZd4c/Vceg8MhURi4DqPiY="
+        }
+      ]
+    },
+    {
+      "Route": "js/user.js.gz",
+      "AssetFile": "Z:\\יד תשפו\\זק טובה\\IceCream\\obj\\Debug\\net9.0\\compressed\\orvjxj9mlr-20yvgos9ld.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1035"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"u3rzFHSGZtTMWEuAY3ec7KClGnsWh5fPzIK3PZ/FGy8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 17:10:31 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-u3rzFHSGZtTMWEuAY3ec7KClGnsWh5fPzIK3PZ/FGy8="
+        }
+      ]
+    }
+  ]
+}
