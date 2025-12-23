@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HZO8P4WHm5M=",
+  "dgSpecHash": "oAPJrnVcqOA=",
   "success": true,
-  "projectFilePath": "Z:\\יד תשפו\\זק טובה\\IceCream\\IceCream.csproj",
+  "projectFilePath": "Z:\\יד תשפו\\זק טובה\\dotnett\\פרויקט מעודכן\\Dotnet-core-project\\IceCream\\IceCream.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\huser\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.0\\microsoft.aspnetcore.openapi.10.0.0.nupkg.sha512",
     "C:\\Users\\huser\\.nuget\\packages\\microsoft.extensions.apidescription.server\\9.0.0\\microsoft.extensions.apidescription.server.9.0.0.nupkg.sha512",

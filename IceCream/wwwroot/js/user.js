@@ -4,7 +4,7 @@ let users = [];
 function getUsers() {
     fetch(uri)
         .then(response => response.json())
-        .then(data => _displayItems(data))
+        .then(data => _displayUsers(data))
         .catch(error => console.error('Unable to get items.', error));
 }
 
@@ -83,7 +83,7 @@ function _displayCount(userCount) {
     document.getElementById('counter').innerText = `${userCount} ${name}`;
 }
 
-function _displayItems(data) {
+function _displayUsers(data) {
     const tBody = document.getElementById('users');
     tBody.innerHTML = '';
 
@@ -96,7 +96,7 @@ function _displayItems(data) {
     //     IsDiaryCheckbox.type = 'checkbox';
     //     IsDiaryCheckbox.disabled = true;
     //     IsDiaryCheckbox.checked = item.isDiary;
-
+        console.log(user);
         let editButton = button.cloneNode(false);
         editButton.innerText = 'Edit';
         editButton.setAttribute('onclick', `displayEditForm(${user.id})`);
@@ -108,11 +108,12 @@ function _displayItems(data) {
         let tr = tBody.insertRow();
 
         let td1 = tr.insertCell(0);
-    //     td1.appendChild(IsDiaryCheckbox);
-
+        let textNode1 = document.createTextNode(`${user.firstName}`);
+        td2.appendChild(textNode1);
+    
         let td2 = tr.insertCell(1);
-        let textNode = document.createTextNode(user.name);
-        td2.appendChild(textNode);
+        let textNode2 = document.createTextNode(`${user.lastName}`);
+        td2.appendChild(textNode2);
 
         let td3 = tr.insertCell(2);
         td3.appendChild(editButton);

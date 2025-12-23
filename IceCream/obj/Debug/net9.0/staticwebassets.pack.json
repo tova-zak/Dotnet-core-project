@@ -1,23 +1,23 @@
 {
   "Files": [
     {
-      "Id": "Z:\\יד תשפו\\זק טובה\\IceCream\\wwwroot\\css\\site.css",
+      "Id": "Z:\\יד תשפו\\זק טובה\\dotnett\\פרויקט מעודכן\\Dotnet-core-project\\IceCream\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "Z:\\יד תשפו\\זק טובה\\IceCream\\wwwroot\\html\\user.html",
+      "Id": "Z:\\יד תשפו\\זק טובה\\dotnett\\פרויקט מעודכן\\Dotnet-core-project\\IceCream\\wwwroot\\html\\user.html",
       "PackagePath": "staticwebassets\\html\\user.html"
     },
     {
-      "Id": "Z:\\יד תשפו\\זק טובה\\IceCream\\wwwroot\\index.html",
+      "Id": "Z:\\יד תשפו\\זק טובה\\dotnett\\פרויקט מעודכן\\Dotnet-core-project\\IceCream\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },
     {
-      "Id": "Z:\\יד תשפו\\זק טובה\\IceCream\\wwwroot\\js\\site.js",
+      "Id": "Z:\\יד תשפו\\זק טובה\\dotnett\\פרויקט מעודכן\\Dotnet-core-project\\IceCream\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "Z:\\יד תשפו\\זק טובה\\IceCream\\wwwroot\\js\\user.js",
+      "Id": "Z:\\יד תשפו\\זק טובה\\dotnett\\פרויקט מעודכן\\Dotnet-core-project\\IceCream\\wwwroot\\js\\user.js",
       "PackagePath": "staticwebassets\\js\\user.js"
     },
     {

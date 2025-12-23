@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using IceCream.Models;
 using IceCream.Intrfaces;
 using System.Security.Cryptography.X509Certificates;
+using System.Text.Json;
 
 namespace IceCream.Services{
 
@@ -17,7 +18,7 @@ public class UserService:IUserService
            new UserModel{Id=2,FirstName="Tovi",LastName="Zak"},
            new UserModel{Id=3,FirstName="Rut",LastName="levi"}
         };
-        this.filePath = Path.Combine("Data", "IceCream.json");
+        this.filePath = Path.Combine("Data", "User.json");
             using (var jsonFile = File.OpenText(filePath))
             {
                 var content = jsonFile.ReadToEnd();
