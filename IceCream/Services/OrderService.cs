@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using IceCream.Models;
-using IceCream.Intrfaces;
+using IceCream.Interfaces;
 using System.Text.Json;
 using System.Security.Cryptography.X509Certificates;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace IceCream.Services{
 
@@ -19,14 +21,17 @@ public class OrderService:IOrderService
            new IceCreamModel{Id=3,Name="ShokoShoko",IsDiary=false}
             };
             this.filePath = Path.Combine("Data", "IceCream.json");
-            using (var jsonFile = File.OpenText(filePath))
+            if (File.Exists(filePath))
             {
-                var content = jsonFile.ReadToEnd();
-                list = JsonSerializer.Deserialize<List<IceCreamModel>>(content,
-                new JsonSerializerOptions
+                using (var jsonFile = File.OpenText(filePath))
                 {
-                    PropertyNameCaseInsensitive = true
-                });
+                    var content = jsonFile.ReadToEnd();
+                    list = JsonSerializer.Deserialize<List<IceCreamModel>>(content,
+                    new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    }) ?? list;
+                }
             }
         }
          private void saveToFile()
@@ -50,7 +55,7 @@ public class OrderService:IOrderService
 
     public IceCreamModel Create(IceCreamModel newIceCream)
     {
-        var maxId = list.Max(p => p.Id);
+        var maxId = list.Any() ? list.Max(p => p.Id) : 0;
         newIceCream.Id = maxId + 1;
         list.Add(newIceCream);
         saveToFile();

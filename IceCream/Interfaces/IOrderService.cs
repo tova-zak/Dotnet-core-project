@@ -1,7 +1,8 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using IceCream.Models;
 
-namespace IceCream.Intrfaces
+namespace IceCream.Interfaces
 {
     public interface IOrderService
     {

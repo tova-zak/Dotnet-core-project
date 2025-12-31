@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using IceCream.Models;
-using IceCream.Intrfaces;
+using IceCream.Interfaces;
 using System.Security.Cryptography.X509Certificates;
 using System.Text.Json;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace IceCream.Services{
 
@@ -19,6 +21,8 @@ public class UserService:IUserService
            new UserModel{Id=3,FirstName="Rut",LastName="levi"}
         };
         this.filePath = Path.Combine("Data", "User.json");
+        if (File.Exists(filePath))
+        {
             using (var jsonFile = File.OpenText(filePath))
             {
                 var content = jsonFile.ReadToEnd();
@@ -26,8 +30,9 @@ public class UserService:IUserService
                 new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true
-                });
+                }) ?? list;
             }
+        }
         
     }
     private void saveToFile()
@@ -41,6 +46,8 @@ public class UserService:IUserService
         return list;
     }
 
+    public int Count => list?.Count ?? 0;
+
     private UserModel find(int id)
     {
         return list.FirstOrDefault(p => p.Id == id);
@@ -51,7 +58,7 @@ public class UserService:IUserService
 
     public UserModel Create(UserModel newUser)
     {
-        var maxId = list.Max(p => p.Id);
+        var maxId = list.Any() ? list.Max(p => p.Id) : 0;
         newUser.Id = maxId + 1;
         list.Add(newUser);
         saveToFile();

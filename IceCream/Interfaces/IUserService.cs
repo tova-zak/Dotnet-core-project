@@ -1,7 +1,7 @@
-using System.Threading.Tasks;
+using System.Collections.Generic;
 using IceCream.Models;
 
-namespace IceCream.Intrfaces
+namespace IceCream.Interfaces
 {
     public interface IUserService
     {

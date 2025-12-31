@@ -94,3 +94,15 @@ Z:\יד תשפו\זק טובה\dotnett\פרויקט מעודכן\Dotnet-core-pro
 Z:\יד תשפו\זק טובה\dotnett\פרויקט מעודכן\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\orvjxj9mlr-dpmlcoojp8.gz
 Z:\יד תשפו\זק טובה\dotnett\פרויקט מעודכן\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\8lgwfcn7m8-nuc7qcto7f.gz
 Z:\יד תשפו\זק טובה\dotnett\פרויקט מעודכן\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\3c2njt8xvc-els23qnlr8.gz
+Z:\יד תשפו\זק טובה\Dotnet-core-project\IceCream\obj\Debug\net9.0\IceCream.csproj.AssemblyReference.cache
+Z:\יד תשפו\זק טובה\Dotnet-core-project\IceCream\obj\Debug\net9.0\rpswa.dswa.cache.json
+Z:\יד תשפו\זק טובה\Dotnet-core-project\IceCream\obj\Debug\net9.0\IceCream.GeneratedMSBuildEditorConfig.editorconfig
+Z:\יד תשפו\זק טובה\Dotnet-core-project\IceCream\obj\Debug\net9.0\IceCream.AssemblyInfoInputs.cache
+Z:\יד תשפו\זק טובה\Dotnet-core-project\IceCream\obj\Debug\net9.0\IceCream.AssemblyInfo.cs
+Z:\יד תשפו\זק טובה\Dotnet-core-project\IceCream\obj\Debug\net9.0\IceCream.csproj.CoreCompileInputs.cache
+Z:\יד תשפו\זק טובה\Dotnet-core-project\IceCream\obj\Debug\net9.0\IceCream.MvcApplicationPartsAssemblyInfo.cs
+Z:\יד תשפו\זק טובה\Dotnet-core-project\IceCream\obj\Debug\net9.0\IceCream.MvcApplicationPartsAssemblyInfo.cache
+Z:\יד תשפו\זק טובה\Dotnet-core-project\IceCream\obj\Debug\net9.0\IceCream.sourcelink.json
+Z:\יד תשפו\זק טובה\Dotnet-core-project\IceCream\obj\Debug\net9.0\IceCream.dll
+Z:\יד תשפו\זק טובה\Dotnet-core-project\IceCream\obj\Debug\net9.0\refint\IceCream.dll
+Z:\יד תשפו\זק טובה\Dotnet-core-project\IceCream\obj\Debug\net9.0\IceCream.pdb

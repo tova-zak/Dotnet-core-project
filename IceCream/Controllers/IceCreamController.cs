@@ -1,19 +1,18 @@
-// using System.Security.Cryptography.X509Certificates;
-// using Microsoft.AspNetCore.Http.HttpResults;
-// using Microsoft.AspNetCore.Mvc;
-// using IceCream.Services;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using Microsoft.AspNetCore.Mvc;
- using IceCream.Models;
-using IceCream.Intrfaces;
+using System.Collections.Generic;
+using IceCream.Models;
+using IceCream.Interfaces;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 namespace IceCream.Controllers;
 
 
 [ApiController]
 [Route("[controller]")]
 public class IceCreamController : ControllerBase
-{  IOrderService service;
+{  private readonly IOrderService service;
    
 
                       
@@ -24,37 +23,46 @@ public class IceCreamController : ControllerBase
    
 
     [HttpGet()]
-    public ActionResult<IEnumerable<IceCreamModel>> Get()
-    {
-        return service.Get();
-        
-    }
+    public ActionResult<IEnumerable<IceCreamModel>> GetAll()=>
+    service.Get();
+    
 
     [HttpGet("{id}")]
+    [Authorize(Policy="Admin")]
     public ActionResult<IceCreamModel> Get(int id)
     {
-        return service.Get(id);
+        var iceCream=service.Get(id);
+        if(iceCream==null)
+          return NotFound();
+        return iceCream;
         
    }
     [HttpPost]
-    public ActionResult Create(IceCreamModel newIceCream){
-        var postedIceCream = service.Create(newIceCream);
-        return CreatedAtAction(nameof(Create), new { id = postedIceCream.Id });
+    [Authorize(Policy="Admin")]
+    public IActionResult Create(IceCreamModel newIceCream){
+        service.Create(newIceCream);
+        return CreatedAtAction(nameof(Get),new{id=newIceCream.Id},newIceCream);
     }
     
     [HttpPut("{id}")]
-    public ActionResult Update(int id,IceCreamModel newIceCream){
-        var iceCream=service.Update(id,newIceCream);
-        if(!iceCream)
-        return NotFound();
+    [Authorize(Policy="Admin")]
+    public IActionResult Update(int id,[FromBody]IceCreamModel newIceCream){
+        if(id!=newIceCream.Id)
+          return BadRequest();
+        var existing=service.Get(id);
+        if(existing==null)
+          return NotFound();
+        service.Update(id,newIceCream);
         return NoContent();
     }
 
     [HttpDelete("{id}")]
-    public ActionResult Delete(int id){
-        var iceCream=service.Delete(id);
-        if(!iceCream)
+    [Authorize(Policy="Admin")]
+    public IActionResult Delete(int id){
+        var iceCream=service.Get(id);
+        if(iceCream==null)
            return NotFound();
-        return NoContent();    
+        service.Delete(id);
+        return Content(service.Get().Count.ToString());    
     }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "C2wfii/Pkq4=",
+  "dgSpecHash": "611BvFNUZF4=",
   "success": true,
-  "projectFilePath": "Z:\\יד תשפו\\זק טובה\\dotnett\\פרויקט מעודכן\\Dotnet-core-project\\IceCream\\IceCream.csproj",
+  "projectFilePath": "Z:\\יד תשפו\\זק טובה\\Dotnet-core-project\\IceCream\\IceCream.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\huser\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.4\\microsoft.aspnetcore.authentication.jwtbearer.5.0.4.nupkg.sha512",
     "C:\\Users\\huser\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.0\\microsoft.aspnetcore.openapi.10.0.0.nupkg.sha512",
@@ -33,8 +33,10 @@
     {
       "code": "NU1603",
       "level": "Warning",
-      "warningLevel": 1,
       "message": "IceCream depends on Microsoft.AspNetCore.OpenApi (>= 9.0.101) but Microsoft.AspNetCore.OpenApi 9.0.101 was not found. Microsoft.AspNetCore.OpenApi 10.0.0 was resolved instead.",
+      "projectPath": "Z:\\יד תשפו\\זק טובה\\Dotnet-core-project\\IceCream\\IceCream.csproj",
+      "warningLevel": 1,
+      "filePath": "Z:\\יד תשפו\\זק טובה\\Dotnet-core-project\\IceCream\\IceCream.csproj",
       "libraryId": "Microsoft.AspNetCore.OpenApi",
       "targetGraphs": [
         "net9.0"
@@ -43,8 +45,10 @@
     {
       "code": "NU1902",
       "level": "Warning",
-      "warningLevel": 1,
       "message": "Package 'Microsoft.AspNetCore.Authentication.JwtBearer' 5.0.4 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-q7cg-43mg-qp69",
+      "projectPath": "Z:\\יד תשפו\\זק טובה\\Dotnet-core-project\\IceCream\\IceCream.csproj",
+      "warningLevel": 1,
+      "filePath": "Z:\\יד תשפו\\זק טובה\\Dotnet-core-project\\IceCream\\IceCream.csproj",
       "libraryId": "Microsoft.AspNetCore.Authentication.JwtBearer",
       "targetGraphs": [
         "net9.0"

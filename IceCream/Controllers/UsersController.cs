@@ -1,17 +1,20 @@
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using Microsoft.AspNetCore.Mvc;
- using IceCream.Models;
-using IceCream.Intrfaces;
-namespace IceCream.Controllers;
+using System.Collections.Generic;
+using IceCream.Models;
+using IceCream.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
 using IceCream.Services;
+namespace IceCream.Controllers;
+
 
 [ApiController]
 [Route("user")]
+[Authorize(Policy="AllUsers")]
 public class UserController : ControllerBase
-{  IUserService service;
+{  private readonly IUserService service;
    
 
                       
@@ -22,11 +25,8 @@ public class UserController : ControllerBase
    
 
     [HttpGet()]
-    public ActionResult<IEnumerable<UserModel>> Get()
-    {
-        return service.Get();
-        
-    }
+    public ActionResult<IEnumerable<UserModel>> GetAll()=>
+    service.GetAll();
 
     [HttpGet("{id}")]
     public ActionResult<UserModel> Get(int id)
@@ -36,19 +36,19 @@ public class UserController : ControllerBase
    }
         [HttpPost]
         [Route("[action]")]
-        public ActionResult<String> Login([FromBody] UserModel User)
+        public ActionResult<string> Login([FromBody] UserModel User)
         {
-            var dt = DateTime.Now;
+            // var dt = DateTime.Now;
             //var query = $"select * from users where idnumber = @idnumber";
-            if (User.FirstName != "Wray"
-            || User.Password != $"W{dt.Year}#{dt.Day}!")
+            if (User.FirstName != "Iuser")
+            
             {
                 return Unauthorized();
             }
 
             var claims = new List<Claim>
             {
-                new Claim("FirstName", User.FirstName),
+                new Claim("userFirstName", User.FirstName),
                 new Claim("type", "Admin"),
             };
 
@@ -57,26 +57,48 @@ public class UserController : ControllerBase
             return new OkObjectResult(UserTokenService.WriteToken(token));
         }
 
+        [HttpPost]
+        [Route("[action]")]
+        [Authorize(Policy="Admin")]
+        public IActionResult GenerateBadge([FromBody] UserModel User)
+        {
+            var claims = new List<Claim>
+            {
+                new Claim("userFirstName", User.FirstName),
+                new Claim("type", "Agent"),
+                // use Id as a simple integer-based clearance level since model has no clearanceLevel property
+                new Claim("clearanceLevel", User.Id.ToString()),
+            };
+
+            var token = UserTokenService.GetToken(claims);
+
+            return new OkObjectResult(UserTokenService.WriteToken(token));
+        }
+       
     [HttpPost]
     [Route("[action]")]
-    public ActionResult Create(UserModel newUser){
-        var postedUser = service.Create(newUser);
-        return CreatedAtAction(nameof(Create), new { id = postedUser.Id });
+    public IActionResult Create(UserModel newUser){
+        service.Add(newUser);
+        return CreatedAtAction(nameof(Get), new { id = newUser.Id },newUser);
     }
     
     [HttpPut("{id}")]
-    public ActionResult Update(int id,UserModel newUser){
-        var user=service.Update(id,newUser);
-        if(!user)
-        return NotFound();
+    public IActionResult Update(int id,UserModel newUser){
+        if(id!=newUser.Id)
+           return BadRequest();
+         var existing=service.Get(id); 
+         if(existing==null)
+           return NotFound();
+         service.Update(newUser) ; 
         return NoContent();
     }
 
     [HttpDelete("{id}")]
-    public ActionResult Delete(int id){
-        var user=service.Delete(id);
-        if(!user)
+    public IActionResult Delete(int id){
+        var user=service.Get(id);
+        if(user==null)
            return NotFound();
-        return NoContent();    
+        service.Delete(id);  
+        return Content(service.Count.ToString());    
     }
 }
