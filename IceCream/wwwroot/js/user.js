@@ -12,11 +12,12 @@ function getUsers() {
 }
 
 function addUser() {
-    const addNameTextbox = document.getElementById('add-name');
+    const addFirst = document.getElementById('add-firstName');
+    const addLast = document.getElementById('add-lastName');
 
     const user = {
-        firstName: addNameTextbox.value.trim(),
-        lastName: addNameTextbox.value.trim()
+        firstName: addFirst.value.trim(),
+        lastName: addLast.value.trim()
     };
 
     const token = localStorage.getItem('token'); // מסביר: מוסיף טוקן לכותרות אם קיים
@@ -33,7 +34,8 @@ function addUser() {
         .then(response => response.json())
         .then(() => {
             getUsers();
-            addNameTextbox.value = '';
+            addFirst.value = '';
+            addLast.value = '';
         })
         .catch(error => console.error('Unable to add item.', error));
 }

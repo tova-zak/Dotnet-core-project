@@ -1,25 +1,176 @@
+/* עיצוב כללי לצבעים וסגנון עבור חנות גלידות */
+:root{
+    --bg-mocha: #f3e6df; /* רקע מוקה בהיר */
+    --pistachio: #8fc07b; /* פיסטוק ירוק */
+    --pistachio-dark: #6ea257;
+    --strawberry: #ff6b81; /* ורוד תות */
+    --strawberry-dark: #e0566c;
+    --cream: #fff8ee; /* גוון קרם רך */
+    --text: #2b2b2b;
+    --muted: #6b6b6b;
+}
+
+/* typography + רקע כללי */
+html,body{
+    height:100%;
+}
+body{
+    margin:0;
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: linear-gradient(180deg, var(--bg-mocha) 0%, #f7efe6 100%); /* רקע מוקה בהיר עד קרם */
+    color:var(--text);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    padding:24px;
+}
+
+/* קונטיינר כללי (אם יש) — לא מחייב שינוי ב-HTML */
+.container{
+    max-width:1100px;
+    margin:0 auto;
+    background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4));
+    border-radius:14px;
+    padding:20px 28px;
+    box-shadow: 0 6px 24px rgba(43,43,43,0.08);
+}
+
+/* כותרות */
+h1{ color: var(--pistachio-dark); font-weight:700; margin-bottom:6px; }
+h3{ color: var(--strawberry-dark); margin-top:6px; }
+
+/* טפסים ושדות קלט */
+input[type="text"], input[type="password"], textarea{
+    width:100%;
+    padding:10px 12px;
+    border-radius:10px;
+    border:1px solid rgba(43,43,43,0.08);
+    background: var(--cream);
+    outline:none;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+    transition: box-shadow .2s ease, transform .08s ease;
+    font-size:14px;
+    color:var(--text);
+}
+
+input[type="text"]:focus, input[type="password"]:focus, textarea:focus{
+    box-shadow: 0 6px 18px rgba(143,192,123,0.12);
+    transform: translateY(-2px);
+}
+
+/* כפתורים - פיסטוק וורוד תות */
 input[type='submit'],
 button,
-[aria-label] {
+[aria-label]{
     cursor: pointer;
+    position: relative; /* דרוש לאפקט הפיצוץ */
+    overflow: hidden; /* מונע שחרור החלקיקים החוצה */
+    display: inline-block;
+    padding:10px 18px;
+    border-radius:12px;
+    border:0;
+    color:white;
+    font-weight:600;
+    letter-spacing:0.2px;
+    background: linear-gradient(135deg, var(--pistachio) 0%, #a7d98e 50%);
+    box-shadow: 0 8px 20px rgba(143,192,123,0.18);
+    transition: transform .18s cubic-bezier(.2,.9,.2,1), box-shadow .18s ease, filter .18s ease;
 }
 
-#editForm {
-    display: none;
+/* כפתור משני - ורוד תות */
+button.secondary, input.secondary{
+    background: linear-gradient(135deg, var(--strawberry) 0%, #ff95a8 60%);
+    box-shadow: 0 8px 20px rgba(255,107,129,0.14);
 }
 
-table {
-    font-family: Arial, sans-serif;
-    border: 1px solid;
-    border-collapse: collapse;
+/* hover אנימציה יפה */
+input[type='submit']:hover,
+button:hover,
+[aria-label]:hover{
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 18px 36px rgba(43,43,43,0.12);
+    filter: saturate(1.05);
 }
 
-th {
-    background-color: #f8f8f8;
-    padding: 5px;
+/* when focused for accessibility */
+input[type='submit']:focus, button:focus, [aria-label]:focus{
+    outline: 3px solid rgba(143,192,123,0.18);
 }
 
-td {
-    border: 1px solid;
-    padding: 5px;
+/* אפקט "פיצוץ" בלחיצה - שימוש ב::after ו-animation */
+input[type='submit']::after,
+button::after,
+[aria-label]::after{
+    content: '';
+    position: absolute;
+    left:50%; top:50%;
+    width:10px; height:10px;
+    background: radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.7) 30%, transparent 60%);
+    transform: translate(-50%,-50%) scale(0);
+    border-radius:50%;
+    opacity:0;
+    transition: transform .45s cubic-bezier(.2,.8,.2,1), opacity .45s ease;
+    pointer-events:none;
 }
+/* בעת לחיצה - מרחיב ומתקתק; נותן תחושה של פיצוץ עדין */
+input[type='submit']:active::after,
+button:active::after,
+[aria-label]:active::after{
+    transform: translate(-50%,-50%) scale(8);
+    opacity:0.85;
+    transition: transform .18s ease-out, opacity .25s ease-out;
+}
+
+/* תוספת של box-shadow burst ל-active עבור אפקט דרמטי יותר */
+input[type='submit']:active,
+button:active,
+[aria-label]:active{
+    transform: translateY(-2px) scale(.98);
+    box-shadow: 0 0 0 6px rgba(143,192,123,0.06), 0 0 40px rgba(255,107,129,0.05) inset;
+}
+
+/* טבלה סטיילינג מותאם */
+table{
+    width:100%;
+    border-collapse:separate;
+    border-spacing:0;
+    background: rgba(255,255,255,0.6);
+    border-radius:10px;
+    overflow:hidden;
+}
+
+th, td{
+    padding:12px 14px;
+    text-align:left;
+    border-bottom:1px solid rgba(43,43,43,0.06);
+}
+
+th{
+    background: linear-gradient(90deg, rgba(255,255,255,0.25), rgba(255,255,255,0.15));
+    color: var(--pistachio-dark);
+    font-weight:700;
+}
+
+tbody tr:hover{
+    background: linear-gradient(90deg, rgba(143,192,123,0.04), rgba(255,107,129,0.02));
+}
+
+/* קישורים פשוטים */
+a{
+    color: var(--pistachio-dark);
+    text-decoration: none;
+    font-weight:600;
+}
+a:hover{ text-decoration: underline; }
+
+/* מסכים קטנים - שיפור נראות */
+@media (max-width:600px){
+    body{ padding:12px; }
+    .container{ padding:12px; }
+    input[type='submit'], button{ width:100%; padding:12px 16px; }
+}
+
+/* שימור קטעים קודמים שלא הוסרו */
+#editForm { display: none; }
+
+/* תנאי צפייה בטקסטים קטנים */
+[aria-label]{ padding:8px 12px; border-radius:10px; }

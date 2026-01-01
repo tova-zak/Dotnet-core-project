@@ -144,9 +144,6 @@ z:\יד תשפו\זק טובה\DOTNET ZILBERBERG\Dotnet-core-project\IceCream\ob
 z:\יד תשפו\זק טובה\DOTNET ZILBERBERG\Dotnet-core-project\IceCream\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
 z:\יד תשפו\זק טובה\DOTNET ZILBERBERG\Dotnet-core-project\IceCream\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
 z:\יד תשפו\זק טובה\DOTNET ZILBERBERG\Dotnet-core-project\IceCream\obj\Debug\net9.0\scopedcss\bundle\IceCream.styles.css
-z:\יד תשפו\זק טובה\DOTNET ZILBERBERG\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\ivkftqmjf8-zoxlk5se5i.gz
-z:\יד תשפו\זק טובה\DOTNET ZILBERBERG\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\8lgwfcn7m8-nuc7qcto7f.gz
-z:\יד תשפו\זק טובה\DOTNET ZILBERBERG\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\3nqsdmvcnf-sbgzm9e5t2.gz
 z:\יד תשפו\זק טובה\DOTNET ZILBERBERG\Dotnet-core-project\IceCream\obj\Debug\net9.0\staticwebassets.build.json
 z:\יד תשפו\זק טובה\DOTNET ZILBERBERG\Dotnet-core-project\IceCream\obj\Debug\net9.0\staticwebassets.build.json.cache
 z:\יד תשפו\זק טובה\DOTNET ZILBERBERG\Dotnet-core-project\IceCream\obj\Debug\net9.0\staticwebassets.development.json
@@ -154,7 +151,10 @@ z:\יד תשפו\זק טובה\DOTNET ZILBERBERG\Dotnet-core-project\IceCream\ob
 z:\יד תשפו\זק טובה\DOTNET ZILBERBERG\Dotnet-core-project\IceCream\obj\Debug\net9.0\IceCream.csproj.Up2Date
 z:\יד תשפו\זק טובה\DOTNET ZILBERBERG\Dotnet-core-project\IceCream\obj\Debug\net9.0\IceCream.genruntimeconfig.cache
 z:\יד תשפו\זק טובה\DOTNET ZILBERBERG\Dotnet-core-project\IceCream\obj\Debug\net9.0\ref\IceCream.dll
-Z:\יד תשפו\זק טובה\DOTNET ZILBERBERG\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\0zvy2tdusf-wh94jimk94.gz
-Z:\יד תשפו\זק טובה\DOTNET ZILBERBERG\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\orvjxj9mlr-ngz106krr5.gz
 Z:\יד תשפו\זק טובה\DOTNET ZILBERBERG\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\5exlu1226p-qkis2b0aea.gz
 Z:\יד תשפו\זק טובה\DOTNET ZILBERBERG\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\3c2njt8xvc-s4c129za48.gz
+Z:\יד תשפו\זק טובה\DOTNET ZILBERBERG\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\ivkftqmjf8-jgzhqwkup1.gz
+Z:\יד תשפו\זק טובה\DOTNET ZILBERBERG\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\0zvy2tdusf-zn40wkajsn.gz
+Z:\יד תשפו\זק טובה\DOTNET ZILBERBERG\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\3nqsdmvcnf-wt81mfdrtx.gz
+Z:\יד תשפו\זק טובה\DOTNET ZILBERBERG\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\8lgwfcn7m8-bq42asqces.gz
+Z:\יד תשפו\זק טובה\DOTNET ZILBERBERG\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\orvjxj9mlr-wg73mhuab4.gz

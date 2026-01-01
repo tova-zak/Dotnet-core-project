@@ -10,17 +10,21 @@ function getItems() {
 
 function addItem() {
     const addNameTextbox = document.getElementById('add-name');
+    const addIsDiary = document.getElementById('add-IsDiary'); // מסביר: קורא את ה-checkbox
 
     const item = {
-        IsDiary: false,
+        IsDiary: addIsDiary ? addIsDiary.checked : false,
         name: addNameTextbox.value.trim()
     };
+
+    const token = localStorage.getItem('token'); // מסביר: לוקח טוקן מה-localStorage
 
     fetch(uri, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                ...(token ? { 'Authorization': `Bearer ${token}` } : {})
             },
             body: JSON.stringify(item)
         })
@@ -28,6 +32,7 @@ function addItem() {
         .then(() => {
             getItems();
             addNameTextbox.value = '';
+            if (addIsDiary) addIsDiary.checked = false; // איפוס תיבת הסימון
         })
         .catch(error => console.error('Unable to add item.', error));
 }
@@ -45,7 +50,7 @@ function displayEditForm(id) {
 
     document.getElementById('edit-name').value = item.name;
     document.getElementById('edit-id').value = item.id;
-    document.getElementById('edit-IsDiary').checked = item.IsDiary;
+    document.getElementById('edit-IsDiary').checked = item.isDiary; // מסביר: מסמן את ה-checkbox לפי הערך
     document.getElementById('editForm').style.display = 'block';
 }
 
@@ -57,11 +62,14 @@ function updateItem() {
         name: document.getElementById('edit-name').value.trim()
     };
 
+    const token = localStorage.getItem('token'); // מסביר: מוסיף טוקן לכותרות אם קיים
+
     fetch(`${uri}/${itemId}`, {
             method: 'PUT',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                ...(token ? { 'Authorization': `Bearer ${token}` } : {})
             },
             body: JSON.stringify(item)
         })
