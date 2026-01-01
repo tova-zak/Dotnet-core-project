@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "Z:\\יד תשפו\\זק טובה\\Dotnet-core-project\\IceCream\\IceCream.csproj": {}
+    "Z:\\יד תשפו\\זק טובה\\DOTNET ZILBERBERG\\Dotnet-core-project\\IceCream\\IceCream.csproj": {}
   },
   "projects": {
-    "Z:\\יד תשפו\\זק טובה\\Dotnet-core-project\\IceCream\\IceCream.csproj": {
+    "Z:\\יד תשפו\\זק טובה\\DOTNET ZILBERBERG\\Dotnet-core-project\\IceCream\\IceCream.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "Z:\\יד תשפו\\זק טובה\\Dotnet-core-project\\IceCream\\IceCream.csproj",
+        "projectUniqueName": "Z:\\יד תשפו\\זק טובה\\DOTNET ZILBERBERG\\Dotnet-core-project\\IceCream\\IceCream.csproj",
         "projectName": "IceCream",
-        "projectPath": "Z:\\יד תשפו\\זק טובה\\Dotnet-core-project\\IceCream\\IceCream.csproj",
+        "projectPath": "Z:\\יד תשפו\\זק טובה\\DOTNET ZILBERBERG\\Dotnet-core-project\\IceCream\\IceCream.csproj",
         "packagesPath": "C:\\Users\\huser\\.nuget\\packages\\",
-        "outputPath": "Z:\\יד תשפו\\זק טובה\\Dotnet-core-project\\IceCream\\obj\\",
+        "outputPath": "Z:\\יד תשפו\\זק טובה\\DOTNET ZILBERBERG\\Dotnet-core-project\\IceCream\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -53,10 +53,6 @@
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[5.0.4, )"
-            },
-            "Microsoft.AspNetCore.OpenApi": {
-              "target": "Package",
-              "version": "[9.0.101, )"
             },
             "Microsoft.IdentityModel.Tokens": {
               "target": "Package",

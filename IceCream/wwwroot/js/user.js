@@ -2,7 +2,10 @@ const uri = '/user';
 let users = [];
 
 function getUsers() {
-    fetch(uri)
+    const token = localStorage.getItem('token'); // מסביר: לוקח את הטוקן מה-localStorage
+    fetch(uri, {
+            headers: token ? { 'Authorization': `Bearer ${token}` } : {}
+        })
         .then(response => response.json())
         .then(data => _displayUsers(data))
         .catch(error => console.error('Unable to get items.', error));
@@ -16,11 +19,14 @@ function addUser() {
         lastName: addNameTextbox.value.trim()
     };
 
+    const token = localStorage.getItem('token'); // מסביר: מוסיף טוקן לכותרות אם קיים
+
     fetch(uri, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                ...(token ? { 'Authorization': `Bearer ${token}` } : {})
             },
             body: JSON.stringify(user)
         })
@@ -33,8 +39,10 @@ function addUser() {
 }
 
 function deleteUser(id) {
+    const token = localStorage.getItem('token'); // מסביר: מוסיף טוקן למחיקת משתמש
     fetch(`${uri}/${id}`, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: token ? { 'Authorization': `Bearer ${token}` } : {}
         })
         .then(() => getUsers())
         .catch(error => console.error('Unable to delete item.', error));
@@ -57,11 +65,14 @@ function updateUser() {
         firstName: document.getElementById('edit-firstName').value.trim()
     };
 
+    const token = localStorage.getItem('token'); // מסביר: מוסיף טוקן לעדכון
+
     fetch(`${uri}/${userId}`, {
             method: 'PUT',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                ...(token ? { 'Authorization': `Bearer ${token}` } : {})
             },
             body: JSON.stringify(user)
         })
@@ -92,10 +103,6 @@ function _displayUsers(data) {
     const button = document.createElement('button');
 
     data.forEach(user => {
-    //     let IsDiaryCheckbox = document.createElement('input');
-    //     IsDiaryCheckbox.type = 'checkbox';
-    //     IsDiaryCheckbox.disabled = true;
-    //     IsDiaryCheckbox.checked = item.isDiary;
         console.log(user);
         let editButton = button.cloneNode(false);
         editButton.innerText = 'Edit';
@@ -109,7 +116,7 @@ function _displayUsers(data) {
 
         let td1 = tr.insertCell(0);
         let textNode1 = document.createTextNode(`${user.firstName}`);
-        td2.appendChild(textNode1);
+        td1.appendChild(textNode1); // fixed variable name
     
         let td2 = tr.insertCell(1);
         let textNode2 = document.createTextNode(`${user.lastName}`);

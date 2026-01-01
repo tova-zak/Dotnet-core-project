@@ -12,7 +12,8 @@ namespace IceCream.Services
 {
 public static class UserTokenService
     {
-        private static SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("SXXXW"));
+        // סוד (מפתח) חייב להיות ארוך מספיק בשביל HMACSHA256 - החלפתי למחרוזת ארוכה יותר
+        private static SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("THIS_IS_A_LONG_SECRET_FOR_DEVELOPMENT_ONLY_ChangeMeToStrongValue"));
         private static string issuer = "https://fbi-demo.com";
         public static SecurityToken GetToken(List<Claim> claims) =>
             new JwtSecurityToken(

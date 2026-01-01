@@ -21,12 +21,6 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Microsoft.AspNetCore.OpenApi/10.0.0": {
-        "type": "package",
-        "build": {
-          "build/Microsoft.AspNetCore.OpenApi.targets": {}
-        }
-      },
       "Microsoft.CSharp/4.5.0": {
         "type": "package",
         "compile": {
@@ -380,24 +374,6 @@
         "lib/net5.0/Microsoft.AspNetCore.Authentication.JwtBearer.xml",
         "microsoft.aspnetcore.authentication.jwtbearer.5.0.4.nupkg.sha512",
         "microsoft.aspnetcore.authentication.jwtbearer.nuspec"
-      ]
-    },
-    "Microsoft.AspNetCore.OpenApi/10.0.0": {
-      "sha512": "0aqIF1t+sA2T62LIeMtXGSiaV7keGQaJnvwwmu+htQdjCaKYARfXAeqp4nHH9y2etpilyZ/tnQzZg4Ilmo/c4Q==",
-      "type": "package",
-      "path": "microsoft.aspnetcore.openapi/10.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "PACKAGE.md",
-        "THIRD-PARTY-NOTICES.TXT",
-        "analyzers/dotnet/cs/Microsoft.AspNetCore.OpenApi.SourceGenerators.dll",
-        "build/Microsoft.AspNetCore.OpenApi.targets",
-        "lib/net10.0/Microsoft.AspNetCore.OpenApi.dll",
-        "lib/net10.0/Microsoft.AspNetCore.OpenApi.xml",
-        "microsoft.aspnetcore.openapi.10.0.0.nupkg.sha512",
-        "microsoft.aspnetcore.openapi.nuspec"
       ]
     },
     "Microsoft.CSharp/4.5.0": {
@@ -1181,7 +1157,6 @@
   "projectFileDependencyGroups": {
     "net9.0": [
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 5.0.4",
-      "Microsoft.AspNetCore.OpenApi >= 9.0.101",
       "Microsoft.IdentityModel.Tokens >= 6.9.0",
       "Swashbuckle.AspNetCore >= 10.0.1"
     ]
@@ -1193,11 +1168,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "Z:\\יד תשפו\\זק טובה\\Dotnet-core-project\\IceCream\\IceCream.csproj",
+      "projectUniqueName": "Z:\\יד תשפו\\זק טובה\\DOTNET ZILBERBERG\\Dotnet-core-project\\IceCream\\IceCream.csproj",
       "projectName": "IceCream",
-      "projectPath": "Z:\\יד תשפו\\זק טובה\\Dotnet-core-project\\IceCream\\IceCream.csproj",
+      "projectPath": "Z:\\יד תשפו\\זק טובה\\DOTNET ZILBERBERG\\Dotnet-core-project\\IceCream\\IceCream.csproj",
       "packagesPath": "C:\\Users\\huser\\.nuget\\packages\\",
-      "outputPath": "Z:\\יד תשפו\\זק טובה\\Dotnet-core-project\\IceCream\\obj\\",
+      "outputPath": "Z:\\יד תשפו\\זק טובה\\DOTNET ZILBERBERG\\Dotnet-core-project\\IceCream\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1240,10 +1215,6 @@
             "target": "Package",
             "version": "[5.0.4, )"
           },
-          "Microsoft.AspNetCore.OpenApi": {
-            "target": "Package",
-            "version": "[9.0.101, )"
-          },
           "Microsoft.IdentityModel.Tokens": {
             "target": "Package",
             "version": "[6.9.0, )"
@@ -1277,16 +1248,6 @@
     }
   },
   "logs": [
-    {
-      "code": "NU1603",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "IceCream depends on Microsoft.AspNetCore.OpenApi (>= 9.0.101) but Microsoft.AspNetCore.OpenApi 9.0.101 was not found. Microsoft.AspNetCore.OpenApi 10.0.0 was resolved instead.",
-      "libraryId": "Microsoft.AspNetCore.OpenApi",
-      "targetGraphs": [
-        "net9.0"
-      ]
-    },
     {
       "code": "NU1902",
       "level": "Warning",

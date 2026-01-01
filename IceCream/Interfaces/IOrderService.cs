@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using IceCream.Models;
 
 namespace IceCream.Interfaces
@@ -13,3 +12,4 @@ namespace IceCream.Interfaces
        bool Delete(int id); 
     }
 }
+

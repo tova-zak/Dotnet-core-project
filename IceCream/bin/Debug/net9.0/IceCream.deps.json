@@ -9,7 +9,6 @@
       "IceCream/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Authentication.JwtBearer": "5.0.4",
-          "Microsoft.AspNetCore.OpenApi": "10.0.0",
           "Microsoft.IdentityModel.Tokens": "6.9.0",
           "Swashbuckle.AspNetCore": "10.0.1"
         },
@@ -28,7 +27,6 @@
           }
         }
       },
-      "Microsoft.AspNetCore.OpenApi/10.0.0": {},
       "Microsoft.CSharp/4.5.0": {},
       "Microsoft.Extensions.ApiDescription.Server/9.0.0": {},
       "Microsoft.Extensions.Caching.Abstractions/2.1.1": {
@@ -192,13 +190,6 @@
       "sha512": "sha512-gJ4v5Sh6AIzaz3okQ8pGuigTYfWAefaWfTobqU0YCKdsDMTUA1aAvcnVYqYUsb16vGcaVyWIBd4L8G9Ya5oU6w==",
       "path": "microsoft.aspnetcore.authentication.jwtbearer/5.0.4",
       "hashPath": "microsoft.aspnetcore.authentication.jwtbearer.5.0.4.nupkg.sha512"
-    },
-    "Microsoft.AspNetCore.OpenApi/10.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-0aqIF1t+sA2T62LIeMtXGSiaV7keGQaJnvwwmu+htQdjCaKYARfXAeqp4nHH9y2etpilyZ/tnQzZg4Ilmo/c4Q==",
-      "path": "microsoft.aspnetcore.openapi/10.0.0",
-      "hashPath": "microsoft.aspnetcore.openapi.10.0.0.nupkg.sha512"
     },
     "Microsoft.CSharp/4.5.0": {
       "type": "package",

@@ -5,6 +5,12 @@
     <meta charset="UTF-8">
     <title>User CRUD</title>
     <link rel="stylesheet" href="css/site.css" />
+    <script>
+        // בדיקה האם יש טוקן שמאוחסן בדפדפן
+        if (!localStorage.getItem('token')) { // אם אין טוקן
+            window.location.href = './html/login.html'; // מפנה לעמוד ההתחברות
+        }
+    </script>
 </head>
 
 <body>

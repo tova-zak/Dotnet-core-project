@@ -22,6 +22,8 @@ public class IceCreamController : ControllerBase
     }
    
 
+    // דרישה: יש צורך בטוקן כדי לראות את רשימת הגלידות
+    [Authorize(Policy="AllUsers")] // שורה זו דורשת שהקריאה תעשה עם טוקן שמקיים את מדיניות "AllUsers"
     [HttpGet()]
     public ActionResult<IEnumerable<IceCreamModel>> GetAll()=>
     service.Get();

@@ -25,8 +25,7 @@ public class UserController : ControllerBase
    
 
     [HttpGet()]
-    public ActionResult<IEnumerable<UserModel>> GetAll()=>
-    service.GetAll();
+    public ActionResult<IEnumerable<UserModel>> GetAll() => service.Get();
 
     [HttpGet("{id}")]
     public ActionResult<UserModel> Get(int id)
@@ -36,14 +35,17 @@ public class UserController : ControllerBase
    }
         [HttpPost]
         [Route("[action]")]
+        [AllowAnonymous] // מאפשר גישה ל-login גם בלי טוקן — חיוני כדי לקבל טוקן במקודם
         public ActionResult<string> Login([FromBody] UserModel User)
         {
-            // var dt = DateTime.Now;
-            //var query = $"select * from users where idnumber = @idnumber";
-            if (User.FirstName != "Iuser")
-            
+            // בדיקה שהגוף שנשלח אינו null
+            if (User == null) // if request body missing -> bad request
+                return BadRequest();
+
+            // דרישת שם משתמש וסיסמה מדויקים (הוספתי בדיקה לסיסמה)
+            if (User.FirstName != "Iuser" || User.Password != "1234") // only allow this fixed user/password
             {
-                return Unauthorized();
+                return Unauthorized(); // return 401 when credentials are wrong
             }
 
             var claims = new List<Claim>
@@ -54,6 +56,7 @@ public class UserController : ControllerBase
 
             var token = UserTokenService.GetToken(claims);
 
+            // מחזירים את הטוקן כמחרוזת (response.text() בצד לקוח יטפל בזה)
             return new OkObjectResult(UserTokenService.WriteToken(token));
         }
 
@@ -78,7 +81,7 @@ public class UserController : ControllerBase
     [HttpPost]
     [Route("[action]")]
     public IActionResult Create(UserModel newUser){
-        service.Add(newUser);
+        service.Create(newUser);
         return CreatedAtAction(nameof(Get), new { id = newUser.Id },newUser);
     }
     
@@ -89,7 +92,7 @@ public class UserController : ControllerBase
          var existing=service.Get(id); 
          if(existing==null)
            return NotFound();
-         service.Update(newUser) ; 
+         service.Update(id, newUser) ; 
         return NoContent();
     }
 
@@ -99,6 +102,6 @@ public class UserController : ControllerBase
         if(user==null)
            return NotFound();
         service.Delete(id);  
-        return Content(service.Count.ToString());    
+        return Content(service.Get().Count.ToString());    
     }
 }

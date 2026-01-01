@@ -14,15 +14,19 @@ function loginUser() {
     })
     .then(response => {
         if (response.ok) {
-            return response.json();
+            // השרת מחזיר מחרוזת עם הטוקן, לכן נקרא את התוכן כ-text ולא כ-json
+            return response.text(); // מסביר: קורא את גוף התשובה כמחרוזת
         } else {
             alert('Login failed. Please check your credentials.');
+            throw new Error('Login failed');
         }
     })
-    .then(data => {
-        if (data) {
-            localStorage.setItem('token', data); // Store the token
-            window.location.href = 'index.html'; // Redirect to the main page
+    .then(token => {
+        if (token) {
+            // שומר את הטוקן ב-localStorage
+            localStorage.setItem('token', token); // מסביר: מאחסן את הטוקן
+            // תיקון: הפניה לקובץ index.html בתיקיית השורש (ממקם /html -> ../index.html)
+            window.location.href = '../index.html'; // מסביר: מפנה לדף הראשי הנכון
         }
     })
     .catch(error => console.error('Error:', error));
