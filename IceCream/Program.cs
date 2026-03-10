@@ -38,8 +38,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
- app.UseDefaultFiles();
- app.UseStaticFiles();
+// Serve login.html as the default document so users are prompted to login immediately
+var defaultFilesOptions = new Microsoft.AspNetCore.Builder.DefaultFilesOptions();
+defaultFilesOptions.DefaultFileNames.Clear();
+defaultFilesOptions.DefaultFileNames.Add("html/login.html");
+defaultFilesOptions.DefaultFileNames.Add("index.html");
+app.UseDefaultFiles(defaultFilesOptions);
+app.UseStaticFiles();
 app.UseHttpsRedirection();
 app.UseAuthentication(); // ensure authentication middleware runs before authorization
 app.UseAuthorization();

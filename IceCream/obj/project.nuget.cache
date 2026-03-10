@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "m9UvxCAcg/4=",
+  "dgSpecHash": "h4qWc0dRxGs=",
   "success": true,
-  "projectFilePath": "Z:\\יד תשפו\\זק טובה\\DOTNET ZILBERBERG\\Dotnet-core-project\\IceCream\\IceCream.csproj",
+  "projectFilePath": "Z:\\יד תשפו\\זק טובה\\זילברברג עדכני_\\Dotnet-core-project\\IceCream\\IceCream.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\huser\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.4\\microsoft.aspnetcore.authentication.jwtbearer.5.0.4.nupkg.sha512",
     "C:\\Users\\huser\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
@@ -33,9 +33,9 @@
       "code": "NU1902",
       "level": "Warning",
       "message": "Package 'Microsoft.AspNetCore.Authentication.JwtBearer' 5.0.4 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-q7cg-43mg-qp69",
-      "projectPath": "Z:\\יד תשפו\\זק טובה\\DOTNET ZILBERBERG\\Dotnet-core-project\\IceCream\\IceCream.csproj",
+      "projectPath": "Z:\\יד תשפו\\זק טובה\\זילברברג עדכני_\\Dotnet-core-project\\IceCream\\IceCream.csproj",
       "warningLevel": 1,
-      "filePath": "Z:\\יד תשפו\\זק טובה\\DOTNET ZILBERBERG\\Dotnet-core-project\\IceCream\\IceCream.csproj",
+      "filePath": "Z:\\יד תשפו\\זק טובה\\זילברברג עדכני_\\Dotnet-core-project\\IceCream\\IceCream.csproj",
       "libraryId": "Microsoft.AspNetCore.Authentication.JwtBearer",
       "targetGraphs": [
         "net9.0"

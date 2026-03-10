@@ -1,9 +1,38 @@
 const uri = '/IceCream';
 let iceCreams = [];
 
+function parseJwt (token) {
+    if (!token) return null;
+    try {
+        const payload = token.split('.')[1];
+        if (!payload) return null;
+        // atob should work for typical tokens (no heavy unicode in claims)
+        return JSON.parse(decodeURIComponent(Array.prototype.map.call(atob(payload.replace(/-/g, '+').replace(/_/g, '/')), function(c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join('')));
+    } catch (e) {
+        return null;
+    }
+}
+
+function isAdmin() {
+    const token = localStorage.getItem('token');
+    const claims = parseJwt(token);
+    return claims && (claims.type === 'Admin');
+}
+
 function getItems() {
-    fetch(uri)
-        .then(response => response.json())
+    const token = localStorage.getItem('token');
+    fetch(uri, {
+        headers: {
+            'Accept': 'application/json',
+            ...(token ? { 'Authorization': `Bearer ${token}` } : {})
+        }
+    })
+        .then(response => {
+            if (!response.ok) return response.text().then(t => { throw new Error(`${response.status} ${response.statusText}: ${t}`); });
+            return response.json();
+        })
         .then(data => _displayItems(data))
         .catch(error => console.error('Unable to get items.', error));
 }
@@ -28,7 +57,12 @@ function addItem() {
             },
             body: JSON.stringify(item)
         })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) return response.text().then(t => { throw new Error(`${response.status} ${response.statusText}: ${t}`); });
+            // successful POST may return JSON or empty; try to parse if content-type is json
+            const ct = response.headers.get('content-type') || '';
+            return ct.includes('application/json') ? response.json() : Promise.resolve();
+        })
         .then(() => {
             getItems();
             addNameTextbox.value = '';
@@ -38,8 +72,16 @@ function addItem() {
 }
 
 function deleteItem(id) {
+    const token = localStorage.getItem('token');
     fetch(`${uri}/${id}`, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: {
+                ...(token ? { 'Authorization': `Bearer ${token}` } : {})
+            }
+        })
+        .then(response => {
+            if (!response.ok) return response.text().then(t => { throw new Error(`${response.status} ${response.statusText}: ${t}`); });
+            return response.text();
         })
         .then(() => getItems())
         .catch(error => console.error('Unable to delete item.', error));
@@ -72,6 +114,10 @@ function updateItem() {
                 ...(token ? { 'Authorization': `Bearer ${token}` } : {})
             },
             body: JSON.stringify(item)
+        })
+        .then(response => {
+            if (!response.ok) return response.text().then(t => { throw new Error(`${response.status} ${response.statusText}: ${t}`); });
+            return response.text();
         })
         .then(() => getItems())
         .catch(error => console.error('Unable to update item.', error));
@@ -126,7 +172,8 @@ function _displayItems(data) {
         td3.appendChild(editButton);
 
         let td4 = tr.insertCell(3);
-        td4.appendChild(deleteButton);
+        // only show delete button to Admin users
+        if (isAdmin()) td4.appendChild(deleteButton);
     });
 
     iceCreams = data;

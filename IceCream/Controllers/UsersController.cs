@@ -12,7 +12,6 @@ namespace IceCream.Controllers;
 
 [ApiController]
 [Route("user")]
-[Authorize(Policy="AllUsers")]
 public class UserController : ControllerBase
 {  private readonly IUserService service;
    
@@ -25,9 +24,11 @@ public class UserController : ControllerBase
    
 
     [HttpGet()]
+    [Authorize(Policy = "Admin")]
     public ActionResult<IEnumerable<UserModel>> GetAll() => service.Get();
 
     [HttpGet("{id}")]
+    [Authorize(Policy = "Admin")]
     public ActionResult<UserModel> Get(int id)
     {
         return service.Get(id);
@@ -42,8 +43,20 @@ public class UserController : ControllerBase
             if (User == null) // if request body missing -> bad request
                 return BadRequest();
 
-            // דרישת שם משתמש וסיסמה מדויקים (הוספתי בדיקה לסיסמה)
-            if (User.FirstName != "Iuser" || User.Password != "1234") // only allow this fixed user/password
+            if (string.IsNullOrWhiteSpace(User.FirstName) || string.IsNullOrWhiteSpace(User.Password))
+                return BadRequest("username and password required");
+
+            // determine user type based on credentials
+            bool isAdmin = false;
+            if (User.FirstName == "admin" && User.Password == "admin")
+            {
+                isAdmin = true;
+            }
+            else if (User.FirstName == "Iuser" && User.Password == "1234")
+            {
+                isAdmin = false;
+            }
+            else
             {
                 return Unauthorized(); // return 401 when credentials are wrong
             }
@@ -51,7 +64,7 @@ public class UserController : ControllerBase
             var claims = new List<Claim>
             {
                 new Claim("userFirstName", User.FirstName),
-                new Claim("type", "Admin"),
+                new Claim("type", isAdmin ? "Admin" : "User"),
             };
 
             var token = UserTokenService.GetToken(claims);
@@ -62,7 +75,7 @@ public class UserController : ControllerBase
 
         [HttpPost]
         [Route("[action]")]
-        [Authorize(Policy="Admin")]
+        [Authorize(Policy = "Admin")]
         public IActionResult GenerateBadge([FromBody] UserModel User)
         {
             var claims = new List<Claim>
@@ -79,13 +92,14 @@ public class UserController : ControllerBase
         }
        
     [HttpPost]
-    [Route("[action]")]
+    [Authorize(Policy = "Admin")]
     public IActionResult Create(UserModel newUser){
         service.Create(newUser);
         return CreatedAtAction(nameof(Get), new { id = newUser.Id },newUser);
     }
     
     [HttpPut("{id}")]
+    [Authorize(Policy = "AllUsers")]
     public IActionResult Update(int id,UserModel newUser){
         if(id!=newUser.Id)
            return BadRequest();
@@ -97,6 +111,7 @@ public class UserController : ControllerBase
     }
 
     [HttpDelete("{id}")]
+    [Authorize(Policy = "Admin")]
     public IActionResult Delete(int id){
         var user=service.Get(id);
         if(user==null)

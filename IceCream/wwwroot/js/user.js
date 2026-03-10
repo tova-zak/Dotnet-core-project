@@ -1,12 +1,37 @@
 const uri = '/user';
 let users = [];
 
+function parseJwt (token) {
+    if (!token) return null;
+    try {
+        const payload = token.split('.')[1];
+        if (!payload) return null;
+        return JSON.parse(decodeURIComponent(Array.prototype.map.call(atob(payload.replace(/-/g, '+').replace(/_/g, '/')), function(c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join('')));
+    } catch (e) {
+        return null;
+    }
+}
+
+function isAdmin() {
+    const token = localStorage.getItem('token');
+    const claims = parseJwt(token);
+    return claims && (claims.type === 'Admin');
+}
+
 function getUsers() {
     const token = localStorage.getItem('token'); // מסביר: לוקח את הטוקן מה-localStorage
     fetch(uri, {
-            headers: token ? { 'Authorization': `Bearer ${token}` } : {}
+            headers: {
+                'Accept': 'application/json',
+                ...(token ? { 'Authorization': `Bearer ${token}` } : {})
+            }
         })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) return response.text().then(t => { throw new Error(`${response.status} ${response.statusText}: ${t}`); });
+            return response.json();
+        })
         .then(data => _displayUsers(data))
         .catch(error => console.error('Unable to get items.', error));
 }
@@ -16,8 +41,8 @@ function addUser() {
     const addLast = document.getElementById('add-lastName');
 
     const user = {
-        firstName: addFirst.value.trim(),
-        lastName: addLast.value.trim()
+        FirstName: addFirst.value.trim(),
+        LastName: addLast.value.trim()
     };
 
     const token = localStorage.getItem('token'); // מסביר: מוסיף טוקן לכותרות אם קיים
@@ -31,7 +56,11 @@ function addUser() {
             },
             body: JSON.stringify(user)
         })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) return response.text().then(t => { throw new Error(`${response.status} ${response.statusText}: ${t}`); });
+            const ct = response.headers.get('content-type') || '';
+            return ct.includes('application/json') ? response.json() : Promise.resolve();
+        })
         .then(() => {
             getUsers();
             addFirst.value = '';
@@ -44,7 +73,13 @@ function deleteUser(id) {
     const token = localStorage.getItem('token'); // מסביר: מוסיף טוקן למחיקת משתמש
     fetch(`${uri}/${id}`, {
             method: 'DELETE',
-            headers: token ? { 'Authorization': `Bearer ${token}` } : {}
+            headers: {
+                ...(token ? { 'Authorization': `Bearer ${token}` } : {})
+            }
+        })
+        .then(response => {
+            if (!response.ok) return response.text().then(t => { throw new Error(`${response.status} ${response.statusText}: ${t}`); });
+            return response.text();
         })
         .then(() => getUsers())
         .catch(error => console.error('Unable to delete item.', error));
@@ -53,9 +88,9 @@ function deleteUser(id) {
 function displayEditForm(id) {
     const user = users.find(user => user.id === id);
 
-    document.getElementById('edit-firstName').value = user.firstName;
+    document.getElementById('edit-firstName').value = user.firstName || user.FirstName;
     document.getElementById('edit-id').value = user.id;
-    document.getElementById('edit-lastName').checked = user.lastName;
+    document.getElementById('edit-lastName').value = user.lastName || user.LastName;
     document.getElementById('editForm').style.display = 'block';
 }
 
@@ -63,8 +98,8 @@ function updateUser() {
     const userId = document.getElementById('edit-id').value;
     const user = {
         id: parseInt(userId, 10),
-        lastName: document.getElementById('edit-lastName').checked,
-        firstName: document.getElementById('edit-firstName').value.trim()
+        LastName: document.getElementById('edit-lastName').value.trim(),
+        FirstName: document.getElementById('edit-firstName').value.trim()
     };
 
     const token = localStorage.getItem('token'); // מסביר: מוסיף טוקן לעדכון
@@ -77,6 +112,10 @@ function updateUser() {
                 ...(token ? { 'Authorization': `Bearer ${token}` } : {})
             },
             body: JSON.stringify(user)
+        })
+        .then(response => {
+            if (!response.ok) return response.text().then(t => { throw new Error(`${response.status} ${response.statusText}: ${t}`); });
+            return response.text();
         })
         .then(() => getUsers())
         .catch(error => console.error('Unable to update item.', error));
@@ -117,18 +156,19 @@ function _displayUsers(data) {
         let tr = tBody.insertRow();
 
         let td1 = tr.insertCell(0);
-        let textNode1 = document.createTextNode(`${user.firstName}`);
+        let textNode1 = document.createTextNode(`${user.FirstName || user.firstName}`);
         td1.appendChild(textNode1); // fixed variable name
     
         let td2 = tr.insertCell(1);
-        let textNode2 = document.createTextNode(`${user.lastName}`);
+        let textNode2 = document.createTextNode(`${user.LastName || user.lastName}`);
         td2.appendChild(textNode2);
 
         let td3 = tr.insertCell(2);
         td3.appendChild(editButton);
 
         let td4 = tr.insertCell(3);
-        td4.appendChild(deleteButton);
+        // only show delete button to Admin users
+        if (isAdmin()) td4.appendChild(deleteButton);
     });
 
     users = data;
