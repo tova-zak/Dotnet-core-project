@@ -14,6 +14,13 @@ function parseJwt (token) {
     }
 }
 
+// helper: return userId from token (string) or null
+function getCurrentUserId() {
+    const token = localStorage.getItem('token');
+    const claims = parseJwt(token);
+    return claims ? (claims.userId || claims.userId?.toString()) : null;
+}
+
 function isAdmin() {
     const token = localStorage.getItem('token');
     const claims = parseJwt(token);
@@ -22,18 +29,45 @@ function isAdmin() {
 
 function getUsers() {
     const token = localStorage.getItem('token'); // מסביר: לוקח את הטוקן מה-localStorage
-    fetch(uri, {
-            headers: {
-                'Accept': 'application/json',
-                ...(token ? { 'Authorization': `Bearer ${token}` } : {})
-            }
-        })
-        .then(response => {
-            if (!response.ok) return response.text().then(t => { throw new Error(`${response.status} ${response.statusText}: ${t}`); });
-            return response.json();
-        })
-        .then(data => _displayUsers(data))
-        .catch(error => console.error('Unable to get items.', error));
+
+    if (isAdmin()) {
+        // Admin: fetch all users
+        fetch(uri, {
+                headers: {
+                    'Accept': 'application/json',
+                    ...(token ? { 'Authorization': `Bearer ${token}` } : {})
+                }
+            })
+            .then(response => {
+                if (!response.ok) return response.text().then(t => { throw new Error(`${response.status} ${response.statusText}: ${t}`); });
+                return response.json();
+            })
+            .then(data => _displayUsers(data))
+            .catch(error => console.error('Unable to get items.', error));
+    } else {
+        // Non-admin: fetch only own user by id
+        const myId = getCurrentUserId();
+        if (!myId) {
+            console.error('No authenticated user found.');
+            return;
+        }
+
+        fetch(`${uri}/${myId}`, {
+                headers: {
+                    'Accept': 'application/json',
+                    ...(token ? { 'Authorization': `Bearer ${token}` } : {})
+                }
+            })
+            .then(response => {
+                if (!response.ok) return response.text().then(t => { throw new Error(`${response.status} ${response.statusText}: ${t}`); });
+                return response.json();
+            })
+            .then(user => {
+                // wrap single user into array so _displayUsers can reuse same renderer
+                _displayUsers([user]);
+            })
+            .catch(error => console.error('Unable to get user.', error));
+    }
 }
 
 function addUser() {

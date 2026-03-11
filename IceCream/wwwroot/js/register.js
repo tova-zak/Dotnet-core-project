@@ -15,7 +15,8 @@ function registerUser() {
         Address: address
     };
 
-    fetch('/user', {
+    // CORRECTED: send registration to the anonymous "register" endpoint
+    fetch('/user/register', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',

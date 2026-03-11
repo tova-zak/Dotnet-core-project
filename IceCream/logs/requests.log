@@ -1,1 +1,16 @@
 2026-03-11T15:18:10.6852319Z | /user/login POST | user: anonymous | durationMs: 54
+2026-03-11T17:07:59.3601993Z | /favicon.ico GET | user: anonymous | durationMs: 0
+2026-03-11T17:28:25.9109881Z | /user POST | user: anonymous | durationMs: 3
+2026-03-11T17:28:33.1398086Z | /.well-known/appspecific/com.chrome.devtools.json GET | user: anonymous | durationMs: 0
+2026-03-11T17:28:39.0548383Z | /user POST | user: anonymous | durationMs: 2
+2026-03-11T17:36:25.8245343Z | /user/register POST | user: anonymous | durationMs: 73
+2026-03-11T17:36:36.6573394Z | /user/login POST | user: anonymous | durationMs: 107
+2026-03-11T17:36:59.2342462Z | /user/login POST | user: anonymous | durationMs: 33
+2026-03-11T17:37:06.1497987Z | /user/login POST | user: anonymous | durationMs: 7
+2026-03-11T17:37:18.3330678Z | /user/login POST | user: anonymous | durationMs: 1
+2026-03-11T17:37:25.6371447Z | /user/login POST | user: anonymous | durationMs: 7
+2026-03-11T17:45:33.0268490Z | /user/register POST | user: anonymous | durationMs: 97
+2026-03-11T17:45:44.8982791Z | /user/login POST | user: anonymous | durationMs: 98
+2026-03-11T17:53:23.4524699Z | /user/login POST | user: anonymous | durationMs: 41
+2026-03-11T17:53:48.6749831Z | /user/register POST | user: anonymous | durationMs: 74
+2026-03-11T17:53:58.4025814Z | /user/login POST | user: anonymous | durationMs: 154

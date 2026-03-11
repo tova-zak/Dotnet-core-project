@@ -53,9 +53,13 @@ if (app.Environment.IsDevelopment())
 }
 
 var defaultFilesOptions = new Microsoft.AspNetCore.Builder.DefaultFilesOptions();
+// שיניתי כאן את סדר עמודי ברירת המחדל כך שיעמוד "index.html" יוצג תמיד כשהמשתמש נכנס לשורש האתר.
+// עמוד ההתחברות נשאר זמין בכתובת /html/login.html וניתן להגיע אליו בלחיצה על הכפתור "התחברות" בעמוד index.
 defaultFilesOptions.DefaultFileNames.Clear();
-defaultFilesOptions.DefaultFileNames.Add("html/login.html");
+// הצג את index.html ראשון (כדי שעמוד הנחיתה תמיד יוצג בהתחלה)
 defaultFilesOptions.DefaultFileNames.Add("index.html");
+// שמור את דף ההתחברות ברשימה כך שניתן להגיע אליו כ/default file אם רצינו, אבל הוא עכשיו שני
+defaultFilesOptions.DefaultFileNames.Add("html/login.html");
 app.UseDefaultFiles(defaultFilesOptions);
 app.UseStaticFiles();
 app.UseHttpsRedirection();

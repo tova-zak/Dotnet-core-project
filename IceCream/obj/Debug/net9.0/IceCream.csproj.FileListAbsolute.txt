@@ -210,5 +210,5 @@ Z:\יד תשפו\זק טובה\זילברברג עדכני_\Dotnet-core-project\
 Z:\יד תשפו\זק טובה\זילברברג עדכני_\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\8lgwfcn7m8-zxph28ei5j.gz
 Z:\יד תשפו\זק טובה\זילברברג עדכני_\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\0zvy2tdusf-5ha9079ewx.gz
 Z:\יד תשפו\זק טובה\זילברברג עדכני_\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\3c2njt8xvc-ybjez6mu03.gz
-Z:\יד תשפו\זק טובה\זילברברג עדכני_\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\0mxzb52o1a-yzvqdsb5u5.gz
-Z:\יד תשפו\זק טובה\זילברברג עדכני_\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\orvjxj9mlr-9c9ss7zi08.gz
+Z:\יד תשפו\זק טובה\זילברברג עדכני_\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\0mxzb52o1a-acm5xsmkq1.gz
+Z:\יד תשפו\זק טובה\זילברברג עדכני_\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\orvjxj9mlr-vayzbsm2pj.gz
