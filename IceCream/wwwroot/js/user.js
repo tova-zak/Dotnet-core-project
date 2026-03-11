@@ -193,7 +193,7 @@ function _displayUsers(data) {
         let td1 = tr.insertCell(0);
         let textNode1 = document.createTextNode(`${user.ShopName || user.FirstName || user.firstName}`);
         td1.appendChild(textNode1); // fixed variable name
-    
+
         let td2 = tr.insertCell(1);
         let textNode2 = document.createTextNode(`${user.Email || user.LastName || user.lastName}`);
         td2.appendChild(textNode2);
@@ -204,6 +204,12 @@ function _displayUsers(data) {
         let td4 = tr.insertCell(3);
         // only show delete button to Admin users
         if (isAdmin()) td4.appendChild(deleteButton);
+
+        // הודעה אם האוסף ריק
+        let td5 = tr.insertCell(4);
+        if (user.IceCreams && user.IceCreams.length === 0) {
+            td5.innerText = 'האוסף שלך ריק';
+        }
     });
 
     users = data;

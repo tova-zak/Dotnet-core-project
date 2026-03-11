@@ -1,176 +1,264 @@
-/* עיצוב כללי לצבעים וסגנון עבור חנות גלידות */
-:root{
-    --bg-mocha: #f3e6df; /* רקע מוקה בהיר */
-    --pistachio: #8fc07b; /* פיסטוק ירוק */
-    --pistachio-dark: #6ea257;
-    --strawberry: #ff6b81; /* ורוד תות */
-    --strawberry-dark: #e0566c;
-    --cream: #fff8ee; /* גוון קרם רך */
-    --text: #2b2b2b;
-    --muted: #6b6b6b;
+/* עיצוב מגניב וצבעוני לחנות גלידות - צבעים עזים וגרדיאנטים */
+:root {
+    --ice-pink: #ff0080;
+    --ice-blue: #00eaff;
+    --ice-yellow: #ffe600;
+    --ice-purple: #a800ff;
+    --ice-green: #00ff85;
+    --ice-orange: #ff7a00;
+    --ice-white: #fff;
+    --ice-dark: #222;
+    --ice-shadow: 0 8px 32px 0 rgba(0,0,0,0.18);
+    --ice-gradient: linear-gradient(135deg, #ff0080 0%, #00eaff 50%, #ffe600 100%);
+    --ice-gradient2: linear-gradient(135deg, #a800ff 0%, #ff7a00 100%);
+    --ice-gradient3: linear-gradient(135deg, #00ff85 0%, #ff0080 100%);
 }
 
 /* typography + רקע כללי */
-html,body{
-    height:100%;
+html, body {
+    height: 100%;
+    background: var(--ice-gradient);
+    font-family: 'Varela Round', 'Segoe UI', Arial, sans-serif;
+    color: var(--ice-dark);
+    letter-spacing: 0.5px;
 }
-body{
-    margin:0;
-    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    background: linear-gradient(180deg, var(--bg-mocha) 0%, #f7efe6 100%); /* רקע מוקה בהיר עד קרם */
-    color:var(--text);
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    padding:24px;
-}
+/* 🍦 עיצוב מרשים לחנות גלידות שטראוס - מודרני וייפה */
+    body {
+        padding: 0;
+        margin: 0;
+        min-height: 100vh;
+        background: var(--ice-gradient);
+        background-size: 200% 200%;
+        animation: iceBG 40s ease-in-out infinite;
+        position: relative;
+    }
 
-/* קונטיינר כללי (אם יש) — לא מחייב שינוי ב-HTML */
-.container{
-    max-width:1100px;
-    margin:0 auto;
-    background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4));
-    border-radius:14px;
-    padding:20px 28px;
-    box-shadow: 0 6px 24px rgba(43,43,43,0.08);
-}
+    @keyframes iceBG {
+        0% { background: var(--ice-gradient); background-position: 0% 50%; }
+        25% { background: var(--ice-gradient2); background-position: 50% 100%; }
+        50% { background: var(--ice-gradient3); background-position: 100% 50%; }
+        75% { background: var(--ice-gradient2); background-position: 50% 0%; }
+        100% { background: var(--ice-gradient); background-position: 0% 50%; }
+    }
 
-/* כותרות */
-h1{ color: var(--pistachio-dark); font-weight:700; margin-bottom:6px; }
-h3{ color: var(--strawberry-dark); margin-top:6px; }
+    /* אפקט "צף" של בועות צבע ברקע */
+    .ice-bubble {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.18;
+        z-index: 0;
+        animation: floatBubble 18s ease-in-out infinite;
+    }
 
-/* טפסים ושדות קלט */
-input[type="text"], input[type="password"], textarea{
-    width:100%;
-    padding:10px 12px;
-    border-radius:10px;
-    border:1px solid rgba(43,43,43,0.08);
-    background: var(--cream);
-    outline:none;
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
-    transition: box-shadow .2s ease, transform .08s ease;
-    font-size:14px;
-    color:var(--text);
-}
+    @keyframes floatBubble {
+        0% { transform: translateY(0) scale(1); opacity: 0.18; }
+        50% { transform: translateY(-60px) scale(1.08); opacity: 0.28; }
+        100% { transform: translateY(0) scale(1); opacity: 0.18; }
+    }
 
-input[type="text"]:focus, input[type="password"]:focus, textarea:focus{
-    box-shadow: 0 6px 18px rgba(143,192,123,0.12);
-    transform: translateY(-2px);
-}
+    .container {
+        max-width: 900px;
+        margin: 40px auto;
+        background: rgba(255,255,255,0.95);
+        border-radius: 24px;
+        box-shadow: var(--ice-shadow);
+        padding: 40px 32px;
+        animation: popIn 0.7s cubic-bezier(.68,-0.55,.27,1.55);
+    }
 
-/* כפתורים - פיסטוק וורוד תות */
-input[type='submit'],
-button,
-[aria-label]{
-    cursor: pointer;
-    position: relative; /* דרוש לאפקט הפיצוץ */
-    overflow: hidden; /* מונע שחרור החלקיקים החוצה */
-    display: inline-block;
-    padding:10px 18px;
-    border-radius:12px;
-    border:0;
-    color:white;
-    font-weight:600;
-    letter-spacing:0.2px;
-    background: linear-gradient(135deg, var(--pistachio) 0%, #a7d98e 50%);
-    box-shadow: 0 8px 20px rgba(143,192,123,0.18);
-    transition: transform .18s cubic-bezier(.2,.9,.2,1), box-shadow .18s ease, filter .18s ease;
-}
+    @keyframes popIn {
+        0% { transform: scale(0.95); opacity: 0; }
+        100% { transform: scale(1); opacity: 1; }
+    }
 
-/* כפתור משני - ורוד תות */
-button.secondary, input.secondary{
-    background: linear-gradient(135deg, var(--strawberry) 0%, #ff95a8 60%);
-    box-shadow: 0 8px 20px rgba(255,107,129,0.14);
-}
+    h1, h2, h3 {
+        font-family: 'Luckiest Guy', cursive, 'Varela Round', Arial, sans-serif;
+        text-align: center;
+        margin-bottom: 18px;
+        color: var(--ice-pink);
+        text-shadow: 2px 2px 8px #ffe600, 0 2px 8px #00eaff;
+    }
 
-/* hover אנימציה יפה */
-input[type='submit']:hover,
-button:hover,
-[aria-label]:hover{
-    transform: translateY(-6px) scale(1.02);
-    box-shadow: 0 18px 36px rgba(43,43,43,0.12);
-    filter: saturate(1.05);
-}
+    h2 { color: var(--ice-blue); }
+    h3 { color: var(--ice-yellow); }
 
-/* when focused for accessibility */
-input[type='submit']:focus, button:focus, [aria-label]:focus{
-    outline: 3px solid rgba(143,192,123,0.18);
-}
+    p {
+        font-size: 1.1em;
+        color: var(--ice-dark);
+        margin-bottom: 16px;
+    }
 
-/* אפקט "פיצוץ" בלחיצה - שימוש ב::after ו-animation */
-input[type='submit']::after,
-button::after,
-[aria-label]::after{
-    content: '';
-    position: absolute;
-    left:50%; top:50%;
-    width:10px; height:10px;
-    background: radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.7) 30%, transparent 60%);
-    transform: translate(-50%,-50%) scale(0);
-    border-radius:50%;
-    opacity:0;
-    transition: transform .45s cubic-bezier(.2,.8,.2,1), opacity .45s ease;
-    pointer-events:none;
-}
-/* בעת לחיצה - מרחיב ומתקתק; נותן תחושה של פיצוץ עדין */
-input[type='submit']:active::after,
-button:active::after,
-[aria-label]:active::after{
-    transform: translate(-50%,-50%) scale(8);
-    opacity:0.85;
-    transition: transform .18s ease-out, opacity .25s ease-out;
-}
+    form {
+        background: var(--ice-gradient2);
+        padding: 24px 18px;
+        border-radius: 18px;
+        box-shadow: 0 4px 16px rgba(168,0,255,0.12);
+        margin-bottom: 24px;
+    }
 
-/* תוספת של box-shadow burst ל-active עבור אפקט דרמטי יותר */
-input[type='submit']:active,
-button:active,
-[aria-label]:active{
-    transform: translateY(-2px) scale(.98);
-    box-shadow: 0 0 0 6px rgba(143,192,123,0.06), 0 0 40px rgba(255,107,129,0.05) inset;
-}
+    label {
+        font-weight: bold;
+        color: var(--ice-purple);
+        margin-bottom: 6px;
+        display: block;
+    }
 
-/* טבלה סטיילינג מותאם */
-table{
-    width:100%;
-    border-collapse:separate;
-    border-spacing:0;
-    background: rgba(255,255,255,0.6);
-    border-radius:10px;
-    overflow:hidden;
-}
+    input[type="text"], input[type="password"], input[type="email"], textarea, select {
+        padding: 14px 16px;
+        border-radius: 14px;
+        border: 2px solid var(--ice-blue);
+        background: var(--ice-white);
+        font-size: 1em;
+        margin-bottom: 12px;
+        transition: border-color 0.2s, box-shadow 0.2s;
+        box-shadow: 0 2px 8px rgba(0,234,255,0.08);
+    }
 
-th, td{
-    padding:12px 14px;
-    text-align:left;
-    border-bottom:1px solid rgba(43,43,43,0.06);
-}
+    input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, textarea:focus, select:focus {
+        border-color: var(--ice-pink);
+        box-shadow: 0 0 0 4px #ff008033;
+    }
 
-th{
-    background: linear-gradient(90deg, rgba(255,255,255,0.25), rgba(255,255,255,0.15));
-    color: var(--pistachio-dark);
-    font-weight:700;
-}
+    input[type="submit"], button, .btn {
+        background: var(--ice-gradient3);
+        color: var(--ice-white);
+        border: none;
+        border-radius: 16px;
+        font-size: 1.1em;
+        font-weight: bold;
+        padding: 14px 28px;
+        margin-top: 8px;
+        box-shadow: 0 4px 16px #ff008033;
+        cursor: pointer;
+        transition: transform 0.18s, box-shadow 0.18s, filter 0.18s;
+        position: relative;
+        overflow: hidden;
+    }
 
-tbody tr:hover{
-    background: linear-gradient(90deg, rgba(143,192,123,0.04), rgba(255,107,129,0.02));
-}
+    input[type="submit"]:hover, button:hover, .btn:hover {
+        transform: scale(1.04) rotate(-2deg);
+        filter: brightness(1.1) saturate(1.2);
+        box-shadow: 0 8px 32px #00eaff33;
+    }
 
-/* קישורים פשוטים */
-a{
-    color: var(--pistachio-dark);
-    text-decoration: none;
-    font-weight:600;
-}
-a:hover{ text-decoration: underline; }
+    input[type="submit"]:active, button:active, .btn:active {
+        transform: scale(0.98);
+        box-shadow: 0 2px 8px #ffe60033;
+    }
 
-/* מסכים קטנים - שיפור נראות */
-@media (max-width:600px){
-    body{ padding:12px; }
-    .container{ padding:12px; }
-    input[type='submit'], button{ width:100%; padding:12px 16px; }
-}
+    input[type="submit"]::after, button::after, .btn::after {
+        content: '';
+        position: absolute;
+        left: 50%; top: 50%;
+        width: 0; height: 0;
+        border-radius: 50%;
+        background: var(--ice-yellow);
+        opacity: 0.3;
+        transform: translate(-50%, -50%);
+        transition: width .4s, height .4s, opacity .4s;
+    }
 
-/* שימור קטעים קודמים שלא הוסרו */
+    input[type="submit"]:active::after, button:active::after, .btn:active::after {
+        width: 180px;
+        height: 180px;
+        opacity: 0;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 24px 0;
+        background: var(--ice-white);
+        border-radius: 16px;
+        box-shadow: 0 4px 16px #00eaff33;
+        overflow: hidden;
+    }
+
+    th, td {
+        padding: 16px 18px;
+        text-align: left;
+        border-bottom: 1px solid #ffe60033;
+        font-size: 1em;
+    }
+
+    th {
+        background: var(--ice-gradient);
+        color: var(--ice-white);
+        font-weight: bold;
+        text-shadow: 1px 1px 6px #ff0080;
+    }
+
+    tr:hover {
+        background: #ff008022;
+        transition: background 0.2s;
+    }
+
+    .badge {
+        display: inline-block;
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 0.9em;
+        font-weight: bold;
+        background: var(--ice-yellow);
+        color: var(--ice-dark);
+        margin: 0 4px;
+    }
+
+    .badge.admin {
+        background: var(--ice-purple);
+        color: var(--ice-white);
+    }
+    .badge.shop {
+        background: var(--ice-green);
+        color: var(--ice-dark);
+    }
+    .badge.empty {
+        background: var(--ice-orange);
+        color: var(--ice-white);
+    }
+
+    .alert {
+        padding: 18px 24px;
+        border-radius: 16px;
+        margin: 18px 0;
+        font-weight: bold;
+        font-size: 1.1em;
+        background: var(--ice-gradient2);
+        color: var(--ice-white);
+        box-shadow: 0 2px 8px #a800ff33;
+    }
+
+    a {
+        color: var(--ice-pink);
+        text-decoration: none;
+        font-weight: bold;
+        border-bottom: 2px solid transparent;
+        transition: border-color 0.2s, color 0.2s;
+    }
+    a:hover {
+        border-bottom: 2px solid var(--ice-blue);
+        color: var(--ice-blue);
+    }
+
+    footer {
+        text-align: center;
+        padding: 32px 20px;
+        background: var(--ice-gradient2);
+        color: var(--ice-white);
+        margin-top: 40px;
+        font-size: 1em;
+        border-radius: 0 0 24px 24px;
+    }
+
+    @media (max-width: 700px) {
+        .container { padding: 16px 6px; }
+        h1 { font-size: 1.5em; }
+        h2 { font-size: 1.2em; }
+        h3 { font-size: 1em; }
+        th, td { padding: 8px 6px; }
+        input[type="submit"], button, .btn { width: 100%; }
+    }
+
+
 #editForm { display: none; }
-
-/* תנאי צפייה בטקסטים קטנים */
 [aria-label]{ padding:8px 12px; border-radius:10px; }

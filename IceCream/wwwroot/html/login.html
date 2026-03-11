@@ -6,13 +6,20 @@
     <title>Login Page</title>
     <script src="../js/login.js" defer></script> <!-- מסביר: טוען את קובץ ה-JS הנכון מתוך תיקיית ../js -->
 </head>
-<body style="direction:rtl;text-align:right;">
-    <h1>Login</h1>
-    <!-- הסבר: כאן המשתמש מציין את שם החנות (ShopName) והסיסמה כדי לקבל טוקן כניסה -->
-    <form id="loginForm" action="javascript:void(0);" onsubmit="loginUser()">
-        <input type="text" id="shopName" placeholder="שם החנות" required>
-        <input type="password" id="password" placeholder="Password" required>
-        <input type="submit" value="Login">
-    </form>
+<body style="direction:rtl;text-align:right; background: none;">
+    <div class="container" style="max-width:420px;margin:60px auto;background:rgba(255,255,255,0.92);box-shadow:0 8px 32px #ff008033;border-radius:24px;padding:36px 28px;position:relative;">
+        <div style="text-align:center;margin-bottom:18px;">
+            <img src="https://cdn-icons-png.flaticon.com/512/685/685352.png" alt="גלידה" style="width:64px;height:64px;filter:drop-shadow(0 2px 8px #00eaff);">
+        </div>
+        <h1 style="font-family:'Luckiest Guy',cursive;color:#ff0080;text-shadow:2px 2px 8px #ffe600,0 2px 8px #00eaff;font-size:2.2em;margin-bottom:10px;">התחברות לחנות גלידות</h1>
+        <form id="loginForm" action="javascript:void(0);" onsubmit="loginUser()" style="background:linear-gradient(135deg,#a800ff 0%,#ff7a00 100%);padding:24px 18px;border-radius:18px;box-shadow:0 4px 16px rgba(168,0,255,0.12);margin-bottom:24px;">
+            <label for="shopName">שם החנות</label>
+            <input type="text" id="shopName" placeholder="שם החנות" required>
+            <label for="password">סיסמה</label>
+            <input type="password" id="password" placeholder="סיסמה" required>
+            <input type="submit" value="התחברות" style="background:linear-gradient(135deg,#00ff85 0%,#ff0080 100%);color:#fff;font-weight:bold;font-size:1.1em;border-radius:16px;box-shadow:0 4px 16px #ff008033;margin-top:12px;">
+        </form>
+        <p style="margin-top:10px;text-align:center;font-size:1em;">אין לך חשבון? <a href="./register.html" style="color:#ff0080;font-weight:bold;text-decoration:none;border-bottom:2px solid #00eaff;">להרשמה</a></p>
+    </div>
 </body>
 </html>

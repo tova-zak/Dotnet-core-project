@@ -25,9 +25,10 @@ function loginUser() {
         if (token) {
             // שומר את הטוקן ב-localStorage
             localStorage.setItem('token', token); // מסביר: מאחסן את הטוקן
-            // הפניה לעמוד הראשי של האתר
-            window.location.href = '../index.html';
+            // הפניה לעמוד שמציג את האוספים האישיים
+            window.location.href = '../html/myicecreams.html';
         }
+        
     })
     .catch(error => console.error('Error:', error));
 }
