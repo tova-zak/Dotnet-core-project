@@ -14,12 +14,17 @@ public class UserService:IUserService
      private string filePath;
     public UserService()
     {
+        // דוגמאות התחלתיות של חנויות/משתמשים עם השדות החדשים
         this.list = new List<UserModel>
         {
-            new UserModel{Id=1,FirstName="Lea",LastName="Rainer"},
-           new UserModel{Id=2,FirstName="Tovi",LastName="Zak"},
-           new UserModel{Id=3,FirstName="Rut",LastName="levi"}
+            new UserModel{Id=1,ShopName="LeaShop",Email="lea@example.com",Address="Main St 1", Password=""},
+           new UserModel{Id=2,ShopName="ToviShop",Email="tovi@example.com",Address="Market 5", Password=""},
+           new UserModel{Id=3,ShopName="RutShop",Email="rut@example.com",Address="Center 10", Password=""}
         };
+        // הסבר מקומי (עברית):
+        // הנתונים של המשתמשים (החנויות) נשמרים לקובץ מקומי בתיקיית `Data` בשם `User.json`.
+        // מכיוון שכל `UserModel` מכיל את השדה `IceCreams`, האוספים הפרטיים של כל חנות נשמרים יחד עם שאר פרטי המשתמש באותו קובץ.
+        // השמירה/הטענה מתבצעת באמצעות `JsonSerializer` בפונקציות `saveToFile` ובבנאי.
         this.filePath = Path.Combine("Data", "User.json");
         if (File.Exists(filePath))
         {
@@ -58,6 +63,21 @@ public class UserService:IUserService
 
     public UserModel Create(UserModel newUser)
     {
+        // ודא שסיסמת המשתמש נשמרת בצורה מאובטחת (hash) ולא כטקסט גלוי
+        if (!string.IsNullOrEmpty(newUser.Password))
+        {
+            newUser.Password = PasswordHasher.Hash(newUser.Password);
+        }
+        else
+        {
+            // אם לא הוזנה סיסמה, אפשר להשאיר ריקה או לזרוק שגיאה — כאן נשמרת ריקה
+            newUser.Password = string.Empty;
+        }
+
+        // ברירת מחדל לתפקיד
+        if (string.IsNullOrWhiteSpace(newUser.Role))
+            newUser.Role = "User";
+
         var maxId = list.Any() ? list.Max(p => p.Id) : 0;
         newUser.Id = maxId + 1;
         list.Add(newUser);
@@ -72,6 +92,14 @@ public class UserService:IUserService
             return false;
         if (user.Id != newUser.Id)
             return false;
+
+        // אם נשלחה סיסמה חדשה, hash אותה לפני עדכון
+        if (!string.IsNullOrEmpty(newUser.Password) && newUser.Password != user.Password)
+        {
+            // אם הערך שנשלח אינו נראה כמו hash (בדיקה פשוטה), נבצע hash
+            if (!newUser.Password.Contains('.'))
+                newUser.Password = PasswordHasher.Hash(newUser.Password);
+        }
 
         var index = list.IndexOf(user);
         list[index] = newUser;

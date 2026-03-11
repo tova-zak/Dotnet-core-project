@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Pizza CRUD</title>
+    <title>USER</title>
     <link rel="stylesheet" href="../css/site.css" />
     <script>
         // Check for token
@@ -17,10 +17,10 @@
     <div class="container"> <!-- מרכז את התוכן -->
         <h1>USER</h1>
         <h3>Add</h3>
+        <!-- הסבר: דף זה משמש לניהול משתמשים (חנויות). השדות מוצגים כעת בהתאם לשדה ShopName -->
         <form action="javascript:void(0);" method="POST" onsubmit="addUser()">
-            <!-- שדות נפרדים לשם פרטי ושם משפחה -->
-            <input type="text" id="add-firstName" placeholder="First Name" required>
-            <input type="text" id="add-lastName" placeholder="Last Name" required>
+            <input type="text" id="add-firstName" placeholder="Shop Name" required>
+            <input type="text" id="add-lastName" placeholder="Email (optional)">
             <input type="submit" value="Add">
         </form>
 
@@ -28,8 +28,8 @@
             <h3>Edit</h3>
             <form action="javascript:void(0);" onsubmit="updateUser()">
                 <input type="hidden" id="edit-id">
-                <input type="text" id="edit-firstName" placeholder="First Name">
-                <input type="text" id="edit-lastName" placeholder="Last Name">
+                <input type="text" id="edit-firstName" placeholder="Shop Name">
+                <input type="text" id="edit-lastName" placeholder="Email">
                 <input type="submit" value="Save">
                 <a onclick="closeInput()" aria-label="Close">&#10006;</a>
             </form>
@@ -39,8 +39,8 @@
 
         <table>
             <tr>
-                <th>FirstName</th>
-                <th>LastName</th>
+                <th>ShopName</th>
+                <th>Email</th>
                 <th></th>
                 <th></th>
             </tr>

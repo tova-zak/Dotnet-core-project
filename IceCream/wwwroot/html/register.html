@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - הוספת חנות חדשה</title>
+    <script src="../js/register.js" defer></script>
+</head>
+<body style="direction:rtl;text-align:right;">
+    <h1>יצירת חנות חדשה</h1>
+    <!-- הסבר: טופס הרשמה שבו החנות מזינה את פרטיה. בעת שליחה מבוצעת קריאה ל-POST /user -->
+    <form id="registerForm" action="javascript:void(0);" onsubmit="registerUser()">
+        <input type="text" id="shopName" placeholder="שם החנות" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="text" id="address" placeholder="Address" required>
+        <input type="submit" value="Register">
+    </form>
+
+    <p style="margin-top:20px;">יש לך חשבון? <a href="./login.html">להתחברות</a></p>
+</body>
+</html>

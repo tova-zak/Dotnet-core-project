@@ -1,5 +1,5 @@
 function loginUser() {
-    const firstName = document.getElementById('firstName').value;
+    const shopName = document.getElementById('shopName').value;
     const password = document.getElementById('password').value;
 
     fetch('/user/login', { // Update the URL accordingly
@@ -8,7 +8,7 @@ function loginUser() {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            FirstName: firstName,
+            ShopName: shopName,
             Password: password
         })
     })
@@ -25,8 +25,8 @@ function loginUser() {
         if (token) {
             // שומר את הטוקן ב-localStorage
             localStorage.setItem('token', token); // מסביר: מאחסן את הטוקן
-            // תיקון: הפניה לקובץ index.html בתיקיית השורש (ממקם /html -> ../index.html)
-            window.location.href = '../index.html'; // מסביר: מפנה לדף הראשי הנכון
+            // הפניה לעמוד הראשי של האתר
+            window.location.href = '../index.html';
         }
     })
     .catch(error => console.error('Error:', error));

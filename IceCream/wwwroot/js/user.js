@@ -40,9 +40,10 @@ function addUser() {
     const addFirst = document.getElementById('add-firstName');
     const addLast = document.getElementById('add-lastName');
 
+    // שים לב: עמוד הניהול משתמש בשמות ישנים של שדות; כאן אנו ממפים אותם ל-ShopName ו-Email
     const user = {
-        FirstName: addFirst.value.trim(),
-        LastName: addLast.value.trim()
+        ShopName: addFirst.value.trim(),
+        Email: addLast.value.trim()
     };
 
     const token = localStorage.getItem('token'); // מסביר: מוסיף טוקן לכותרות אם קיים
@@ -88,9 +89,9 @@ function deleteUser(id) {
 function displayEditForm(id) {
     const user = users.find(user => user.id === id);
 
-    document.getElementById('edit-firstName').value = user.firstName || user.FirstName;
+    document.getElementById('edit-firstName').value = user.ShopName || user.firstName || '';
     document.getElementById('edit-id').value = user.id;
-    document.getElementById('edit-lastName').value = user.lastName || user.LastName;
+    document.getElementById('edit-lastName').value = user.Email || user.lastName || '';
     document.getElementById('editForm').style.display = 'block';
 }
 
@@ -98,8 +99,8 @@ function updateUser() {
     const userId = document.getElementById('edit-id').value;
     const user = {
         id: parseInt(userId, 10),
-        LastName: document.getElementById('edit-lastName').value.trim(),
-        FirstName: document.getElementById('edit-firstName').value.trim()
+        Email: document.getElementById('edit-lastName').value.trim(),
+        ShopName: document.getElementById('edit-firstName').value.trim()
     };
 
     const token = localStorage.getItem('token'); // מסביר: מוסיף טוקן לעדכון
@@ -156,11 +157,11 @@ function _displayUsers(data) {
         let tr = tBody.insertRow();
 
         let td1 = tr.insertCell(0);
-        let textNode1 = document.createTextNode(`${user.FirstName || user.firstName}`);
+        let textNode1 = document.createTextNode(`${user.ShopName || user.FirstName || user.firstName}`);
         td1.appendChild(textNode1); // fixed variable name
     
         let td2 = tr.insertCell(1);
-        let textNode2 = document.createTextNode(`${user.LastName || user.lastName}`);
+        let textNode2 = document.createTextNode(`${user.Email || user.LastName || user.lastName}`);
         td2.appendChild(textNode2);
 
         let td3 = tr.insertCell(2);

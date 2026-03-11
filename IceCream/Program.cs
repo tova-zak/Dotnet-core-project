@@ -8,8 +8,7 @@ using Microsoft.IdentityModel.Tokens; // ...existing code... add identity model 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddOrderServices();
-builder.Services.AddUserServices();
+builder.Services.AddAppServices();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -20,12 +19,27 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme) // re
     .AddJwtBearer(options => // configure JWT bearer options
     {
         options.TokenValidationParameters = UserTokenService.GetTokenValidationParameters(); // use validation params from our token service
+        // enable SignalR to receive access token from query string if needed
+        options.Events = new JwtBearerEvents
+        {
+            OnMessageReceived = context =>
+            {
+                var accessToken = context.Request.Query["access_token"].FirstOrDefault();
+                var path = context.HttpContext.Request.Path;
+                if (!string.IsNullOrEmpty(accessToken) && path.StartsWithSegments("/hubs"))
+                {
+                    context.Token = accessToken;
+                }
+                return Task.CompletedTask;
+            }
+        };
     });
 
 // Register simple authorization policies used in controllers
 builder.Services.AddAuthorization(options => // add authorization policies
 {
-    options.AddPolicy("AllUsers", policy => policy.RequireClaim("userFirstName")); // policy: any token that has 'userFirstName' claim
+    // שינינו את שם ה-claim שנדרש למדיניות - כעת נשתמש ב-userShopName
+    options.AddPolicy("AllUsers", policy => policy.RequireClaim("userShopName")); // policy: any token that has 'userShopName' claim
     options.AddPolicy("Admin", policy => policy.RequireClaim("type", "Admin")); // policy: only tokens with claim type=Admin
 });
 
@@ -38,7 +52,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-// Serve login.html as the default document so users are prompted to login immediately
 var defaultFilesOptions = new Microsoft.AspNetCore.Builder.DefaultFilesOptions();
 defaultFilesOptions.DefaultFileNames.Clear();
 defaultFilesOptions.DefaultFileNames.Add("html/login.html");
@@ -47,8 +60,13 @@ app.UseDefaultFiles(defaultFilesOptions);
 app.UseStaticFiles();
 app.UseHttpsRedirection();
 app.UseAuthentication(); // ensure authentication middleware runs before authorization
+app.UseActiveUser();
+app.UseMyLogMiddleware();
 app.UseAuthorization();
 
 app.MapControllers();
+
+// SignalR hub mapping
+app.MapHub<IceCream.Hubs.NotificationHub>("/hubs/notify");
 
 app.Run();

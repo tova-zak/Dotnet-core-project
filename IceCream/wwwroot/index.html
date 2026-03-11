@@ -1,60 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="he">
 
 <head>
     <meta charset="UTF-8">
-    <title>User CRUD</title>
+    <title>ברוכים הבאים - שטראוס</title>
     <link rel="stylesheet" href="css/site.css" />
-    <script>
-        // בדיקה האם יש טוקן שמאוחסן בדפדפן
-        if (!localStorage.getItem('token')) { // אם אין טוקן
-            window.location.href = './html/login.html'; // מפנה לעמוד ההתחברות
-        }
-    </script>
+    <!-- הסבר: זהו עמוד הנחיתה שמוצג לכניסה. כפתורים מובילים לעמוד ההתחברות ולעמוד יצירת משתמש (הרשמה). -->
 </head>
 
 <body>
-    <div class="container"> <!-- כל התוכן ממורכז בתוך הקונטיינר -->
-        <h1>ICECREM CITY</h1>
-        <h3>Add</h3>
-        <form action="javascript:void(0);" method="POST" onsubmit="addItem()">
-            <input type="text" id="add-name" placeholder="New iceCream" required>
-            <!-- תיבת סימון שמציינת האם זה חלבי -->
-            <label style="display:inline-flex;align-items:center;gap:8px;margin-left:8px;">
-                <input type="checkbox" id="add-IsDiary"> חלבי?
-            </label>
-            <input type="submit" value="Add">
-        </form>
+    <div class="container" style="text-align:center;direction:rtl;padding-top:60px;"> <!-- עברית: יישור לימין -->
+        <h1>ברוכים הבאים לשטראוס</h1>
+        <p>אנחנו נספק בעבורכם את הגלידות הטובות ביותר</p>
 
-        <div id="editForm">
-            <h3>Edit</h3>
-            <form action="javascript:void(0);" onsubmit="updateItem()">
-                <input type="hidden" id="edit-id">
-                <input type="checkbox" id="edit-IsDiary">
-                <input type="text" id="edit-name">
-                <input type="submit" value="Save">
-                <a onclick="closeInput()" aria-label="Close">&#10006;</a>
-            </form>
+        <div style="margin-top:30px;display:flex;justify-content:center;gap:20px;">
+            <a href="./html/login.html"><button style="padding:12px 20px;font-size:16px;">התחברות</button></a>
+            <a href="./html/register.html"><button style="padding:12px 20px;font-size:16px;">הוספת משתמש חדש</button></a>
         </div>
 
-        <p id="counter"></p>
-
-        <table>
-            <tr>
-                <th>Is diary?</th>
-                <th>Name</th>
-                <th></th>
-                <th></th>
-            </tr>
-            <tbody id="iceCreams"></tbody>
-        </table>
-        <a href="./html/user.html">למעבר למשתמשים</a>
+        <p style="margin-top:40px;font-size:14px;color:#666;">אם אתה חנות חדשה — לחץ על "הוספת משתמש חדש" כדי להירשם.</p>
     </div>
-    <script src="js/site.js" asp-append-version="true"></script>
-    <script type="text/javascript">
-        getItems();
-    </script>
-
 </body>
 
 </html>
