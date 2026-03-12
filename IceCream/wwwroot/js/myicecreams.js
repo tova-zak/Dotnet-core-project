@@ -25,6 +25,8 @@ function isAdmin() {
     return claims && (claims.type === 'Admin');
 }
 
+let viewingShopId = null; // מזהה החנות שמוצגת ברגע זה (יכול להיות של המשתמש או של חנות אחרת אם Admin)
+
 function getMyIceCreams() {
     const token = localStorage.getItem('token');
     const myId = getCurrentUserId();
@@ -45,10 +47,14 @@ function getMyIceCreams() {
             if (!response.ok) return response.text().then(t => { throw new Error(`${response.status} ${response.statusText}: ${t}`); });
             return response.json();
         })
-        .then(data => _displayAllShops(data, token))
+        .then(data => {
+            viewingShopId = null; // עדיין לא מציגים אוסף ספציפי
+            _displayAllShops(data, token);
+        })
         .catch(error => console.error('Unable to get shops.', error));
     } else {
         // משתמש רגיל - הצג רק את האוסף שלו
+        viewingShopId = myId;
         fetch(`${uri}/${myId}/icecreams`, {
             headers: {
                 'Accept': 'application/json',
@@ -67,9 +73,10 @@ function getMyIceCreams() {
 function addIceCream() {
     const name = document.getElementById('add-icecream-name').value.trim();
     const isDiary = document.getElementById('add-icecream-isdiary').checked;
-    const myId = getCurrentUserId();
     const token = localStorage.getItem('token');
-    fetch(`${uri}/${myId}/icecreams`, {
+    const targetId = viewingShopId || getCurrentUserId();
+    if (!targetId) { window.location.href = 'login.html'; return; }
+    fetch(`${uri}/${targetId}/icecreams`, {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -83,7 +90,8 @@ function addIceCream() {
         return response.json();
     })
     .then(() => {
-        getMyIceCreams();
+        // רענון התצוגה של האוסף שמוצג כעת
+        if (viewingShopId) viewShopIceCreams(viewingShopId); else getMyIceCreams();
         document.getElementById('add-icecream-name').value = '';
         document.getElementById('add-icecream-isdiary').checked = false;
     })
@@ -120,9 +128,9 @@ function _displayIceCreams(data) {
 }
 
 function displayEditForm(id) {
-    const myId = getCurrentUserId();
     const token = localStorage.getItem('token');
-    fetch(`${uri}/${myId}/icecreams`, {
+    const targetId = viewingShopId || getCurrentUserId();
+    fetch(`${uri}/${targetId}/icecreams`, {
         headers: {
             'Accept': 'application/json',
             ...(token ? { 'Authorization': `Bearer ${token}` } : {})
@@ -139,7 +147,6 @@ function displayEditForm(id) {
 }
 
 function updateIceCream() {
-    const myId = getCurrentUserId();
     const token = localStorage.getItem('token');
     const itemId = document.getElementById('edit-id').value;
     const item = {
@@ -147,7 +154,8 @@ function updateIceCream() {
         Name: document.getElementById('edit-name').value.trim(),
         IsDiary: document.getElementById('edit-isdiary').checked
     };
-    fetch(`${uri}/${myId}/icecreams/${itemId}`, {
+    const targetId = viewingShopId || getCurrentUserId();
+    fetch(`${uri}/${targetId}/icecreams/${itemId}`, {
         method: 'PUT',
         headers: {
             'Accept': 'application/json',
@@ -161,7 +169,7 @@ function updateIceCream() {
         return response.text();
     })
     .then(() => {
-        getMyIceCreams();
+        if (viewingShopId) viewShopIceCreams(viewingShopId); else getMyIceCreams();
         closeInput();
     })
     .catch(error => console.error('Unable to update ice cream.', error));
@@ -169,9 +177,9 @@ function updateIceCream() {
 }
 
 function deleteIceCream(id) {
-    const myId = getCurrentUserId();
     const token = localStorage.getItem('token');
-    fetch(`${uri}/${myId}/icecreams/${id}`, {
+    const targetId = viewingShopId || getCurrentUserId();
+    fetch(`${uri}/${targetId}/icecreams/${id}`, {
         method: 'DELETE',
         headers: {
             ...(token ? { 'Authorization': `Bearer ${token}` } : {})
@@ -181,7 +189,9 @@ function deleteIceCream(id) {
         if (!response.ok) return response.text().then(t => { throw new Error(`${response.status} ${response.statusText}: ${t}`); });
         return response.text();
     })
-    .then(() => getMyIceCreams())
+    .then(() => {
+        if (viewingShopId) viewShopIceCreams(viewingShopId); else getMyIceCreams();
+    })
     .catch(error => console.error('Unable to delete ice cream.', error));
 }
 
@@ -211,17 +221,18 @@ function _displayAllShops(shops, token) {
             td2.innerText = `${iceCreamCount} גלידות`;
         }
         
-        // עמודה 3: כפתור לראות את הגלידות
+        // עמודה 3: כפתור לנהל את הגלידות של החנות
         let td3 = tr.insertCell(2);
-        let viewButton = document.createElement('button');
-        viewButton.innerText = 'ראה גלידות';
-        viewButton.setAttribute('onclick', `viewShopIceCreams(${shop.id})`);
-        td3.appendChild(viewButton);
+        let manageButton = document.createElement('button');
+        manageButton.innerText = 'נהל אוסף';
+        manageButton.setAttribute('onclick', `viewShopIceCreams(${shop.id})`);
+        td3.appendChild(manageButton);
     });
 }
 
 function viewShopIceCreams(shopId) {
     const token = localStorage.getItem('token');
+    viewingShopId = shopId; // נעדכן את ההקשר — עכשיו כל פעולות העריכה יתמכו בחנות זו
     fetch(`${uri}/${shopId}/icecreams`, {
         headers: {
             'Accept': 'application/json',
@@ -233,7 +244,7 @@ function viewShopIceCreams(shopId) {
         return response.json();
     })
     .then(data => {
-        alert(`גלידות בחנות זו: ${data.map(i => i.name || i.Name).join(', ') || 'אוסף ריק'}`);
+        _displayIceCreams(data);
     })
     .catch(error => console.error('Unable to get ice creams.', error));
 }

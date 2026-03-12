@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\לאה הצדיקה\\Pictures\\זילברברג\\Project\\Dotnet-core-project\\IceCream\\IceCream.csproj": {}
+    "Z:\\יד תשפו\\זק טובה\\זילברברג עדכני_\\branch לאה\\Dotnet-core-project\\IceCream\\IceCream.csproj": {}
   },
   "projects": {
-    "C:\\Users\\לאה הצדיקה\\Pictures\\זילברברג\\Project\\Dotnet-core-project\\IceCream\\IceCream.csproj": {
+    "Z:\\יד תשפו\\זק טובה\\זילברברג עדכני_\\branch לאה\\Dotnet-core-project\\IceCream\\IceCream.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\לאה הצדיקה\\Pictures\\זילברברג\\Project\\Dotnet-core-project\\IceCream\\IceCream.csproj",
+        "projectUniqueName": "Z:\\יד תשפו\\זק טובה\\זילברברג עדכני_\\branch לאה\\Dotnet-core-project\\IceCream\\IceCream.csproj",
         "projectName": "IceCream",
-        "projectPath": "C:\\Users\\לאה הצדיקה\\Pictures\\זילברברג\\Project\\Dotnet-core-project\\IceCream\\IceCream.csproj",
-        "packagesPath": "C:\\Users\\לאה הצדיקה\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\לאה הצדיקה\\Pictures\\זילברברג\\Project\\Dotnet-core-project\\IceCream\\obj\\",
+        "projectPath": "Z:\\יד תשפו\\זק טובה\\זילברברג עדכני_\\branch לאה\\Dotnet-core-project\\IceCream\\IceCream.csproj",
+        "packagesPath": "C:\\Users\\huser\\.nuget\\packages\\",
+        "outputPath": "Z:\\יד תשפו\\זק טובה\\זילברברג עדכני_\\branch לאה\\Dotnet-core-project\\IceCream\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\לאה הצדיקה\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\huser\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -25,8 +25,7 @@
           "net9.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
+          "c:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -45,7 +44,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net9.0": {
@@ -83,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "c:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -14,13 +14,60 @@
 </head>
 
 <body>
+    <!-- ניווט עליון -->
+    <div style="direction:rtl;text-align:right;padding:10px;">
+        <a href="../index.html"><button style="margin-right:8px;">דף הבית</button></a>
+        <a href="./login.html"><button>כניסה</button></a>
+        <a href="./user.html"><button style="margin-left:8px;">לפרטי משתמש</button></a>
+        <button onclick="history.back()" style="margin-left:8px;">חזור</button>
+    </div>
+
     <div class="container"> <!-- מרכז את התוכן -->
         <h1>USER</h1>
+
+        <!-- פרופיל משתמש: מיועד לצפייה ועריכה של המשתמש עצמו (Non-Admin) -->
+        <div id="profileSection" style="display:none;">
+            <h3>פרטי משתמש</h3>
+            <form action="javascript:void(0);" id="profileForm" onsubmit="updateProfile()">
+                <input type="hidden" id="profile-id">
+                <label>שם החנות</label>
+                <input type="text" id="profile-shopName" placeholder="Shop Name">
+                <label>אימייל</label>
+                <input type="text" id="profile-email" placeholder="Email">
+                <label>כתובת</label>
+                <input type="text" id="profile-address" placeholder="Address">
+                <input type="submit" value="שמור שינויים">
+            </form>
+
+            <h4>שינוי סיסמה</h4>
+            <form action="javascript:void(0);" onsubmit="changePassword()">
+                <input type="password" id="current-password" placeholder="Current password">
+                <input type="password" id="new-password" placeholder="New password">
+                <input type="submit" value="Change Password">
+            </form>
+        </div>
+
+        <!-- תצוגת פרטי משתמש עבור מנהל (קריאה בלבד + מחיקה) -->
+        <div id="adminProfileSection" style="display:none;">
+            <h3>פרטי משתמש (מנהל)</h3>
+            <p>Id: <span id="admin-id"></span></p>
+            <p>ShopName: <span id="admin-shopName"></span></p>
+            <p>Email: <span id="admin-email"></span></p>
+            <p>Address: <span id="admin-address"></span></p>
+            <p>מספר גלידות: <span id="admin-icecount"></span></p>
+            <div>
+                <button id="admin-delete-btn">מחק משתמש</button>
+                <button id="admin-back-btn">חזור</button>
+            </div>
+        </div>
+
+        <!-- ממשקי ניהול קיימים -->
         <h3>Add</h3>
         <!-- הסבר: דף זה משמש לניהול משתמשים (חנויות). השדות מוצגים כעת בהתאם לשדה ShopName -->
         <form action="javascript:void(0);" method="POST" onsubmit="addUser()">
             <input type="text" id="add-firstName" placeholder="Shop Name" required>
             <input type="text" id="add-lastName" placeholder="Email (optional)">
+            <input type="text" id="add-address" placeholder="Address (optional)">
             <input type="submit" value="Add">
         </form>
 
@@ -30,6 +77,7 @@
                 <input type="hidden" id="edit-id">
                 <input type="text" id="edit-firstName" placeholder="Shop Name">
                 <input type="text" id="edit-lastName" placeholder="Email">
+                <input type="text" id="edit-address" placeholder="Address">
                 <input type="submit" value="Save">
                 <a onclick="closeInput()" aria-label="Close">&#10006;</a>
             </form>
