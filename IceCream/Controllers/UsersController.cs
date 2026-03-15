@@ -132,25 +132,41 @@ public class UserController : ControllerBase
     [HttpPut("{id}")]
     [Authorize(Policy = "AllUsers")]
     public IActionResult Update(int id,UserModel newUser){
-        // שינו כאן: גם עדכון משתמש ב־API נתמך לכל מי שיש לו טוקן
-        // אך אם המבקש אינו מנהל, הוא יכול לעדכן רק את הפרטים של עצמו
         if(id!=newUser.Id)
            return BadRequest();
-         var existing=service.Get(id); 
+         var existing=service.Get(id);
          if(existing==null)
            return NotFound();
 
         var typeClaim = User.Claims.FirstOrDefault(c => c.Type == "type")?.Value;
         var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId")?.Value;
 
-        if (typeClaim != "Admin")
+        // שינוי: מנהל אינו מורשה לעדכן פרטי משתמשים אחרים. רק בעל החשבון יכול לעדכן את פרטיו.
+        if (typeClaim == "Admin")
         {
-            // לא מנהל -> חייב להיות הבעלים של החשבון
+            // אם המנהל מנסה לעדכן משתמש שאינו שלו - אסור
+            if (userIdClaim == null || userIdClaim != id.ToString())
+                return Forbid();
+        }
+        else
+        {
+            // משתמש רגיל - יכול לעדכן רק את עצמו
             if (userIdClaim == null || userIdClaim != id.ToString())
                 return Forbid();
         }
 
          service.Update(id, newUser) ; 
+        return NoContent();
+    }
+
+    // מחיקת משתמש - רק מנהל יכול למחוק
+    [HttpDelete("{id}")]
+    [Authorize(Policy = "Admin")]
+    public IActionResult Delete(int id)
+    {
+        var existing = service.Get(id);
+        if (existing == null) return NotFound();
+        service.Delete(id);
         return NoContent();
     }
 

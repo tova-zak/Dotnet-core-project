@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>USER</title>
+    <title>פרטי משתמש</title>
     <link rel="stylesheet" href="../css/site.css" />
     <script>
         // Check for token
@@ -11,96 +11,81 @@
             window.location.href = 'login.html'; // Redirect to the login page if no token is found
         }
     </script>
+    <style>
+        /* פשטות ל־cards */
+        .user-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 12px;
+            margin: 8px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        .user-card div {
+            margin: 2px 8px
+        }
+
+        .actions button {
+            margin-left: 8px
+        }
+    </style>
 </head>
 
-<body>
-    <!-- ניווט עליון -->
+<body style="direction:rtl;text-align:right;">
+    <!-- ניווט מקוצר: רק חזרה לדף הבית כפי שהתבקש -->
     <div style="direction:rtl;text-align:right;padding:10px;">
-        <a href="../index.html"><button style="margin-right:8px;">דף הבית</button></a>
-        <a href="./login.html"><button>כניסה</button></a>
-        <a href="./user.html"><button style="margin-left:8px;">לפרטי משתמש</button></a>
-        <button onclick="history.back()" style="margin-left:8px;">חזור</button>
+        <a href="../index.html"><button style="margin-right:8px;">חזרה לדף הבית</button></a>
     </div>
 
-    <div class="container"> <!-- מרכז את התוכן -->
-        <h1>USER</h1>
+    <div class="container">
+        <h1>פרטי משתמש</h1>
 
-        <!-- פרופיל משתמש: מיועד לצפייה ועריכה של המשתמש עצמו (Non-Admin) -->
+        <!-- אזור לעריכת פרופיל של המשתמש המחובר -->
         <div id="profileSection" style="display:none;">
-            <h3>פרטי משתמש</h3>
-            <form action="javascript:void(0);" id="profileForm" onsubmit="updateProfile()">
+            <h3>הפרטים שלי</h3>
+            <form id="profileForm" action="javascript:void(0);" onsubmit="updateProfile()">
                 <input type="hidden" id="profile-id">
+                <input type="hidden" id="pwd-id">
                 <label>שם החנות</label>
-                <input type="text" id="profile-shopName" placeholder="Shop Name">
+                <input type="text" id="profile-shopName" placeholder="שם החנות">
                 <label>אימייל</label>
-                <input type="text" id="profile-email" placeholder="Email">
+                <input type="text" id="profile-email" placeholder="אימייל">
                 <label>כתובת</label>
-                <input type="text" id="profile-address" placeholder="Address">
+                <input type="text" id="profile-address" placeholder="כתובת">
                 <input type="submit" value="שמור שינויים">
             </form>
 
             <h4>שינוי סיסמה</h4>
             <form action="javascript:void(0);" onsubmit="changePassword()">
-                <input type="password" id="current-password" placeholder="Current password">
-                <input type="password" id="new-password" placeholder="New password">
-                <input type="submit" value="Change Password">
+                <input type="password" id="current-password" placeholder="סיסמה נוכחית">
+                <input type="password" id="new-password" placeholder="סיסמה חדשה">
+                <input type="submit" value="שנה סיסמה">
             </form>
         </div>
 
-        <!-- תצוגת פרטי משתמש עבור מנהל (קריאה בלבד + מחיקה) -->
+        <!-- אזור תצוגת פרטי משתמש למנהל (קריאה בלבד + מחיקה) -->
         <div id="adminProfileSection" style="display:none;">
             <h3>פרטי משתמש (מנהל)</h3>
             <p>Id: <span id="admin-id"></span></p>
-            <p>ShopName: <span id="admin-shopName"></span></p>
-            <p>Email: <span id="admin-email"></span></p>
-            <p>Address: <span id="admin-address"></span></p>
+            <p>שם החנות: <span id="admin-shopName"></span></p>
+            <p>אימייל: <span id="admin-email"></span></p>
+            <p>כתובת: <span id="admin-address"></span></p>
             <p>מספר גלידות: <span id="admin-icecount"></span></p>
-            <div>
+            <div class="actions">
                 <button id="admin-delete-btn">מחק משתמש</button>
                 <button id="admin-back-btn">חזור</button>
             </div>
         </div>
 
-        <!-- ממשקי ניהול קיימים -->
-        <h3>Add</h3>
-        <!-- הסבר: דף זה משמש לניהול משתמשים (חנויות). השדות מוצגים כעת בהתאם לשדה ShopName -->
-        <form action="javascript:void(0);" method="POST" onsubmit="addUser()">
-            <input type="text" id="add-firstName" placeholder="Shop Name" required>
-            <input type="text" id="add-lastName" placeholder="Email (optional)">
-            <input type="text" id="add-address" placeholder="Address (optional)">
-            <input type="submit" value="Add">
-        </form>
+        <!-- רשימת משתמשים להצגה למנהל -->
+        <div id="usersList" style="margin-top:18px;"></div>
 
-        <div id="editForm">
-            <h3>Edit</h3>
-            <form action="javascript:void(0);" onsubmit="updateUser()">
-                <input type="hidden" id="edit-id">
-                <input type="text" id="edit-firstName" placeholder="Shop Name">
-                <input type="text" id="edit-lastName" placeholder="Email">
-                <input type="text" id="edit-address" placeholder="Address">
-                <input type="submit" value="Save">
-                <a onclick="closeInput()" aria-label="Close">&#10006;</a>
-            </form>
-        </div>
-
-        <p id="counter"></p>
-
-        <table>
-            <tr>
-                <th>ShopName</th>
-                <th>Email</th>
-                <th></th>
-                <th></th>
-            </tr>
-            <tbody id="users"></tbody>
-        </table>
-        <a href="../index.html">למעבר לגלידות</a>
-        <a href="myicecreams.html">לניהול האוספים וההזמנות שלי</a>
     </div>
-    <script src="../js/user.js" asp-append-version="true"></script>
-    <script type="text/javascript">
-        getUsers();
-    </script>
+
+    <script src="../js/user.js"></script>
 </body>
 
 </html>
