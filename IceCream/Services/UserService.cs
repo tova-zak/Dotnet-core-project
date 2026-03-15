@@ -100,10 +100,19 @@ public class UserService:IUserService
             if (!newUser.Password.Contains('.'))
                 newUser.Password = PasswordHasher.Hash(newUser.Password);
         }
+        else
+        {
+            // אם לא נשלחה סיסמה — נשמור את הסיסמה הקיימת
+            newUser.Password = user.Password;
+        }
+
+        // אם לא נשלח שדה האוספים, נשמור את האוסף הקיים
+        if (newUser.IceCreams == null)
+            newUser.IceCreams = user.IceCreams;
 
         var index = list.IndexOf(user);
         list[index] = newUser;
-saveToFile();
+        saveToFile();
         return true;
     }
 

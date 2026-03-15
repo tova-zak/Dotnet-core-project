@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <title>האוספים שלי</title>
+    <link rel="stylesheet" href="../css/site.css" />
+</head>
+<body>
+    <!-- הוספתי שורת ניווט קטנה בראש עם כפתורים לדף הבית ולכניסה -->
+    <div style="direction:rtl;text-align:right;padding:10px;">
+        <a href="../index.html"><button style="margin-right:8px;">דף הבית</button></a>
+        <a href="./login.html"><button>כניסה</button></a>
+    </div>
+
+    <div class="container">
+        <h1 id="page-title">האוספים וההזמנות שלי</h1>
+        <div id="addForm" style="display:block;">
+            <form action="javascript:void(0);" method="POST" onsubmit="addIceCream()">
+                <input type="text" id="add-icecream-name" placeholder="שם גלידה" required>
+                <input type="checkbox" id="add-icecream-isdiary"> חלב
+                <input type="submit" value="הוסף גלידה">
+            </form>
+        </div>
+
+        <div id="editForm" style="display:none;">
+            <h3>עריכת גלידה</h3>
+            <form action="javascript:void(0);" onsubmit="updateIceCream()">
+                <input type="hidden" id="edit-id">
+                <input type="text" id="edit-name" placeholder="שם גלידה">
+                <input type="checkbox" id="edit-isdiary"> חלב
+                <input type="submit" value="שמור">
+                <a onclick="closeInput()" aria-label="Close">&#10006;</a>
+            </form>
+        </div>
+
+        <p id="counter"></p>
+        <table id="shopsTable">
+            <tr id="headerRow">
+                <th>חלב</th>
+                <th>שם גלידה</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tbody id="iceCreams"></tbody>
+        </table>
+        <!-- שיניתי את הטקסט של הקישור -->
+        <a href="../html/user.html">לפרטי משתמש</a>
+    </div>
+    <script src="../js/myicecreams.js"></script>
+    <script type="text/javascript">
+        // בדוק אם אדמין ותעדכן את ה-UI בהתאם
+        function setupUI() {
+            const token = localStorage.getItem('token');
+            const isAdminUser = parseJwt(token) && parseJwt(token).type === 'Admin';
+            
+            if (isAdminUser) {
+                document.getElementById('page-title').innerText = 'כל החנויות והאוספים שלהן';
+                document.getElementById('addForm').style.display = 'none';
+                document.getElementById('headerRow').innerHTML = '<th>שם החנות</th><th>מספר גלידות</th><th></th>';
+            }
+        }
+        
+        function parseJwt(token) {
+            if (!token) return null;
+            try {
+                const payload = token.split('.')[1];
+                if (!payload) return null;
+                return JSON.parse(decodeURIComponent(Array.prototype.map.call(atob(payload.replace(/-/g, '+').replace(/_/g, '/')), function(c) {
+                    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+                }).join('')));
+            } catch (e) {
+                return null;
+            }
+        }
+        
+        setupUI();
+        getMyIceCreams();
+    </script>
+</body>
+</html>

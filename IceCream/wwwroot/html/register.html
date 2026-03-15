@@ -6,17 +6,30 @@
     <title>Register - הוספת חנות חדשה</title>
     <script src="../js/register.js" defer></script>
 </head>
-<body style="direction:rtl;text-align:right;">
-    <h1>יצירת חנות חדשה</h1>
-    <!-- הסבר: טופס הרשמה שבו החנות מזינה את פרטיה. בעת שליחה מבוצעת קריאה ל-POST /user -->
-    <form id="registerForm" action="javascript:void(0);" onsubmit="registerUser()">
-        <input type="text" id="shopName" placeholder="שם החנות" required>
-        <input type="password" id="password" placeholder="Password" required>
-        <input type="email" id="email" placeholder="Email" required>
-        <input type="text" id="address" placeholder="Address" required>
-        <input type="submit" value="Register">
-    </form>
-
-    <p style="margin-top:20px;">יש לך חשבון? <a href="./login.html">להתחברות</a></p>
+<body style="direction:rtl;text-align:right; background: none;">
+    <!-- ניווט עליון -->
+    <div style="direction:rtl;text-align:right;padding:10px;">
+        <a href="../index.html"><button style="margin-right:8px;">דף הבית</button></a>
+        <a href="./login.html"><button>כניסה</button></a>
+        <a href="./user.html"><button style="margin-left:8px;">לפרטי משתמש</button></a>
+    </div>
+    <div class="container" style="max-width:420px;margin:60px auto;background:rgba(255,255,255,0.92);box-shadow:0 8px 32px #ff008033;border-radius:24px;padding:36px 28px;position:relative;">
+        <div style="text-align:center;margin-bottom:18px;">
+            <img src="https://cdn-icons-png.flaticon.com/512/685/685352.png" alt="גלידה" style="width:64px;height:64px;filter:drop-shadow(0 2px 8px #00eaff);">
+        </div>
+        <h1 style="font-family:'Luckiest Guy',cursive;color:#ff0080;text-shadow:2px 2px 8px #ffe600,0 2px 8px #00eaff;font-size:2.2em;margin-bottom:10px;">הרשמה לחנות גלידות</h1>
+        <form id="registerForm" action="javascript:void(0);" onsubmit="registerUser()" style="background:linear-gradient(135deg,#a800ff 0%,#ff7a00 100%);padding:24px 18px;border-radius:18px;box-shadow:0 4px 16px rgba(168,0,255,0.12);margin-bottom:24px;">
+            <label for="shopName">שם החנות</label>
+            <input type="text" id="shopName" placeholder="שם החנות" required>
+            <label for="password">סיסמה</label>
+            <input type="password" id="password" placeholder="סיסמה" required>
+            <label for="email">אימייל</label>
+            <input type="email" id="email" placeholder="אימייל" required>
+            <label for="address">כתובת</label>
+            <input type="text" id="address" placeholder="כתובת" required>
+            <input type="submit" value="הרשמה" style="background:linear-gradient(135deg,#00ff85 0%,#ff0080 100%);color:#fff;font-weight:bold;font-size:1.1em;border-radius:16px;box-shadow:0 4px 16px #ff008033;margin-top:12px;">
+        </form>
+        <p style="margin-top:10px;text-align:center;font-size:1em;">יש לך חשבון? <a href="./login.html" style="color:#ff0080;font-weight:bold;text-decoration:none;border-bottom:2px solid #00eaff;">להתחברות</a></p>
+    </div>
 </body>
 </html>

@@ -225,4 +225,85 @@ public class UserController : ControllerBase
 
         return NoContent();
     }
+
+    [HttpPut("{id}/icecreams/{iceId}")]
+    [Authorize(Policy = "AllUsers")]
+    public IActionResult UpdateUserIceCream(int id, int iceId, [FromBody] IceCreamModel updated)
+    {
+        var user = service.Get(id);
+        if (user == null) return NotFound();
+
+        var typeClaim = User.Claims.FirstOrDefault(c => c.Type == "type")?.Value;
+        var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId")?.Value;
+
+        if (typeClaim != "Admin")
+        {
+            if (userIdClaim == null || userIdClaim != id.ToString())
+                return Forbid();
+        }
+
+        var ice = user.IceCreams?.FirstOrDefault(i => i.Id == iceId);
+        if (ice == null) return NotFound();
+
+        // עדכון השדות המותריים
+        ice.Name = updated.Name ?? updated.Name;
+        ice.IsDiary = updated.IsDiary;
+
+        service.Update(id, user);
+        return NoContent();
+    }
+
+    public class ChangePasswordModel
+    {
+        public string CurrentPassword { get; set; } = string.Empty;
+        public string NewPassword { get; set; } = string.Empty;
+    }
+
+    [HttpPost("{id}/changepassword")]
+    [Authorize(Policy = "AllUsers")]
+    public ActionResult<string> ChangePassword(int id, [FromBody] ChangePasswordModel model)
+    {
+        if (model == null || string.IsNullOrWhiteSpace(model.NewPassword))
+            return BadRequest("New password required");
+
+        var user = service.Get(id);
+        if (user == null) return NotFound();
+
+        var typeClaim = User.Claims.FirstOrDefault(c => c.Type == "type")?.Value;
+        var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId")?.Value;
+
+        // אם לא מנהל, חייב למסור סיסמה נוכחית ותאימות
+        if (typeClaim != "Admin")
+        {
+            if (userIdClaim == null || userIdClaim != id.ToString())
+                return Forbid();
+
+            if (string.IsNullOrWhiteSpace(model.CurrentPassword))
+                return BadRequest("Current password required");
+
+            if (!PasswordHasher.Verify(model.CurrentPassword, user.Password))
+                return Unauthorized();
+        }
+
+        // עדכן סיסמה חדשה (hash)
+        user.Password = PasswordHasher.Hash(model.NewPassword);
+        service.Update(id, user);
+
+        // אם המשתמש שינה את הסיסמה של עצמו — החזר טוקן חדש
+        if (userIdClaim != null && userIdClaim == id.ToString())
+        {
+            bool isAdmin = user.Role == "Admin";
+            var claims = new List<Claim>
+            {
+                new Claim("userShopName", user.ShopName),
+                new Claim("type", isAdmin ? "Admin" : "User"),
+                new Claim("userId", user.Id.ToString()),
+            };
+
+            var token = UserTokenService.GetToken(claims);
+            return new OkObjectResult(UserTokenService.WriteToken(token));
+        }
+
+        return NoContent();
+    }
 }

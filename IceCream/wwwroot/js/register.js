@@ -30,9 +30,32 @@ function registerUser() {
         }
         return response.json();
     })
-    .then(() => {
-        alert('ההרשמה בוצעה בהצלחה. נא להתחבר.');
-        window.location.href = './login.html';
+    .then(createdUser => {
+        // הרשמה הצליחה, מבצע התחברות אוטומטית
+        fetch('/user/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                ShopName: shopName,
+                Password: password
+            })
+        })
+        .then(response => {
+            if (!response.ok) {
+                alert('ההרשמה הצליחה, אך ההתחברות נכשלה. נא להתחבר ידנית.');
+                window.location.href = './login.html';
+                throw new Error('Login failed');
+            }
+            return response.text();
+        })
+        .then(token => {
+            if (token) {
+                localStorage.setItem('token', token);
+                window.location.href = './myicecreams.html';
+            }
+        });
     })
     .catch(err => {
         console.error('Registration failed', err);
