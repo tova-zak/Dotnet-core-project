@@ -27,6 +27,36 @@ function isAdmin() {
 
 let viewingShopId = null; // מזהה החנות שמוצגת ברגע זה (יכול להיות של המשתמש או של חנות אחרת אם Admin)
 
+// helper to update the 'פרטי משתמש' link based on context
+function updateUserLink(targetId, shopName) {
+    try {
+        const link = document.getElementById('userLink');
+        if (!link) return;
+        if (targetId) {
+            // use a relative path to the same folder and attach id
+            link.href = `user.html?id=${encodeURIComponent(targetId)}`;
+            // set human friendly text: shopName if available, otherwise a default
+            link.innerText = shopName && String(shopName).trim() ? `פרטי ${String(shopName).trim()}` : 'פרטי משתמש';
+            link.dataset.userId = targetId;
+        } else {
+            const token = localStorage.getItem('token');
+            const claims = parseJwt(token);
+            if (claims && claims.type === 'Admin') {
+                link.href = 'user.html';
+                link.innerText = 'רשימת משתמשים';
+                link.dataset.userId = '';
+            } else {
+                const myId = getCurrentUserId();
+                link.href = myId ? `user.html?id=${encodeURIComponent(myId)}` : 'user.html';
+                link.innerText = 'פרטי משתמש';
+                link.dataset.userId = myId || '';
+            }
+        }
+    } catch (e) {
+        console.error('updateUserLink failed', e);
+    }
+}
+
 function getMyIceCreams() {
     const token = localStorage.getItem('token');
     const myId = getCurrentUserId();
@@ -50,6 +80,7 @@ function getMyIceCreams() {
         .then(data => {
             viewingShopId = null; // עדיין לא מציגים אוסף ספציפי
             _displayAllShops(data, token);
+            updateUserLink(null); // show users list link for admin
         })
         .catch(error => console.error('Unable to get shops.', error));
     } else {
@@ -65,7 +96,10 @@ function getMyIceCreams() {
             if (!response.ok) return response.text().then(t => { throw new Error(`${response.status} ${response.statusText}: ${t}`); });
             return response.json();
         })
-        .then(data => _displayIceCreams(data))
+        .then(data => {
+            _displayIceCreams(data);
+            updateUserLink(myId); // link to own profile
+        })
         .catch(error => console.error('Unable to get ice creams.', error));
     }
 }
@@ -225,14 +259,18 @@ function _displayAllShops(shops, token) {
         let td3 = tr.insertCell(2);
         let manageButton = document.createElement('button');
         manageButton.innerText = 'נהל אוסף';
-        manageButton.setAttribute('onclick', `viewShopIceCreams(${shop.id})`);
+        // determine the user id for this shop object (support multiple possible property names)
+        const shopUserId = shop.id || shop.userId || shop.UserId || shop.shopId;
+        const shopNameForBtn = shop.shopName || shop.ShopName || '';
+        manageButton.addEventListener('click', function () { viewShopIceCreams(shopUserId, shopNameForBtn); });
         td3.appendChild(manageButton);
     });
 }
 
-function viewShopIceCreams(shopId) {
+function viewShopIceCreams(shopId, shopName) {
     const token = localStorage.getItem('token');
     viewingShopId = shopId; // נעדכן את ההקשר — עכשיו כל פעולות העריכה יתמכו בחנות זו
+    updateUserLink(shopId, shopName); // נקשר את כפתור "לפרטי משתמש" לפרטי המשתמש של החנות שנבחרה
     fetch(`${uri}/${shopId}/icecreams`, {
         headers: {
             'Accept': 'application/json',

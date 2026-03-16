@@ -365,7 +365,8 @@ function _displayUsers(data) {
         card.className = 'user-card';
 
         const info = document.createElement('div');
-        info.innerHTML = `<strong>${user.ShopName || '—'}</strong><br/>${user.Email || '—'}<br/>${user.Address || '—'}`;
+        // show shop name when available; fall back to email or a localized placeholder instead of a dash
+        info.innerHTML = `<strong>${user.ShopName || user.shopName || user.Email || '(אין שם חנות)'}</strong><br/>${user.Email || ''}<br/>${user.Address || ''}`;
 
         const actions = document.createElement('div');
         actions.className = 'actions';
@@ -446,20 +447,33 @@ function _displayUsers(data) {
 // expose showProfile on load for the current user
 // if this page is for profile, call getUsers() for admin, or showProfile() for non-admin
 if (window.location.pathname.endsWith('/user.html')) {
-    if (isAdmin()) {
-        // admin should see the users list first
-        getUsers();
+    const params = new URLSearchParams(window.location.search);
+    const idParam = params.get('id');
+    if (idParam) {
+        // show the specific user's profile and hide the users list (if admin)
+        showProfile(idParam, { hideList: true });
     } else {
-        // non-admin see own profile
-        showProfile();
+        if (isAdmin()) {
+            // admin should see the users list first
+            getUsers();
+        } else {
+            // non-admin see own profile
+            showProfile();
+        }
     }
 }
 
 // call getUsers when relevant DOM is ready (protect against pages without these elements)
 document.addEventListener('DOMContentLoaded', function() {
-    if (document.getElementById('profileSection') || document.getElementById('adminProfileSection') || document.getElementById('usersList')) {
-        getUsers();
+    if (!(document.getElementById('profileSection') || document.getElementById('adminProfileSection') || document.getElementById('usersList'))) return;
+    const params = new URLSearchParams(window.location.search);
+    const idParam = params.get('id');
+    if (idParam) {
+        // already handled above; ensure profile is shown for that id
+        showProfile(idParam, { hideList: true });
+        return;
     }
+    getUsers();
 });
 
 // admin profile UI actions
