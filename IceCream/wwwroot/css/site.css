@@ -366,6 +366,7 @@ html, body {
         th, td { padding: 8px 6px; }
         input[type="submit"], button, .btn { width: 100%; }
     }
+    
 
 
 #editForm { display: none; }
