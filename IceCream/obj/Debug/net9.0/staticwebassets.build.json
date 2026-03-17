@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "kfR+3RS6tsUHwCFqob+aG6tChkE7Un+fe2ZlD6FPOiM=",
+  "Hash": "BD0ib9zOmslLPu7gd9NX50xU/M22l/1zd6GBA58ImJc=",
   "Source": "IceCream",
   "BasePath": "_content/IceCream",
   "Mode": "Default",
@@ -122,12 +122,12 @@
       "OriginalItemSpec": "C:\\Users\\לאה הצדיקה\\Desktop\\NET\\Dotnet-core-project\\IceCream\\wwwroot\\html\\login.html"
     },
     {
-      "Identity": "C:\\Users\\לאה הצדיקה\\Desktop\\NET\\Dotnet-core-project\\IceCream\\obj\\Debug\\net9.0\\compressed\\8lgwfcn7m8-15q2vdl8xc.gz",
+      "Identity": "C:\\Users\\לאה הצדיקה\\Desktop\\NET\\Dotnet-core-project\\IceCream\\obj\\Debug\\net9.0\\compressed\\8lgwfcn7m8-y0nsttmqrl.gz",
       "SourceId": "IceCream",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\לאה הצדיקה\\Desktop\\NET\\Dotnet-core-project\\IceCream\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/IceCream",
-      "RelativePath": "html/user#[.{fingerprint=15q2vdl8xc}]?.html.gz",
+      "RelativePath": "html/user#[.{fingerprint=y0nsttmqrl}]?.html.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -136,8 +136,8 @@
       "RelatedAsset": "C:\\Users\\לאה הצדיקה\\Desktop\\NET\\Dotnet-core-project\\IceCream\\wwwroot\\html\\user.html",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "w6nnb8fz6p",
-      "Integrity": "2G/Rd4F+HhrgJBenKvPIozORyDybRa9lp6DxhrTi6s0=",
+      "Fingerprint": "20d7sg7sc9",
+      "Integrity": "bnbKuYml1SP3PMuH9AGk+FnXfmUoFnM69eRv7iK5iOM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\לאה הצדיקה\\Desktop\\NET\\Dotnet-core-project\\IceCream\\wwwroot\\html\\user.html"
@@ -346,8 +346,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "15q2vdl8xc",
-      "Integrity": "K+ypo8XoShWzoZWX+PISi8i077XJMoWc5c9ltDD99Bw=",
+      "Fingerprint": "y0nsttmqrl",
+      "Integrity": "khQdxv0wsyV1t8KpbkkI3lPHPbHFClhqdh9U72YJGBQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\html\\user.html"
@@ -1694,13 +1694,13 @@
       ]
     },
     {
-      "Route": "html/user.15q2vdl8xc.html",
-      "AssetFile": "C:\\Users\\לאה הצדיקה\\Desktop\\NET\\Dotnet-core-project\\IceCream\\obj\\Debug\\net9.0\\compressed\\8lgwfcn7m8-15q2vdl8xc.gz",
+      "Route": "html/user.html",
+      "AssetFile": "C:\\Users\\לאה הצדיקה\\Desktop\\NET\\Dotnet-core-project\\IceCream\\obj\\Debug\\net9.0\\compressed\\8lgwfcn7m8-y0nsttmqrl.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000757575758"
+          "Quality": "0.000723065799"
         }
       ],
       "ResponseHeaders": [
@@ -1710,19 +1710,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1319"
+          "Value": "1382"
         },
         {
           "Name": "ETag",
-          "Value": "\"2G/Rd4F+HhrgJBenKvPIozORyDybRa9lp6DxhrTi6s0=\""
+          "Value": "\"bnbKuYml1SP3PMuH9AGk+FnXfmUoFnM69eRv7iK5iOM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 17 Mar 2026 19:11:50 GMT"
+          "Value": "Tue, 17 Mar 2026 21:47:17 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
+          "Value": "no-cache"
         },
         {
           "Name": "Content-Encoding",
@@ -1738,26 +1738,18 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"K+ypo8XoShWzoZWX+PISi8i077XJMoWc5c9ltDD99Bw=\""
+          "Value": "W/\"khQdxv0wsyV1t8KpbkkI3lPHPbHFClhqdh9U72YJGBQ=\""
         }
       ],
       "EndpointProperties": [
         {
-          "Name": "fingerprint",
-          "Value": "15q2vdl8xc"
-        },
-        {
-          "Name": "label",
-          "Value": "html/user.html"
-        },
-        {
           "Name": "integrity",
-          "Value": "sha256-K+ypo8XoShWzoZWX+PISi8i077XJMoWc5c9ltDD99Bw="
+          "Value": "sha256-khQdxv0wsyV1t8KpbkkI3lPHPbHFClhqdh9U72YJGBQ="
         }
       ]
     },
     {
-      "Route": "html/user.15q2vdl8xc.html",
+      "Route": "html/user.html",
       "AssetFile": "C:\\Users\\לאה הצדיקה\\Desktop\\NET\\Dotnet-core-project\\IceCream\\wwwroot\\html\\user.html",
       "Selectors": [],
       "ResponseHeaders": [
@@ -1767,7 +1759,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3633"
+          "Value": "3874"
         },
         {
           "Name": "Content-Type",
@@ -1775,11 +1767,156 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"K+ypo8XoShWzoZWX+PISi8i077XJMoWc5c9ltDD99Bw=\""
+          "Value": "\"khQdxv0wsyV1t8KpbkkI3lPHPbHFClhqdh9U72YJGBQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 17 Mar 2026 19:11:50 GMT"
+          "Value": "Tue, 17 Mar 2026 21:47:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-khQdxv0wsyV1t8KpbkkI3lPHPbHFClhqdh9U72YJGBQ="
+        }
+      ]
+    },
+    {
+      "Route": "html/user.html.gz",
+      "AssetFile": "C:\\Users\\לאה הצדיקה\\Desktop\\NET\\Dotnet-core-project\\IceCream\\obj\\Debug\\net9.0\\compressed\\8lgwfcn7m8-y0nsttmqrl.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1382"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"bnbKuYml1SP3PMuH9AGk+FnXfmUoFnM69eRv7iK5iOM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 17 Mar 2026 21:47:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-bnbKuYml1SP3PMuH9AGk+FnXfmUoFnM69eRv7iK5iOM="
+        }
+      ]
+    },
+    {
+      "Route": "html/user.y0nsttmqrl.html",
+      "AssetFile": "C:\\Users\\לאה הצדיקה\\Desktop\\NET\\Dotnet-core-project\\IceCream\\obj\\Debug\\net9.0\\compressed\\8lgwfcn7m8-y0nsttmqrl.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000723065799"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1382"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"bnbKuYml1SP3PMuH9AGk+FnXfmUoFnM69eRv7iK5iOM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 17 Mar 2026 21:47:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"khQdxv0wsyV1t8KpbkkI3lPHPbHFClhqdh9U72YJGBQ=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "y0nsttmqrl"
+        },
+        {
+          "Name": "label",
+          "Value": "html/user.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-khQdxv0wsyV1t8KpbkkI3lPHPbHFClhqdh9U72YJGBQ="
+        }
+      ]
+    },
+    {
+      "Route": "html/user.y0nsttmqrl.html",
+      "AssetFile": "C:\\Users\\לאה הצדיקה\\Desktop\\NET\\Dotnet-core-project\\IceCream\\wwwroot\\html\\user.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3874"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"khQdxv0wsyV1t8KpbkkI3lPHPbHFClhqdh9U72YJGBQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 17 Mar 2026 21:47:17 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1789,7 +1926,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "15q2vdl8xc"
+          "Value": "y0nsttmqrl"
         },
         {
           "Name": "label",
@@ -1797,13 +1934,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-K+ypo8XoShWzoZWX+PISi8i077XJMoWc5c9ltDD99Bw="
+          "Value": "sha256-khQdxv0wsyV1t8KpbkkI3lPHPbHFClhqdh9U72YJGBQ="
         }
       ]
     },
     {
-      "Route": "html/user.15q2vdl8xc.html.gz",
-      "AssetFile": "C:\\Users\\לאה הצדיקה\\Desktop\\NET\\Dotnet-core-project\\IceCream\\obj\\Debug\\net9.0\\compressed\\8lgwfcn7m8-15q2vdl8xc.gz",
+      "Route": "html/user.y0nsttmqrl.html.gz",
+      "AssetFile": "C:\\Users\\לאה הצדיקה\\Desktop\\NET\\Dotnet-core-project\\IceCream\\obj\\Debug\\net9.0\\compressed\\8lgwfcn7m8-y0nsttmqrl.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1812,7 +1949,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1319"
+          "Value": "1382"
         },
         {
           "Name": "Content-Type",
@@ -1820,11 +1957,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"2G/Rd4F+HhrgJBenKvPIozORyDybRa9lp6DxhrTi6s0=\""
+          "Value": "\"bnbKuYml1SP3PMuH9AGk+FnXfmUoFnM69eRv7iK5iOM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 17 Mar 2026 19:11:50 GMT"
+          "Value": "Tue, 17 Mar 2026 21:47:17 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1842,7 +1979,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "15q2vdl8xc"
+          "Value": "y0nsttmqrl"
         },
         {
           "Name": "label",
@@ -1850,144 +1987,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-2G/Rd4F+HhrgJBenKvPIozORyDybRa9lp6DxhrTi6s0="
-        }
-      ]
-    },
-    {
-      "Route": "html/user.html",
-      "AssetFile": "C:\\Users\\לאה הצדיקה\\Desktop\\NET\\Dotnet-core-project\\IceCream\\obj\\Debug\\net9.0\\compressed\\8lgwfcn7m8-15q2vdl8xc.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000757575758"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1319"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"2G/Rd4F+HhrgJBenKvPIozORyDybRa9lp6DxhrTi6s0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 17 Mar 2026 19:11:50 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/html"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"K+ypo8XoShWzoZWX+PISi8i077XJMoWc5c9ltDD99Bw=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-K+ypo8XoShWzoZWX+PISi8i077XJMoWc5c9ltDD99Bw="
-        }
-      ]
-    },
-    {
-      "Route": "html/user.html",
-      "AssetFile": "C:\\Users\\לאה הצדיקה\\Desktop\\NET\\Dotnet-core-project\\IceCream\\wwwroot\\html\\user.html",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "3633"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/html"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"K+ypo8XoShWzoZWX+PISi8i077XJMoWc5c9ltDD99Bw=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 17 Mar 2026 19:11:50 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-K+ypo8XoShWzoZWX+PISi8i077XJMoWc5c9ltDD99Bw="
-        }
-      ]
-    },
-    {
-      "Route": "html/user.html.gz",
-      "AssetFile": "C:\\Users\\לאה הצדיקה\\Desktop\\NET\\Dotnet-core-project\\IceCream\\obj\\Debug\\net9.0\\compressed\\8lgwfcn7m8-15q2vdl8xc.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1319"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/html"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"2G/Rd4F+HhrgJBenKvPIozORyDybRa9lp6DxhrTi6s0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 17 Mar 2026 19:11:50 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-2G/Rd4F+HhrgJBenKvPIozORyDybRa9lp6DxhrTi6s0="
+          "Value": "sha256-bnbKuYml1SP3PMuH9AGk+FnXfmUoFnM69eRv7iK5iOM="
         }
       ]
     },
