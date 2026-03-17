@@ -8,23 +8,15 @@
     <!-- הסבר: זהו עמוד הנחיתה שמוצג לכניסה. כפתורים מובילים לעמוד ההתחברות ולעמוד יצירת משתמש (הרשמה). -->
 </head>
 
-<body>
-    <!-- ניווט עליון -->
-    <div style="direction:rtl;text-align:right;padding:10px;position:fixed;top:10px;right:10px;">
-        <a href="./html/login.html"><button style="margin-right:8px;">כניסה</button></a>
-        <a href="./html/user.html"><button>לפרטי משתמש</button></a>
-    </div>
-
-    <div class="container" style="text-align:center;direction:rtl;padding-top:60px;"> <!-- עברית: יישור לימין -->
-        <h1>ברוכים הבאים לשטראוס</h1>
-        <p>אנחנו נספק בעבורכם את הגלידות הטובות ביותר</p>
-
-        <div style="margin-top:30px;display:flex;justify-content:center;gap:20px;">
-            <a href="./html/login.html"><button style="padding:12px 20px;font-size:16px;">התחברות</button></a>
-            <a href="./html/register.html"><button style="padding:12px 20px;font-size:16px;">הוספת משתמש חדש</button></a>
+<body class="login-bg">
+    <div class="login-overlay">
+        <div class="login-welcome-box">
+            <div class="login-welcome-text">ברוכים הבאים</div>
+            <div class="login-btns">
+                <a href="./html/register.html"><button class="login-btn">להרשמה</button></a>
+                <a href="./html/login.html"><button class="login-btn">להתחברות</button></a>
+            </div>
         </div>
-
-        <p style="margin-top:40px;font-size:14px;color:#666;">אם אתה חנות חדשה — לחץ על "הוספת משתמש חדש" כדי להירשם.</p>
     </div>
 </body>
 

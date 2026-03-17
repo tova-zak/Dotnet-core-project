@@ -1,47 +1,51 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\לאה הצדיקה\\Pictures\\זילברברג\\Project\\Dotnet-core-project\\IceCream\\wwwroot\\css\\site.css",
+      "Id": "C:\\Users\\לאה הצדיקה\\Desktop\\NET\\Dotnet-core-project\\IceCream\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "C:\\Users\\לאה הצדיקה\\Pictures\\זילברברג\\Project\\Dotnet-core-project\\IceCream\\wwwroot\\html\\login.html",
+      "Id": "C:\\Users\\לאה הצדיקה\\Desktop\\NET\\Dotnet-core-project\\IceCream\\wwwroot\\html\\login.html",
       "PackagePath": "staticwebassets\\html\\login.html"
     },
     {
-      "Id": "C:\\Users\\לאה הצדיקה\\Pictures\\זילברברג\\Project\\Dotnet-core-project\\IceCream\\wwwroot\\html\\myicecreams.html",
+      "Id": "C:\\Users\\לאה הצדיקה\\Desktop\\NET\\Dotnet-core-project\\IceCream\\wwwroot\\html\\myicecreams.html",
       "PackagePath": "staticwebassets\\html\\myicecreams.html"
     },
     {
-      "Id": "C:\\Users\\לאה הצדיקה\\Pictures\\זילברברג\\Project\\Dotnet-core-project\\IceCream\\wwwroot\\html\\register.html",
+      "Id": "C:\\Users\\לאה הצדיקה\\Desktop\\NET\\Dotnet-core-project\\IceCream\\wwwroot\\html\\register.html",
       "PackagePath": "staticwebassets\\html\\register.html"
     },
     {
-      "Id": "C:\\Users\\לאה הצדיקה\\Pictures\\זילברברג\\Project\\Dotnet-core-project\\IceCream\\wwwroot\\html\\user.html",
+      "Id": "C:\\Users\\לאה הצדיקה\\Desktop\\NET\\Dotnet-core-project\\IceCream\\wwwroot\\html\\user.html",
       "PackagePath": "staticwebassets\\html\\user.html"
     },
     {
-      "Id": "C:\\Users\\לאה הצדיקה\\Pictures\\זילברברג\\Project\\Dotnet-core-project\\IceCream\\wwwroot\\index.html",
+      "Id": "C:\\Users\\לאה הצדיקה\\Desktop\\NET\\Dotnet-core-project\\IceCream\\wwwroot\\img\\1.png",
+      "PackagePath": "staticwebassets\\img\\1.png"
+    },
+    {
+      "Id": "C:\\Users\\לאה הצדיקה\\Desktop\\NET\\Dotnet-core-project\\IceCream\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },
     {
-      "Id": "C:\\Users\\לאה הצדיקה\\Pictures\\זילברברג\\Project\\Dotnet-core-project\\IceCream\\wwwroot\\js\\login.js",
+      "Id": "C:\\Users\\לאה הצדיקה\\Desktop\\NET\\Dotnet-core-project\\IceCream\\wwwroot\\js\\login.js",
       "PackagePath": "staticwebassets\\js\\login.js"
     },
     {
-      "Id": "C:\\Users\\לאה הצדיקה\\Pictures\\זילברברג\\Project\\Dotnet-core-project\\IceCream\\wwwroot\\js\\myicecreams.js",
+      "Id": "C:\\Users\\לאה הצדיקה\\Desktop\\NET\\Dotnet-core-project\\IceCream\\wwwroot\\js\\myicecreams.js",
       "PackagePath": "staticwebassets\\js\\myicecreams.js"
     },
     {
-      "Id": "C:\\Users\\לאה הצדיקה\\Pictures\\זילברברג\\Project\\Dotnet-core-project\\IceCream\\wwwroot\\js\\register.js",
+      "Id": "C:\\Users\\לאה הצדיקה\\Desktop\\NET\\Dotnet-core-project\\IceCream\\wwwroot\\js\\register.js",
       "PackagePath": "staticwebassets\\js\\register.js"
     },
     {
-      "Id": "C:\\Users\\לאה הצדיקה\\Pictures\\זילברברג\\Project\\Dotnet-core-project\\IceCream\\wwwroot\\js\\site.js",
+      "Id": "C:\\Users\\לאה הצדיקה\\Desktop\\NET\\Dotnet-core-project\\IceCream\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "C:\\Users\\לאה הצדיקה\\Pictures\\זילברברג\\Project\\Dotnet-core-project\\IceCream\\wwwroot\\js\\user.js",
+      "Id": "C:\\Users\\לאה הצדיקה\\Desktop\\NET\\Dotnet-core-project\\IceCream\\wwwroot\\js\\user.js",
       "PackagePath": "staticwebassets\\js\\user.js"
     },
     {

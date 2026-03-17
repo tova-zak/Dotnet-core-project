@@ -180,6 +180,8 @@ function updateUser() {
     return false;
 }
 
+
+
 function changePassword() {
     const id = document.getElementById('pwd-id').value || getCurrentUserId();
     const current = document.getElementById('current-password').value;
@@ -196,23 +198,33 @@ function changePassword() {
         body: JSON.stringify({ CurrentPassword: current, NewPassword: neu })
     })
     .then(response => {
-        if (!response.ok) return response.text().then(t => { throw new Error(`${response.status} ${response.statusText}: ${t}`); });
+        if (!response.ok) {
+            // אם הסטטוס הוא 401 או 400 (למשל סיסמה שגויה), נזרוק שגיאה
+            return response.text().then(t => { 
+                throw new Error("InvalidPassword"); 
+            });
+        }
         const ct = response.headers.get('content-type') || '';
         return ct.includes('application/json') || ct.includes('text/plain') ? response.text() : Promise.resolve();
     })
     .then(tokenString => {
-        // אם השרת החזיר טוקן — נשמור אותו ב-localStorage
+        // אם הגענו לכאן, סימן שהעדכון הצליח
+        alert("עדכון הסיסמא עבר בהצלחה");
+
         if (tokenString && tokenString.length > 10) {
             localStorage.setItem('token', tokenString);
         }
-        // ננקה שדות הסיסמה
         document.getElementById('current-password').value = '';
         document.getElementById('new-password').value = '';
     })
-    .catch(error => console.error('Unable to change password.', error));
-
-    return false;
+    .catch(error => {
+        // כאן אנחנו תופסים גם שגיאות רשת וגם את השגיאה שזרקנו למעלה
+        console.error('Unable to change password.', error);
+        alert("אחת מהסיסמאות שהזנת שגויות, נסה שנית");
+    });
 }
+
+
 
 function closeInput() {
     document.getElementById('editForm').style.display = 'none';
