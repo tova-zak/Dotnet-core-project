@@ -60,9 +60,10 @@ defaultFilesOptions.DefaultFileNames.Clear();
 defaultFilesOptions.DefaultFileNames.Add("index.html");
 // שמור את דף ההתחברות ברשימה כך שניתן להגיע אליו כ/default file אם רצינו, אבל הוא עכשיו שני
 defaultFilesOptions.DefaultFileNames.Add("html/login.html");
+// הנחיה: להזיז את ההפניה ל-HTTPS לפני שרות הקבצים הסטטיים כדי שכל הבקשות יופנו ל-HTTPS
+app.UseHttpsRedirection();
 app.UseDefaultFiles(defaultFilesOptions);
 app.UseStaticFiles();
-app.UseHttpsRedirection();
 app.UseAuthentication(); // ensure authentication middleware runs before authorization
 app.UseActiveUser();
 app.UseMyLogMiddleware();

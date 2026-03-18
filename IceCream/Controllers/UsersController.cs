@@ -1,5 +1,4 @@
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using IceCream.Models;
@@ -7,23 +6,25 @@ using IceCream.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
 using IceCream.Services;
-namespace IceCream.Controllers;
+using Microsoft.AspNetCore.SignalR;
+using IceCream.Hubs;
 
+namespace IceCream.Controllers;
 
 [ApiController]
 [Route("user")]
 public class UserController : ControllerBase
-{  private readonly IUserService service;
-   
+{
+    private readonly IUserService service;
+    private readonly IHubContext<NotificationHub> hubContext;
 
-                      
-    public UserController(IUserService IC)
+    public UserController(IUserService IC, IHubContext<NotificationHub> hubContext)
     {
         this.service = IC;
+        this.hubContext = hubContext;
     }
-   
 
-    [HttpGet()]
+    [HttpGet]
     [Authorize(Policy = "Admin")]
     public ActionResult<IEnumerable<UserModel>> GetAll() => service.Get();
 
@@ -31,61 +32,47 @@ public class UserController : ControllerBase
     [Authorize(Policy = "AllUsers")]
     public ActionResult<UserModel> Get(int id)
     {
-        // שינו כאן: כל משתמש עם טוקן (AllUsers) יכול לקרוא
-        // אך אם המשתמש אינו Admin הוא יכול לראות רק את המידע שלו
         var user = service.Get(id);
         if (user == null) return NotFound();
 
-        // עכשיו אנו משתמשים ב־claim מסוג "userShopName" כדי לזהות את השם (שם החנות) שבטוקן
         var typeClaim = User.Claims.FirstOrDefault(c => c.Type == "type")?.Value;
         var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId")?.Value;
 
         if (typeClaim != "Admin")
         {
-            // לא מנהל -> יכול רק לגשת לפרטים שלו
             if (userIdClaim == null || userIdClaim != id.ToString())
                 return Forbid();
         }
 
         return user;
-        
-   }
-        [HttpPost]
-        [Route("[action]")]
-        [AllowAnonymous] // מאפשר גישה ל-login גם בלי טוקן — חיוני כדי לקבל טוקן במקודם
-        public ActionResult<string> Login([FromBody] UserModel User)
+    }
+
+    [HttpPost]
+    [Route("[action]")]
+    [AllowAnonymous]
+    public ActionResult<string> Login([FromBody] UserModel User)
+    {
+        if (User == null) return BadRequest();
+        if (string.IsNullOrWhiteSpace(User.ShopName) || string.IsNullOrWhiteSpace(User.Password))
+            return BadRequest("username and password required");
+
+        var storedUser = service.Get().FirstOrDefault(u => u.ShopName.Equals(User.ShopName, System.StringComparison.OrdinalIgnoreCase));
+        if (storedUser == null) return Unauthorized();
+
+        if (!PasswordHasher.Verify(User.Password, storedUser.Password)) return Unauthorized();
+
+        bool isAdmin = storedUser.Role == "Admin";
+        var claims = new List<Claim>
         {
-            // בדיקה שהגוף שנשלח אינו null
-            if (User == null) // if request body missing -> bad request
-                return BadRequest();
+            new Claim("userShopName", storedUser.ShopName),
+            new Claim("type", isAdmin ? "Admin" : "User"),
+            new Claim("userId", storedUser.Id.ToString()),
+        };
 
-            if (string.IsNullOrWhiteSpace(User.ShopName) || string.IsNullOrWhiteSpace(User.Password))
-                return BadRequest("username and password required");
+        var token = UserTokenService.GetToken(claims);
+        return new OkObjectResult(UserTokenService.WriteToken(token));
+    }
 
-            // נסה למצוא את המשתמש במאגר
-            var storedUser = service.Get().FirstOrDefault(u => u.ShopName.Equals(User.ShopName, StringComparison.OrdinalIgnoreCase));
-            if (storedUser == null)
-                return Unauthorized();
-
-            // בדוק סיסמה hashed
-            if (!PasswordHasher.Verify(User.Password, storedUser.Password))
-                return Unauthorized();
-
-            bool isAdmin = storedUser.Role == "Admin";
-
-            var claims = new List<Claim>
-            {
-                new Claim("userShopName", storedUser.ShopName),
-                new Claim("type", isAdmin ? "Admin" : "User"),
-                new Claim("userId", storedUser.Id.ToString()),
-            };
-
-            var token = UserTokenService.GetToken(claims);
-
-            return new OkObjectResult(UserTokenService.WriteToken(token));
-        }
-
-    // anonymous registration endpoint for new shops (users)
     [HttpPost("register")]
     [AllowAnonymous]
     public ActionResult<UserModel> Register([FromBody] UserModel newUser)
@@ -94,72 +81,61 @@ public class UserController : ControllerBase
         if (string.IsNullOrWhiteSpace(newUser.ShopName) || string.IsNullOrWhiteSpace(newUser.Password))
             return BadRequest("ShopName and Password are required");
 
-        // לוודא שאין חפיפה של שם החנות
-        if (service.Get().Any(u => u.ShopName.Equals(newUser.ShopName, StringComparison.OrdinalIgnoreCase)))
+        if (service.Get().Any(u => u.ShopName.Equals(newUser.ShopName, System.StringComparison.OrdinalIgnoreCase)))
             return Conflict("ShopName already exists");
 
-        //force role to User
         newUser.Role = "User";
-
         var created = service.Create(newUser);
         return CreatedAtAction(nameof(Get), new { id = created.Id }, created);
     }
-        [HttpPost]
-        [Route("[action]")]
-        [Authorize(Policy = "Admin")]
-        public IActionResult GenerateBadge([FromBody] UserModel User)
+
+    [HttpPost]
+    [Route("[action]")]
+    [Authorize(Policy = "Admin")]
+    public IActionResult GenerateBadge([FromBody] UserModel User)
+    {
+        var claims = new List<Claim>
         {
-            var claims = new List<Claim>
-            {
-                new Claim("userShopName", User.ShopName),
-                new Claim("type", "Agent"),
-                // use Id as a simple integer-based clearance level since model has no clearanceLevel property
-                new Claim("clearanceLevel", User.Id.ToString()),
-            };
+            new Claim("userShopName", User.ShopName),
+            new Claim("type", "Agent"),
+            new Claim("clearanceLevel", User.Id.ToString()),
+        };
+        var token = UserTokenService.GetToken(claims);
+        return new OkObjectResult(UserTokenService.WriteToken(token));
+    }
 
-            var token = UserTokenService.GetToken(claims);
-
-            return new OkObjectResult(UserTokenService.WriteToken(token));
-        }
-       
     [HttpPost]
     [Authorize(Policy = "Admin")]
-    public IActionResult Create(UserModel newUser){
+    public IActionResult Create(UserModel newUser)
+    {
         service.Create(newUser);
-        return CreatedAtAction(nameof(Get), new { id = newUser.Id },newUser);
+        return CreatedAtAction(nameof(Get), new { id = newUser.Id }, newUser);
     }
-    
+
     [HttpPut("{id}")]
     [Authorize(Policy = "AllUsers")]
-    public IActionResult Update(int id,UserModel newUser){
-        if(id!=newUser.Id)
-           return BadRequest();
-         var existing=service.Get(id);
-         if(existing==null)
-           return NotFound();
+    public IActionResult Update(int id, UserModel newUser)
+    {
+        if (id != newUser.Id) return BadRequest();
+        var existing = service.Get(id);
+        if (existing == null) return NotFound();
 
         var typeClaim = User.Claims.FirstOrDefault(c => c.Type == "type")?.Value;
         var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId")?.Value;
 
-        // שינוי: מנהל אינו מורשה לעדכן פרטי משתמשים אחרים. רק בעל החשבון יכול לעדכן את פרטיו.
         if (typeClaim == "Admin")
         {
-            // אם המנהל מנסה לעדכן משתמש שאינו שלו - אסור
-            if (userIdClaim == null || userIdClaim != id.ToString())
-                return Forbid();
+            if (userIdClaim == null || userIdClaim != id.ToString()) return Forbid();
         }
         else
         {
-            // משתמש רגיל - יכול לעדכן רק את עצמו
-            if (userIdClaim == null || userIdClaim != id.ToString())
-                return Forbid();
+            if (userIdClaim == null || userIdClaim != id.ToString()) return Forbid();
         }
 
-         service.Update(id, newUser) ; 
+        service.Update(id, newUser);
         return NoContent();
     }
 
-    // מחיקת משתמש - רק מנהל יכול למחוק
     [HttpDelete("{id}")]
     [Authorize(Policy = "Admin")]
     public IActionResult Delete(int id)
@@ -170,10 +146,7 @@ public class UserController : ControllerBase
         return NoContent();
     }
 
-    // ------------------- ניהול אוסף גלידות פר משתמש -------------------
-    // המטרה: לכל משתמש יש רשימת גלידות משלו (UserModel.IceCreams). הפעולות להלן
-    // מאפשרות למשתמש רגיל לראות ולשנות רק את האוסף שלו, והמנהל יכול לראות/לשנות את כל האוספים.
-
+    // per-user ice creams
     [HttpGet("{id}/icecreams")]
     [Authorize(Policy = "AllUsers")]
     public ActionResult<IEnumerable<IceCreamModel>> GetUserIceCreams(int id)
@@ -186,8 +159,7 @@ public class UserController : ControllerBase
 
         if (typeClaim != "Admin")
         {
-            if (userIdClaim == null || userIdClaim != id.ToString())
-                return Forbid();
+            if (userIdClaim == null || userIdClaim != id.ToString()) return Forbid();
         }
 
         return Ok(user.IceCreams ?? new List<IceCreamModel>());
@@ -205,14 +177,17 @@ public class UserController : ControllerBase
 
         if (typeClaim != "Admin")
         {
-            if (userIdClaim == null || userIdClaim != id.ToString())
-                return Forbid();
+            if (userIdClaim == null || userIdClaim != id.ToString()) return Forbid();
         }
 
         var maxId = user.IceCreams != null && user.IceCreams.Any() ? user.IceCreams.Max(i => i.Id) : 0;
         ice.Id = maxId + 1;
         user.IceCreams.Add(ice);
         service.Update(id, user);
+
+        // notify user's active connections about the addition
+        var addPayload = System.Text.Json.JsonSerializer.Serialize(new { action = "ice_added", iceId = ice.Id });
+        _ = NotificationHub.NotifyUser(hubContext, user.Id.ToString(), addPayload);
 
         return CreatedAtAction(nameof(GetUserIceCreams), new { id = id }, ice);
     }
@@ -229,8 +204,7 @@ public class UserController : ControllerBase
 
         if (typeClaim != "Admin")
         {
-            if (userIdClaim == null || userIdClaim != id.ToString())
-                return Forbid();
+            if (userIdClaim == null || userIdClaim != id.ToString()) return Forbid();
         }
 
         var ice = user.IceCreams.FirstOrDefault(i => i.Id == iceId);
@@ -238,6 +212,10 @@ public class UserController : ControllerBase
 
         user.IceCreams.Remove(ice);
         service.Update(id, user);
+
+        // notify user's active connections about deletion
+        var delPayload = System.Text.Json.JsonSerializer.Serialize(new { action = "ice_deleted", iceId = iceId });
+        _ = NotificationHub.NotifyUser(hubContext, user.Id.ToString(), delPayload);
 
         return NoContent();
     }
@@ -254,18 +232,21 @@ public class UserController : ControllerBase
 
         if (typeClaim != "Admin")
         {
-            if (userIdClaim == null || userIdClaim != id.ToString())
-                return Forbid();
+            if (userIdClaim == null || userIdClaim != id.ToString()) return Forbid();
         }
 
         var ice = user.IceCreams?.FirstOrDefault(i => i.Id == iceId);
         if (ice == null) return NotFound();
 
-        // עדכון השדות המותריים
-        ice.Name = updated.Name ?? updated.Name;
+        ice.Name = updated.Name ?? ice.Name;
         ice.IsDiary = updated.IsDiary;
 
         service.Update(id, user);
+
+        // notify user's active connections about update
+        var updPayload = System.Text.Json.JsonSerializer.Serialize(new { action = "ice_updated", iceId = iceId });
+        _ = NotificationHub.NotifyUser(hubContext, user.Id.ToString(), updPayload);
+
         return NoContent();
     }
 
@@ -288,37 +269,19 @@ public class UserController : ControllerBase
         var typeClaim = User.Claims.FirstOrDefault(c => c.Type == "type")?.Value;
         var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId")?.Value;
 
-        // אם לא מנהל, חייב למסור סיסמה נוכחית ותאימות
         if (typeClaim != "Admin")
         {
-            if (userIdClaim == null || userIdClaim != id.ToString())
-                return Forbid();
+            if (userIdClaim == null || userIdClaim != id.ToString()) return Forbid();
 
             if (string.IsNullOrWhiteSpace(model.CurrentPassword))
                 return BadRequest("Current password required");
 
             if (!PasswordHasher.Verify(model.CurrentPassword, user.Password))
-                return Unauthorized();
+                return BadRequest("Current password is incorrect");
         }
 
-        // עדכן סיסמה חדשה (hash)
         user.Password = PasswordHasher.Hash(model.NewPassword);
         service.Update(id, user);
-
-        // אם המשתמש שינה את הסיסמה של עצמו — החזר טוקן חדש
-        if (userIdClaim != null && userIdClaim == id.ToString())
-        {
-            bool isAdmin = user.Role == "Admin";
-            var claims = new List<Claim>
-            {
-                new Claim("userShopName", user.ShopName),
-                new Claim("type", isAdmin ? "Admin" : "User"),
-                new Claim("userId", user.Id.ToString()),
-            };
-
-            var token = UserTokenService.GetToken(claims);
-            return new OkObjectResult(UserTokenService.WriteToken(token));
-        }
 
         return NoContent();
     }
