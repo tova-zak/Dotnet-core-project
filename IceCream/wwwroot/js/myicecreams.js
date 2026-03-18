@@ -26,6 +26,7 @@ function isAdmin() {
 }
 
 let viewingShopId = null; // מזהה החנות שמוצגת ברגע זה (יכול להיות של המשתמש או של חנות אחרת אם Admin)
+let viewingShopName = null; // שם החנות שמוצגת כעת (לממשק מידע)
 
 // helper to update the 'פרטי משתמש' link based on context
 function updateUserLink(targetId, shopName) {
@@ -57,6 +58,22 @@ function updateUserLink(targetId, shopName) {
     }
 }
 
+// NEW: control add form visibility depending on role and viewing context
+function updateAddFormVisibility() {
+    const addForm = document.getElementById('addForm');
+    const info = document.getElementById('addTargetInfo');
+    if (!addForm) return;
+    if (isAdmin()) {
+        // admin can add only when viewing a specific shop
+        addForm.style.display = viewingShopId ? 'block' : 'none';
+        if (info) info.innerText = viewingShopId ? `מוסיף גלידה לחנות: ${viewingShopName || viewingShopId}` : '';
+    } else {
+        // regular users always see the add form for their own collection
+        addForm.style.display = 'block';
+        if (info) info.innerText = 'הוספת גלידה לאוסף שלי';
+    }
+}
+
 function getMyIceCreams() {
     const token = localStorage.getItem('token');
     const myId = getCurrentUserId();
@@ -78,14 +95,18 @@ function getMyIceCreams() {
             return response.json();
         })
         .then(data => {
-            viewingShopId = null; // עדיין לא מציגים אוסף ספציפי
+            viewingShopId = null; viewingShopName = null; // עדיין לא מציגים אוסף ספציפי
             _displayAllShops(data, token);
             updateUserLink(null); // show users list link for admin
+            // hide add form on the admin overview
+            updateAddFormVisibility();
+            // set page title
+            const titleEl = document.getElementById('page-title'); if (titleEl) titleEl.innerText = 'כל החנויות והאוספים שלהן';
         })
         .catch(error => console.error('Unable to get shops.', error));
     } else {
         // משתמש רגיל - הצג רק את האוסף שלו
-        viewingShopId = myId;
+        viewingShopId = myId; viewingShopName = 'שלי';
         fetch(`${uri}/${myId}/icecreams`, {
             headers: {
                 'Accept': 'application/json',
@@ -99,6 +120,8 @@ function getMyIceCreams() {
         .then(data => {
             _displayIceCreams(data);
             updateUserLink(myId); // link to own profile
+            updateAddFormVisibility();
+            const titleEl = document.getElementById('page-title'); if (titleEl) titleEl.innerText = 'האוספים וההזמנות שלי';
         })
         .catch(error => console.error('Unable to get ice creams.', error));
     }
@@ -269,7 +292,7 @@ function _displayAllShops(shops, token) {
 
 function viewShopIceCreams(shopId, shopName) {
     const token = localStorage.getItem('token');
-    viewingShopId = shopId; // נעדכן את ההקשר — עכשיו כל פעולות העריכה יתמכו בחנות זו
+    viewingShopId = shopId; viewingShopName = shopName || shopId; // נעדכן את ההקשר — עכשיו כל פעולות העריכה יתמקדו בחנות זו
     updateUserLink(shopId, shopName); // נקשר את כפתור "לפרטי משתמש" לפרטי המשתמש של החנות שנבחרה
     fetch(`${uri}/${shopId}/icecreams`, {
         headers: {
@@ -283,6 +306,10 @@ function viewShopIceCreams(shopId, shopName) {
     })
     .then(data => {
         _displayIceCreams(data);
+        // show add form for admin when viewing a specific shop
+        updateAddFormVisibility();
+        // update page title to indicate which shop we view
+        const titleEl = document.getElementById('page-title'); if (titleEl) titleEl.innerText = shopName ? `אוספים של ${shopName}` : 'אוספים';
     })
     .catch(error => console.error('Unable to get ice creams.', error));
 }

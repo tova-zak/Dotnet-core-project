@@ -585,15 +585,9 @@ Z:\יד תשפו\זק טובה\זילברברג עדכני_\יום רביעי!\D
 Z:\יד תשפו\זק טובה\זילברברג עדכני_\יום רביעי!\Dotnet-core-project\IceCream\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
 Z:\יד תשפו\זק טובה\זילברברג עדכני_\יום רביעי!\Dotnet-core-project\IceCream\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
 Z:\יד תשפו\זק טובה\זילברברג עדכני_\יום רביעי!\Dotnet-core-project\IceCream\obj\Debug\net9.0\scopedcss\bundle\IceCream.styles.css
-Z:\יד תשפו\זק טובה\זילברברג עדכני_\יום רביעי!\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\ivkftqmjf8-hv6h3vpcr1.gz
-Z:\יד תשפו\זק טובה\זילברברג עדכני_\יום רביעי!\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\5exlu1226p-d8x7zhyu39.gz
-Z:\יד תשפו\זק טובה\זילברברג עדכני_\יום רביעי!\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\m12eh6ztij-di1246qlvm.gz
-Z:\יד תשפו\זק טובה\זילברברג עדכני_\יום רביעי!\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\nfvgh58oqn-k95td30yy3.gz
 Z:\יד תשפו\זק טובה\זילברברג עדכני_\יום רביעי!\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\8lgwfcn7m8-y0nsttmqrl.gz
 Z:\יד תשפו\זק טובה\זילברברג עדכני_\יום רביעי!\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\0zvy2tdusf-48v2ty0j35.gz
 Z:\יד תשפו\זק טובה\זילברברג עדכני_\יום רביעי!\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\3c2njt8xvc-unw1ibvr4y.gz
-Z:\יד תשפו\זק טובה\זילברברג עדכני_\יום רביעי!\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\v11stny2d8-bqndu4oxjf.gz
-Z:\יד תשפו\זק טובה\זילברברג עדכני_\יום רביעי!\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\0mxzb52o1a-3k8re3q1ou.gz
 Z:\יד תשפו\זק טובה\זילברברג עדכני_\יום רביעי!\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\3nqsdmvcnf-9gog3mzhfk.gz
 Z:\יד תשפו\זק טובה\זילברברג עדכני_\יום רביעי!\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\orvjxj9mlr-e1g9v9zbdd.gz
 Z:\יד תשפו\זק טובה\זילברברג עדכני_\יום רביעי!\Dotnet-core-project\IceCream\obj\Debug\net9.0\staticwebassets.build.json
@@ -606,3 +600,9 @@ Z:\יד תשפו\זק טובה\זילברברג עדכני_\יום רביעי!\D
 Z:\יד תשפו\זק טובה\זילברברג עדכני_\יום רביעי!\Dotnet-core-project\IceCream\obj\Debug\net9.0\IceCream.pdb
 Z:\יד תשפו\זק טובה\זילברברג עדכני_\יום רביעי!\Dotnet-core-project\IceCream\obj\Debug\net9.0\IceCream.genruntimeconfig.cache
 Z:\יד תשפו\זק טובה\זילברברג עדכני_\יום רביעי!\Dotnet-core-project\IceCream\obj\Debug\net9.0\ref\IceCream.dll
+Z:\יד תשפו\זק טובה\זילברברג עדכני_\יום רביעי!\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\m12eh6ztij-qv9chwl5ej.gz
+Z:\יד תשפו\זק טובה\זילברברג עדכני_\יום רביעי!\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\v11stny2d8-3vs128756s.gz
+Z:\יד תשפו\זק טובה\זילברברג עדכני_\יום רביעי!\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\nfvgh58oqn-4ue8dg2jtx.gz
+Z:\יד תשפו\זק טובה\זילברברג עדכני_\יום רביעי!\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\0mxzb52o1a-yefcwx7ab2.gz
+Z:\יד תשפו\זק טובה\זילברברג עדכני_\יום רביעי!\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\ivkftqmjf8-ykr236u1o7.gz
+Z:\יד תשפו\זק טובה\זילברברג עדכני_\יום רביעי!\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\5exlu1226p-4aqkp23tl1.gz

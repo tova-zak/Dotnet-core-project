@@ -84,9 +84,37 @@ public class UserController : ControllerBase
         if (service.Get().Any(u => u.ShopName.Equals(newUser.ShopName, System.StringComparison.OrdinalIgnoreCase)))
             return Conflict("ShopName already exists");
 
+        // password strength validation
+        if (!IsStrongPassword(newUser.Password, out var pwdErrors))
+            return BadRequest(string.Join("; ", pwdErrors));
+
+        // prevent reuse of same password by different users
+        if (service.Get().Any(u => !string.IsNullOrEmpty(u.Password) && PasswordHasher.Verify(newUser.Password, u.Password)))
+            return Conflict("Password is already used by another user. Please choose a different password.");
+
         newUser.Role = "User";
         var created = service.Create(newUser);
         return CreatedAtAction(nameof(Get), new { id = created.Id }, created);
+    }
+
+    [HttpPost]
+    [Authorize(Policy = "Admin")]
+    public IActionResult Create(UserModel newUser)
+    {
+        if (newUser == null) return BadRequest();
+        if (string.IsNullOrWhiteSpace(newUser.Password)) return BadRequest("Password required");
+
+        if (!IsStrongPassword(newUser.Password, out var pwdErrors))
+            return BadRequest(string.Join("; ", pwdErrors));
+
+        if (service.Get().Any(u => !string.IsNullOrEmpty(u.Password) && PasswordHasher.Verify(newUser.Password, u.Password)))
+            return Conflict("Password is already used by another user. Please choose a different password.");
+
+        // ensure Role default if not supplied
+        if (string.IsNullOrWhiteSpace(newUser.Role)) newUser.Role = "User";
+
+        service.Create(newUser);
+        return CreatedAtAction(nameof(Get), new { id = newUser.Id }, newUser);
     }
 
     [HttpPost]
@@ -102,14 +130,6 @@ public class UserController : ControllerBase
         };
         var token = UserTokenService.GetToken(claims);
         return new OkObjectResult(UserTokenService.WriteToken(token));
-    }
-
-    [HttpPost]
-    [Authorize(Policy = "Admin")]
-    public IActionResult Create(UserModel newUser)
-    {
-        service.Create(newUser);
-        return CreatedAtAction(nameof(Get), new { id = newUser.Id }, newUser);
     }
 
     [HttpPut("{id}")]
@@ -284,5 +304,41 @@ public class UserController : ControllerBase
         service.Update(id, user);
 
         return NoContent();
+    }
+
+    [HttpPost("passwordused")]
+    [AllowAnonymous]
+    public ActionResult<object> PasswordUsed([FromBody] PasswordCheckModel model)
+    {
+        if (model == null || string.IsNullOrWhiteSpace(model.Password))
+            return BadRequest(new { used = false });
+
+        var users = service.Get();
+        // check if any existing user's hashed password matches the provided plain password
+        foreach (var u in users)
+        {
+            if (!string.IsNullOrEmpty(u.Password) && PasswordHasher.Verify(model.Password, u.Password))
+                return Ok(new { used = true });
+        }
+
+        return Ok(new { used = false });
+    }
+
+    public class PasswordCheckModel
+    {
+        public string Password { get; set; } = string.Empty;
+    }
+
+    // helper: at least 8 chars, at least 2 letters and 2 digits
+    private static bool IsStrongPassword(string pwd, out List<string> errors)
+    {
+        errors = new List<string>();
+        if (string.IsNullOrEmpty(pwd) || pwd.Length < 8)
+            errors.Add("הסיסמה חייבת להכיל לפחות 8 תווים");
+        int letters = pwd.Count(char.IsLetter);
+        int digits = pwd.Count(char.IsDigit);
+        if (letters < 2) errors.Add("הסיסמה חייבת להכיל לפחות 2 אותיות");
+        if (digits < 2) errors.Add("הסיסמה חייבת להכיל לפחות 2 ספרות");
+        return errors.Count == 0;
     }
 }
