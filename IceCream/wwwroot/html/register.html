@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הרשמה - חנות גלידות</title>
+    <style>
+         @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;700;800&family=Heebo:wght@800&display=swap');
+    </style>
+   
+    <link rel="stylesheet" href="../css/site.css"> <script src="../js/register.js" defer></script>
+</head>
+<body class="register-page">
+
+    <div class="nav-top">
+        <a href="/index.html" class="home-btn">דף הבית</a>
+    </div>
+
+    <!-- תצוגת כרטיס מרכזי עם לוגו עגול מעל -->
+    <div class="register-container">
+        <div class="card">
+            <div class="logo-wrapper">
+                <div class="logo-circle">
+                    <img src="/img/2.png" alt="לוגו" class="profile-img">
+                </div>
+            </div>
+
+            <h1 class="form-title">הרשמה לחנות גלידות</h1>
+
+            <form id="registerForm" class="styled-form" action="javascript:void(0);" onsubmit="registerUser()">
+                <div class="input-group">
+                    <label for="shopName">שם החנות</label>
+                    <input type="text" id="shopName" placeholder="הכנס את שם החנות" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">סיסמה</label>
+                    <input type="password" id="password" placeholder="בחר סיסמה חזקה" required>
+                    <div id="passwordHelp" class="pwd-help" aria-live="polite" style="color:#fff;margin-top:6px;font-weight:600;"></div>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">אימייל</label>
+                    <input type="email" id="email" placeholder="כתובת אימייל" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="address">כתובת</label>
+                    <input type="text" id="address" placeholder="עיר, רחוב ומספר" required>
+                </div>
+
+                <button type="submit" class="submit-btn">צור חשבון חדש</button>
+            </form>
+
+            <p class="login-link">יש לך כבר חשבון? <a href="./login.html">להתחברות כאן</a></p>
+        </div>
+    </div>
+
+</body>
+</html>

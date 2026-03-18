@@ -1,0 +1,406 @@
+/* ייבוא פונטים מרהיבים מגוגל */
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;700;800&family=Heebo:wght@800&display=swap');
+
+/* --- Login Page Fullscreen Image Background --- */
+.login-bg {
+    min-height: 100vh;
+    min-width: 100vw;
+    margin: 0;
+    padding: 0;
+    background: url('/img/1.png'), url('img/1.png'), url('./img/1.png') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+    /* שינוי הפונט הכללי לפונט Assistant המודרני */
+    font-family: 'Assistant', sans-serif;
+    overflow: hidden;
+}
+
+.login-overlay {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.login-welcome-box {
+    margin: 0 40px 40px 0;
+    /* שקיפות גבוהה יותר עם אפקט זכוכית יוקרתי */
+    background: rgba(255, 255, 255, 0.05); 
+    /* עיגול פינות מרשים מאוד */
+    border-radius: 45px; 
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    padding: 40px 50px;
+    min-width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    pointer-events: auto;
+    z-index: 20;
+    /* אפקט הטשטוש שיוצר את המראה המרשים */
+    backdrop-filter: blur(15px) saturate(1.5);
+    -webkit-backdrop-filter: blur(15px) saturate(1.5);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    transition: all 0.3s ease;
+}
+
+.login-welcome-text {
+    /* שימוש בפונט Heebo עבה ומרשים לכותרת */
+    font-family: 'Heebo', sans-serif;
+    font-weight: 800;
+    color: #9d0d02; /* אדום שטראוס */
+    font-size: 3em;
+    margin-bottom: 25px;
+    text-align: center;
+    width: 100%;
+    letter-spacing: -1px;
+    /* צל עדין מאוד שנותן עומק לטקסט */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.login-btns {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 16px;
+    width: 100%;
+    justify-content: center;
+}
+
+.login-btn {
+    /* גרדיאנט שמתאים לצבעי הלוגו בתמונה */
+    background: linear-gradient(135deg, #009A44 0%, #0072CE 100%);
+    color: #fff;
+    font-family: 'Assistant', sans-serif;
+    font-weight: 700;
+    font-size: 1.15em;
+    border-radius: 50px; /* כפתורים עגולים לגמרי */
+    padding: 14px 35px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 114, 206, 0.2);
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.login-btn:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.1);
+    box-shadow: 0 8px 25px rgba(0, 114, 206, 0.3);
+}
+
+
+
+/* עיצוב מגניב וצבעוני לחנות גלידות - צבעים עזים וגרדיאנטים */
+:root {
+    /* --ice-pink: #ff0080;
+    --ice-blue: #00eaff;
+    --ice-yellow: #ffe600;
+    --ice-purple: #a800ff;
+    --ice-green: #00ff85;
+    --ice-orange: #ff7a00;
+    --ice-white: #fff;
+    --ice-dark: #222;
+    --ice-shadow: 0 8px 32px 0 rgba(0,0,0,0.18);
+    --ice-gradient: linear-gradient(135deg, #ff0080 0%, #00eaff 50%, #ffe600 100%);
+    --ice-gradient2: linear-gradient(135deg, #a800ff 0%, #ff7a00 100%);
+    --ice-gradient3: linear-gradient(135deg, #00ff85 0%, #ff0080 100%); */
+    --ice-pink: #7fd0f5;
+    --ice-blue: #00eaff;
+    --ice-yellow: #dcc705;
+    --ice-purple: #3605fa;
+    --ice-green: #00ff85;
+    --ice-orange: #bb0505;
+    --ice-white: #fff;
+    --ice-dark: #222;
+    --ice-shadow: 0 8px 32px 0 rgba(0,0,0,0.18);
+    --ice-gradient: linear-gradient(135deg, #b00505 0%, #00eaff 50%, #eed707 100%);
+    --ice-gradient2: linear-gradient(135deg, #2f07be 0%, #06e66f 100%);
+    --ice-gradient3: linear-gradient(135deg, #00ff85 0%, #c20303 100%);
+
+
+
+}
+
+/* typography + רקע כללי */
+html, body {
+    height: 100%;
+    font-family: 'Varela Round', 'Segoe UI', Arial, sans-serif;
+    color: var(--ice-dark);
+    letter-spacing: 0.5px;
+}
+/* 🍦 עיצוב מרשים לחנות גלידות שטראוס - מודרני וייפה */
+    body {
+        padding: 0;
+        margin: 0;
+        min-height: 100vh;
+        position: relative;
+    }
+
+    @keyframes iceBG {
+        0% { background: var(--ice-gradient); background-position: 0% 50%; }
+        25% { background: var(--ice-gradient2); background-position: 50% 100%; }
+        50% { background: var(--ice-gradient3); background-position: 100% 50%; }
+        75% { background: var(--ice-gradient2); background-position: 50% 0%; }
+        100% { background: var(--ice-gradient); background-position: 0% 50%; }
+    }
+
+    /* אפקט "צף" של בועות צבע ברקע */
+    .ice-bubble {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.18;
+        z-index: 0;
+        animation: floatBubble 18s ease-in-out infinite;
+    }
+
+    @keyframes floatBubble {
+        0% { transform: translateY(0) scale(1); opacity: 0.18; }
+        50% { transform: translateY(-60px) scale(1.08); opacity: 0.28; }
+        100% { transform: translateY(0) scale(1); opacity: 0.18; }
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 40px auto;
+        background: rgba(255,255,255,0.95);
+        border-radius: 24px;
+        box-shadow: var(--ice-shadow);
+        padding: 40px 32px;
+        animation: popIn 0.7s cubic-bezier(.68,-0.55,.27,1.55);
+    }
+
+    @keyframes popIn {
+        0% { transform: scale(0.95); opacity: 0; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+
+    h1, h2, h3 {
+        font-family: 'Luckiest Guy', cursive, 'Varela Round', Arial, sans-serif;
+        text-align: center;
+        margin-bottom: 18px;
+        color: var(--ice-pink);
+        text-shadow: 2px 2px 8px #ffe600, 0 2px 8px #00eaff;
+    }
+
+    h2 { color: var(--ice-blue); }
+    h3 { color: var(--ice-yellow); }
+
+    p {
+        font-size: 1.1em;
+        color: var(--ice-dark);
+        margin-bottom: 16px;
+    }
+
+    form {
+        background: var(--ice-gradient2);
+        padding: 24px 18px;
+        border-radius: 18px;
+        box-shadow: 0 4px 16px rgba(168,0,255,0.12);
+        margin-bottom: 24px;
+    }
+
+    label {
+        font-weight: bold;
+        color: var(--ice-purple);
+        margin-bottom: 6px;
+        display: block;
+    }
+
+    input[type="text"], input[type="password"], input[type="email"], textarea, select {
+        padding: 14px 16px;
+        border-radius: 14px;
+        border: 2px solid var(--ice-blue);
+        background: var(--ice-white);
+        font-size: 1em;
+        margin-bottom: 12px;
+        transition: border-color 0.2s, box-shadow 0.2s;
+        box-shadow: 0 2px 8px rgba(0,234,255,0.08);
+    }
+
+    input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, textarea:focus, select:focus {
+        border-color: var(--ice-pink);
+        box-shadow: 0 0 0 4px #ff008033;
+    }
+
+    input[type="submit"], button, .btn {
+        background: var(--ice-gradient3);
+        color: var(--ice-white);
+        border: none;
+        border-radius: 16px;
+        font-size: 1.1em;
+        font-weight: bold;
+        padding: 14px 28px;
+        margin-top: 8px;
+        box-shadow: 0 4px 16px #ff008033;
+        cursor: pointer;
+        transition: transform 0.18s, box-shadow 0.18s, filter 0.18s;
+        position: relative;
+        overflow: hidden;
+    }
+
+    input[type="submit"]:hover, button:hover, .btn:hover {
+        transform: scale(1.04) rotate(-2deg);
+        filter: brightness(1.1) saturate(1.2);
+        box-shadow: 0 8px 32px #00eaff33;
+    }
+
+    input[type="submit"]:active, button:active, .btn:active {
+        transform: scale(0.98);
+        box-shadow: 0 2px 8px #ffe60033;
+    }
+
+    input[type="submit"]::after, button::after, .btn::after {
+        content: '';
+        position: absolute;
+        left: 50%; top: 50%;
+        width: 0; height: 0;
+        border-radius: 50%;
+        background: var(--ice-yellow);
+        opacity: 0.3;
+        transform: translate(-50%, -50%);
+        transition: width .4s, height .4s, opacity .4s;
+    }
+
+    input[type="submit"]:active::after, button:active::after, .btn:active::after {
+        width: 180px;
+        height: 180px;
+        opacity: 0;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 24px 0;
+        background: var(--ice-white);
+        border-radius: 16px;
+        box-shadow: 0 4px 16px #00eaff33;
+        overflow: hidden;
+    }
+
+    th, td {
+        padding: 16px 18px;
+        text-align: left;
+        border-bottom: 1px solid #ffe60033;
+        font-size: 1em;
+    }
+
+    th {
+        background: var(--ice-gradient);
+        color: var(--ice-white);
+        font-weight: bold;
+        text-shadow: 1px 1px 6px #ff0080;
+    }
+
+    tr:hover {
+        background: #ff008022;
+        transition: background 0.2s;
+    }
+
+    .badge {
+        display: inline-block;
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 0.9em;
+        font-weight: bold;
+        background: var(--ice-yellow);
+        color: var(--ice-dark);
+        margin: 0 4px;
+    }
+
+    .badge.admin {
+        background: var(--ice-purple);
+        color: var(--ice-white);
+    }
+    .badge.shop {
+        background: var(--ice-green);
+        color: var(--ice-dark);
+    }
+    .badge.empty {
+        background: var(--ice-orange);
+        color: var(--ice-white);
+    }
+
+    .alert {
+        padding: 18px 24px;
+        border-radius: 16px;
+        margin: 18px 0;
+        font-weight: bold;
+        font-size: 1.1em;
+        background: var(--ice-gradient2);
+        color: var(--ice-white);
+        box-shadow: 0 2px 8px #a800ff33;
+    }
+
+    a {
+        color: var(--ice-pink);
+        text-decoration: none;
+        font-weight: bold;
+        border-bottom: 2px solid transparent;
+        transition: border-color 0.2s, color 0.2s;
+    }
+    a:hover {
+        border-bottom: 2px solid var(--ice-blue);
+        color: var(--ice-blue);
+    }
+
+    footer {
+        text-align: center;
+        padding: 32px 20px;
+        background: var(--ice-gradient2);
+        color: var(--ice-white);
+        margin-top: 40px;
+        font-size: 1em;
+        border-radius: 0 0 24px 24px;
+    }
+
+    @media (max-width: 700px) {
+        .container { padding: 16px 6px; }
+        h1 { font-size: 1.5em; }
+        h2 { font-size: 1.2em; }
+        h3 { font-size: 1em; }
+        th, td { padding: 8px 6px; }
+        input[type="submit"], button, .btn { width: 100%; }
+    }
+    
+
+
+#editForm { display: none; }
+[aria-label]{ padding:8px 12px; border-radius:10px; }
+
+
+/* Register card styles */
+.register-page { background: linear-gradient(135deg, #f7fbff 0%, #f0fff4 100%); min-height: 100vh; display:flex; align-items:center; justify-content:center; }
+.register-container { width:100%; max-width:980px; padding: 40px 20px; box-sizing: border-box; }
+.card { background: linear-gradient(135deg, #00c98a 0%, #3a35ff 100%); border-radius: 24px; padding: 48px 40px 32px 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.12); color: #fff; position: relative; overflow: visible; }
+.logo-wrapper { position: absolute; top: -48px; left: 50%; transform: translateX(-50%); }
+.logo-circle { width: 110px; height: 110px; border-radius: 50%; background: #fff; display:flex; align-items:center; justify-content:center; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+.logo-circle .profile-img { width: 90px; height: 90px; border-radius: 50%; object-fit: cover; }
+.form-title { text-align: center; font-family: 'Heebo', sans-serif; font-weight:800; font-size:1.8rem; margin-top: 24px; margin-bottom: 18px; color: #fff; text-shadow: 0 4px 18px rgba(0,0,0,0.15); }
+.styled-form { display:flex; flex-direction:column; gap:12px; margin-top: 10px; }
+.input-group label { color: rgba(255,255,255,0.9); font-weight:700; margin-bottom:6px; display:block; }
+.input-group input { padding:12px 14px; border-radius:10px; border:none; outline:none; font-size:1rem; }
+.input-group input::placeholder { color: #0c2b2b; }
+.submit-btn { margin-top:8px; align-self:center; padding: 12px 30px; font-weight:800; border-radius:30px; background: linear-gradient(90deg,#ffb199 0%,#ff516a 100%); color:#fff; border:none; box-shadow: 0 8px 30px rgba(0,0,0,0.18); cursor:pointer; }
+.login-link { text-align:center; margin-top:12px; color: rgba(255,255,255,0.95); }
+
+@media (max-width:600px){ .card{ padding:24px 18px; } .logo-wrapper{ top:-40px; } }
+
+/* Login page styles */
+.login-container { min-height: 100vh; display:flex; align-items:center; justify-content:center; padding: 40px 20px; }
+.login-card { width: 100%; max-width:420px; background: #fff; border-radius: 20px; padding: 44px 28px 30px; box-shadow: 0 20px 60px rgba(160,0,120,0.08); position:relative; }
+.login-card .logo-wrapper { position:absolute; top:-54px; left:50%; transform:translateX(-50%); }
+.login-card .logo-circle { width:110px; height:110px; border-radius:50%; background: linear-gradient(90deg,#ffb199 0%,#ff516a 100%); display:flex; align-items:center; justify-content:center; box-shadow: 0 8px 30px rgba(255,81,106,0.18); }
+.login-card .logo-circle .profile-img { width:86px; height:86px; border-radius:50%; }
+.login-title { text-align:center; margin-top: 12px; margin-bottom: 18px; font-family:'Heebo',sans-serif; font-weight:800; color:#3a035f; }
+.login-form { display:flex; flex-direction:column; gap:10px; }
+.login-form label{ font-weight:700; color:#333; }
+.login-form input{ padding:12px 14px; border-radius:8px; border:1px solid #ddd; }
+.login-btn{ margin-top:6px; padding:12px 18px; border-radius:30px; background: linear-gradient(90deg,#00c98a 0%,#3a35ff 100%); color:#fff; font-weight:800; border:none; cursor:pointer; box-shadow:0 8px 30px rgba(58,53,255,0.14); }
+.login-help{ text-align:center; margin-top:12px; }
+
+@media (max-width:480px){ .login-card{ padding:24px 14px; } .login-card .logo-wrapper{ top:-44px; } }

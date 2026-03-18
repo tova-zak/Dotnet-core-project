@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>התחברות - חנות גלידות</title>
+    <link rel="stylesheet" href="../css/site.css">
+    <script src="../js/login.js" defer></script>
+</head>
+<body class="login-page" style="direction:rtl;">
+
+    <div class="login-container">
+        <div class="login-card">
+            <div class="logo-wrapper">
+                <div class="logo-circle">
+                    <img src="/img/2.png" alt="לוגו" class="profile-img">
+                </div>
+            </div>
+
+            <h1 class="login-title">התחברות לחנות גלידות</h1>
+
+            <form id="loginForm" class="login-form" action="javascript:void(0);" onsubmit="loginUser()">
+                <label for="shopName">שם החנות</label>
+                <input type="text" id="shopName" placeholder="הכנס את שם החנות" required>
+
+                <label for="password">סיסמה</label>
+                <input type="password" id="password" placeholder="הכנס את הסיסמה" required>
+
+                <button type="submit" class="login-btn">התחבר</button>
+            </form>
+
+            <p class="login-help">אין לך חשבון? <a href="./register.html">להרשמה</a></p>
+        </div>
+    </div>
+
+</body>
+</html>

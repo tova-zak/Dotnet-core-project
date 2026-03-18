@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>פרטי משתמש</title>
+    <link rel="stylesheet" href="../css/site.css" />
+    <script>
+        // Check for token
+        if (!localStorage.getItem('token')) {
+            window.location.href = 'login.html'; // Redirect to the login page if no token is found
+        }
+    </script>
+    <style>
+        /* פשטות ל־cards */
+        .user-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 12px;
+            margin: 8px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        .user-card div {
+            margin: 2px 8px
+        }
+
+        .actions button {
+            margin-left: 8px
+        }
+    </style>
+</head>
+
+<body style="direction:rtl;text-align:right;">
+    <!-- ניווט מקוצר: רק חזרה לדף הבית כפי שהתבקש -->
+    <div style="direction:rtl;text-align:right;padding:10px;">
+        <!-- קישור מעודכן לדף הבית הראשי עם עיצוב התמונה -->
+        
+        <a href="/index.html"><button style="margin-right:8px;">חזרה לדף הבית</button></a>
+        <!-- קישור נוסף לאוספים שלי (אם המשתמש הוא לא אדמין) -->
+
+        <a href="myicecreams.html"><button style="margin-right:8px;"> חזרה לאוסף הגלידות שלי</button></a>
+    </div>
+
+    <div class="container">
+        <h1>פרטי משתמש</h1>
+
+        <!-- אזור לעריכת פרופיל של המשתמש המחובר -->
+        <div id="profileSection" style="display:none;">
+            <h3>הפרטים שלי</h3>
+            <form id="profileForm" action="javascript:void(0);" onsubmit="updateProfile()">
+                <input type="hidden" id="profile-id">
+                <input type="hidden" id="pwd-id">
+                <label>שם החנות</label>
+                <input type="text" id="profile-shopName" placeholder="שם החנות">
+                <label>אימייל</label>
+                <input type="text" id="profile-email" placeholder="אימייל">
+                <label>כתובת</label>
+                <input type="text" id="profile-address" placeholder="כתובת">
+                <input type="submit" value="שמור שינויים">
+            </form>
+
+            <h4>שינוי סיסמה</h4>
+            <form action="javascript:void(0);" onsubmit="changePassword()">
+                <input type="password" id="current-password" placeholder="סיסמה נוכחית">
+                <input type="password" id="new-password" placeholder="סיסמה חדשה">
+                <input type="submit" value="שנה סיסמה">
+            </form>
+        </div>
+
+        <!-- אזור תצוגת פרטי משתמש למנהל (קריאה בלבד + מחיקה) -->
+        <div id="adminProfileSection" style="display:none;">
+            <h3>פרטי משתמש (מנהל)</h3>
+            <p>Id: <span id="admin-id"></span></p>
+            <p>שם החנות: <span id="admin-shopName"></span></p>
+            <p>אימייל: <span id="admin-email"></span></p>
+            <p>כתובת: <span id="admin-address"></span></p>
+            <p>מספר גלידות: <span id="admin-icecount"></span></p>
+            <div class="actions">
+                <button id="admin-delete-btn">מחק משתמש</button>
+                <button id="admin-back-btn">חזור</button>
+            </div>
+        </div>
+
+        <!-- רשימת משתמשים להצגה למנהל -->
+        <div id="usersList" style="margin-top:18px;"></div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+    <script src="../js/user.js"></script>
+</body>
+
+</html>
