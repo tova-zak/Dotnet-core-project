@@ -6,6 +6,8 @@ using IceCream.Models;
 using IceCream.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
+using Microsoft.AspNetCore.SignalR;
+using IceCream.Hubs;
 namespace IceCream.Controllers;
 
 
@@ -13,12 +15,13 @@ namespace IceCream.Controllers;
 [Route("[controller]")]
 public class IceCreamController : ControllerBase
 {  private readonly IOrderService service;
-   
+   private readonly IHubContext<NotificationHub> hubContext;
 
                       
-    public IceCreamController(IOrderService IC)
+    public IceCreamController(IOrderService IC, IHubContext<NotificationHub> hubContext)
     {
         this.service = IC;
+        this.hubContext = hubContext;
     }
    
 
@@ -43,6 +46,16 @@ public class IceCreamController : ControllerBase
     [Authorize(Policy="Admin")]
     public IActionResult Create(IceCreamModel newIceCream){
         service.Create(newIceCream);
+        
+        var userId = User.Claims.FirstOrDefault(c => c.Type == "userId")?.Value;
+        var message = System.Text.Json.JsonSerializer.Serialize(new { 
+            action = "ice_created", 
+            id = newIceCream.Id, 
+            name = newIceCream.Name,
+            by = userId 
+        });
+        _ = NotificationHub.NotifyAdmins(hubContext, message);
+        
         return CreatedAtAction(nameof(Get),new{id=newIceCream.Id},newIceCream);
     }
     
@@ -55,6 +68,16 @@ public class IceCreamController : ControllerBase
         if(existing==null)
           return NotFound();
         service.Update(id,newIceCream);
+        
+        var userId = User.Claims.FirstOrDefault(c => c.Type == "userId")?.Value;
+        var message = System.Text.Json.JsonSerializer.Serialize(new { 
+            action = "ice_updated", 
+            id = newIceCream.Id,
+            name = newIceCream.Name,
+            by = userId 
+        });
+        _ = NotificationHub.NotifyAdmins(hubContext, message);
+        
         return NoContent();
     }
 
@@ -65,6 +88,15 @@ public class IceCreamController : ControllerBase
         if(iceCream==null)
            return NotFound();
         service.Delete(id);
+        
+        var userId = User.Claims.FirstOrDefault(c => c.Type == "userId")?.Value;
+        var message = System.Text.Json.JsonSerializer.Serialize(new { 
+            action = "ice_deleted", 
+            id = id,
+            by = userId 
+        });
+        _ = NotificationHub.NotifyAdmins(hubContext, message);
+        
         return Content(service.Get().Count.ToString());    
     }
 }

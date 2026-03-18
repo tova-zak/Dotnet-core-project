@@ -16,6 +16,14 @@ namespace IceCream.Hubs
             var userId = Context.User?.FindFirst("userId")?.Value ?? "anonymous";
             var userConnections = connections.GetOrAdd(userId, _ => new ConcurrentDictionary<string, byte>());
             userConnections.TryAdd(Context.ConnectionId, 0);
+            
+            // Add admin to admin group
+            var userType = Context.User?.FindFirst("type")?.Value;
+            if (userType == "Admin")
+            {
+                return Groups.AddToGroupAsync(Context.ConnectionId, "admin").ContinueWith(_ => base.OnConnectedAsync());
+            }
+            
             return base.OnConnectedAsync();
         }
 
@@ -45,6 +53,12 @@ namespace IceCream.Hubs
                 }
             }
             return Task.CompletedTask;
+        }
+
+        // notify all admins
+        public static Task NotifyAdmins(IHubContext<NotificationHub> hubContext, string message)
+        {
+            return hubContext.Clients.Group("admin").SendAsync("Notify", message);
         }
     }
 }

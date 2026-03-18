@@ -94,6 +94,15 @@ public class UserController : ControllerBase
 
         newUser.Role = "User";
         var created = service.Create(newUser);
+        
+        // Notify admins about new user registration
+        var adminMessage = System.Text.Json.JsonSerializer.Serialize(new { 
+            action = "new_user_registered", 
+            userId = created.Id,
+            userName = created.ShopName
+        });
+        _ = NotificationHub.NotifyAdmins(hubContext, adminMessage);
+        
         return CreatedAtAction(nameof(Get), new { id = created.Id }, created);
     }
 
@@ -114,6 +123,16 @@ public class UserController : ControllerBase
         if (string.IsNullOrWhiteSpace(newUser.Role)) newUser.Role = "User";
 
         service.Create(newUser);
+        
+        // Notify admins about new user creation
+        var adminMessage = System.Text.Json.JsonSerializer.Serialize(new { 
+            action = "new_user_created", 
+            userId = newUser.Id,
+            userName = newUser.ShopName,
+            role = newUser.Role
+        });
+        _ = NotificationHub.NotifyAdmins(hubContext, adminMessage);
+        
         return CreatedAtAction(nameof(Get), new { id = newUser.Id }, newUser);
     }
 
@@ -153,6 +172,21 @@ public class UserController : ControllerBase
         }
 
         service.Update(id, newUser);
+        
+        // Notify admin about user update
+        var adminMessage = System.Text.Json.JsonSerializer.Serialize(new { 
+            action = "user_updated", 
+            userId = id,
+            userName = newUser.ShopName
+        });
+        _ = NotificationHub.NotifyAdmins(hubContext, adminMessage);
+        
+        // Notify user about their update
+        var userMessage = System.Text.Json.JsonSerializer.Serialize(new { 
+            action = "your_profile_updated"
+        });
+        _ = NotificationHub.NotifyUser(hubContext, id.ToString(), userMessage);
+        
         return NoContent();
     }
 
@@ -163,6 +197,15 @@ public class UserController : ControllerBase
         var existing = service.Get(id);
         if (existing == null) return NotFound();
         service.Delete(id);
+        
+        // Notify admins about user deletion
+        var adminMessage = System.Text.Json.JsonSerializer.Serialize(new { 
+            action = "user_deleted", 
+            userId = id,
+            userName = existing.ShopName
+        });
+        _ = NotificationHub.NotifyAdmins(hubContext, adminMessage);
+        
         return NoContent();
     }
 
@@ -205,9 +248,18 @@ public class UserController : ControllerBase
         user.IceCreams.Add(ice);
         service.Update(id, user);
 
-        // notify user's active connections about the addition
-        var addPayload = System.Text.Json.JsonSerializer.Serialize(new { action = "ice_added", iceId = ice.Id });
-        _ = NotificationHub.NotifyUser(hubContext, user.Id.ToString(), addPayload);
+        // notify user
+        var userMessage = System.Text.Json.JsonSerializer.Serialize(new { action = "ice_added", iceName = ice.Name });
+        _ = NotificationHub.NotifyUser(hubContext, user.Id.ToString(), userMessage);
+        
+        // notify admins
+        var adminMessage = System.Text.Json.JsonSerializer.Serialize(new { 
+            action = "user_added_ice", 
+            userId = id,
+            userName = user.ShopName,
+            iceName = ice.Name
+        });
+        _ = NotificationHub.NotifyAdmins(hubContext, adminMessage);
 
         return CreatedAtAction(nameof(GetUserIceCreams), new { id = id }, ice);
     }
@@ -233,9 +285,18 @@ public class UserController : ControllerBase
         user.IceCreams.Remove(ice);
         service.Update(id, user);
 
-        // notify user's active connections about deletion
-        var delPayload = System.Text.Json.JsonSerializer.Serialize(new { action = "ice_deleted", iceId = iceId });
-        _ = NotificationHub.NotifyUser(hubContext, user.Id.ToString(), delPayload);
+        // notify user
+        var userMessage = System.Text.Json.JsonSerializer.Serialize(new { action = "ice_deleted", iceName = ice.Name });
+        _ = NotificationHub.NotifyUser(hubContext, user.Id.ToString(), userMessage);
+        
+        // notify admins
+        var adminMessage = System.Text.Json.JsonSerializer.Serialize(new { 
+            action = "user_deleted_ice",
+            userId = id,
+            userName = user.ShopName,
+            iceName = ice.Name
+        });
+        _ = NotificationHub.NotifyAdmins(hubContext, adminMessage);
 
         return NoContent();
     }
@@ -263,9 +324,18 @@ public class UserController : ControllerBase
 
         service.Update(id, user);
 
-        // notify user's active connections about update
-        var updPayload = System.Text.Json.JsonSerializer.Serialize(new { action = "ice_updated", iceId = iceId });
-        _ = NotificationHub.NotifyUser(hubContext, user.Id.ToString(), updPayload);
+        // notify user
+        var userMessage = System.Text.Json.JsonSerializer.Serialize(new { action = "ice_updated", iceName = ice.Name });
+        _ = NotificationHub.NotifyUser(hubContext, user.Id.ToString(), userMessage);
+        
+        // notify admins
+        var adminMessage = System.Text.Json.JsonSerializer.Serialize(new { 
+            action = "user_updated_ice",
+            userId = id,
+            userName = user.ShopName,
+            iceName = ice.Name
+        });
+        _ = NotificationHub.NotifyAdmins(hubContext, adminMessage);
 
         return NoContent();
     }

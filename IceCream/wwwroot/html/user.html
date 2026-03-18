@@ -90,7 +90,22 @@
 
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/8.0.0/signalr.min.js"></script>
+    <script src="../js/signalr.js"></script>
     <script src="../js/user.js"></script>
+    <script type="text/javascript">
+        // Initialize page for admin or non-admin user
+        document.addEventListener('DOMContentLoaded', function() {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            // Call getUsers which will display users if admin, or profile if non-admin
+            getUsers();
+        });
+    </script>
 </body>
 
 </html>

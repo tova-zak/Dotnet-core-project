@@ -12,8 +12,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>hv6h3vpcr1</Fingerprint>
-      <Integrity>DYwVE71cG8QNgcFg5EeNZPCq/ROu5tb522Q4ur1NJb0=</Integrity>
+      <Fingerprint>ykr236u1o7</Fingerprint>
+      <Integrity>ItN0dp0Us2xXe2VTDKLlooUlOPB1CTiTIbN1jZ13Z4w=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</OriginalItemSpec>
@@ -30,8 +30,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>d8x7zhyu39</Fingerprint>
-      <Integrity>A9Whn5cJy/f2gwJFSvwI/2T2GQKviKWlwOKSvE676Tk=</Integrity>
+      <Fingerprint>4aqkp23tl1</Fingerprint>
+      <Integrity>DDOY12GRLxdsQLPEheTfPgn0ymqTBnF6qvoo+dnPzvU=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\html\login.html'))</OriginalItemSpec>
@@ -48,8 +48,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>di1246qlvm</Fingerprint>
-      <Integrity>JbDRzfce1vEBehB5EnFhnu+aPrsvSZ/h16MuZj7CILs=</Integrity>
+      <Fingerprint>dlt8f5h2c1</Fingerprint>
+      <Integrity>0XpIrjyCqeZfuj9Y45dBjM+3td80bm2hD2I5KT5YKLg=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\html\myicecreams.html'))</OriginalItemSpec>
@@ -66,8 +66,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>k95td30yy3</Fingerprint>
-      <Integrity>GKdboe651yS1kSSF1juGoI77Yps8ZwTv1vt7cTNLCsU=</Integrity>
+      <Fingerprint>4ue8dg2jtx</Fingerprint>
+      <Integrity>5LUUtTpaxPC9kBZzPd1el6d+n4dfIK73oYMVz4OS88I=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\html\register.html'))</OriginalItemSpec>
@@ -84,8 +84,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>y0nsttmqrl</Fingerprint>
-      <Integrity>khQdxv0wsyV1t8KpbkkI3lPHPbHFClhqdh9U72YJGBQ=</Integrity>
+      <Fingerprint>bskhfb7mfb</Fingerprint>
+      <Integrity>e+7PwnWYFoFQEBs2ZWYjUsf33WUZhMR+cc/tFKud+SQ=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\html\user.html'))</OriginalItemSpec>
@@ -174,8 +174,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>bqndu4oxjf</Fingerprint>
-      <Integrity>Y+fz82Z8DapAPfCjszSXCLYRMVwCeSFfutDoUnJ/AA0=</Integrity>
+      <Fingerprint>3vs128756s</Fingerprint>
+      <Integrity>X1rwck9L5A9jqdUvQWr4vbUMzC9ApxMc0PF3F5XdxrM=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\myicecreams.js'))</OriginalItemSpec>
@@ -192,11 +192,29 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>3k8re3q1ou</Fingerprint>
-      <Integrity>7QHAH6dVLg2i3WBkglYmmQZbQ2l6ZBQ74zXc/H7Fa8A=</Integrity>
+      <Fingerprint>yefcwx7ab2</Fingerprint>
+      <Integrity>Cg3XuYYeeMEN1hHhhDf0kMIzxgGXVs+cpUMEvnEfvcI=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\register.js'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\signalr.js'))">
+      <SourceType>Package</SourceType>
+      <SourceId>IceCream</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/IceCream</BasePath>
+      <RelativePath>js/signalr.js</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>9441w4jahr</Fingerprint>
+      <Integrity>GSvJFYw8hI5kmWYh8rQiktDFJoxVMpMLlOO25y3s9pE=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\signalr.js'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\site.js'))">
       <SourceType>Package</SourceType>
