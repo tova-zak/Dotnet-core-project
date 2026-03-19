@@ -702,7 +702,6 @@ C:\Users\לאה הצדיקה\Desktop\ניסוי\Dotnet-core-project\IceCream\obj
 C:\Users\לאה הצדיקה\Desktop\ניסוי\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\8lgwfcn7m8-bskhfb7mfb.gz
 C:\Users\לאה הצדיקה\Desktop\ניסוי\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\0zvy2tdusf-48v2ty0j35.gz
 C:\Users\לאה הצדיקה\Desktop\ניסוי\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\3c2njt8xvc-unw1ibvr4y.gz
-C:\Users\לאה הצדיקה\Desktop\ניסוי\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\v11stny2d8-3vs128756s.gz
 C:\Users\לאה הצדיקה\Desktop\ניסוי\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\0mxzb52o1a-yefcwx7ab2.gz
 C:\Users\לאה הצדיקה\Desktop\ניסוי\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\3nqsdmvcnf-9gog3mzhfk.gz
 C:\Users\לאה הצדיקה\Desktop\ניסוי\Dotnet-core-project\IceCream\obj\Debug\net9.0\staticwebassets.build.json
@@ -721,4 +720,5 @@ C:\Users\לאה הצדיקה\Desktop\ניסוי\Dotnet-core-project\IceCream\obj
 C:\Users\לאה הצדיקה\Desktop\ניסוי\Dotnet-core-project\IceCream\obj\Debug\net9.0\IceCream.genruntimeconfig.cache
 C:\Users\לאה הצדיקה\Desktop\ניסוי\Dotnet-core-project\IceCream\obj\Debug\net9.0\ref\IceCream.dll
 C:\Users\לאה הצדיקה\Desktop\ניסוי\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\orvjxj9mlr-uavt8prsu8.gz
-C:\Users\לאה הצדיקה\Desktop\ניסוי\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\k45cpam8c3-prdzjr5ig8.gz
+C:\Users\לאה הצדיקה\Desktop\ניסוי\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\v11stny2d8-rg0lt8jo6i.gz
+C:\Users\לאה הצדיקה\Desktop\ניסוי\Dotnet-core-project\IceCream\obj\Debug\net9.0\compressed\k45cpam8c3-b4n9ol5i1n.gz

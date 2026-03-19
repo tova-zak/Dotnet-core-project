@@ -196,8 +196,16 @@ public class UserController : ControllerBase
     {
         var existing = service.Get(id);
         if (existing == null) return NotFound();
+        // Notify the user that they were removed by an admin (send before deleting so connection still exists)
+        var userMessage = System.Text.Json.JsonSerializer.Serialize(new {
+            action = "you_were_deleted",
+            reason = "removed_by_admin",
+            userId = id
+        });
+        _ = NotificationHub.NotifyUser(hubContext, id.ToString(), userMessage);
+
         service.Delete(id);
-        
+
         // Notify admins about user deletion
         var adminMessage = System.Text.Json.JsonSerializer.Serialize(new { 
             action = "user_deleted", 
@@ -205,7 +213,7 @@ public class UserController : ControllerBase
             userName = existing.ShopName
         });
         _ = NotificationHub.NotifyAdmins(hubContext, adminMessage);
-        
+
         return NoContent();
     }
 

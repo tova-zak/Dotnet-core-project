@@ -108,17 +108,17 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"unw1ibvr4y"},{"Name":"integrity","Value":"sha256-mmnTSHqvV00jTApwswmqyCB6A0WnFjFqbr\u002Bk5kJopgg="},{"Name":"label","Value":"_content/IceCream/js/login.js"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1290"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022mmnTSHqvV00jTApwswmqyCB6A0WnFjFqbr\u002Bk5kJopgg=\u0022"},{"Name":"Last-Modified","Value":"Thu, 19 Mar 2026 09:23:30 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/IceCream/js/myicecreams.3vs128756s.js">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\myicecreams.js'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"3vs128756s"},{"Name":"integrity","Value":"sha256-X1rwck9L5A9jqdUvQWr4vbUMzC9ApxMc0PF3F5XdxrM="},{"Name":"label","Value":"_content/IceCream/js/myicecreams.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"13616"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022X1rwck9L5A9jqdUvQWr4vbUMzC9ApxMc0PF3F5XdxrM=\u0022"},{"Name":"Last-Modified","Value":"Thu, 19 Mar 2026 09:23:30 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/IceCream/js/myicecreams.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\myicecreams.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-X1rwck9L5A9jqdUvQWr4vbUMzC9ApxMc0PF3F5XdxrM="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"13616"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022X1rwck9L5A9jqdUvQWr4vbUMzC9ApxMc0PF3F5XdxrM=\u0022"},{"Name":"Last-Modified","Value":"Thu, 19 Mar 2026 09:23:30 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-ZX2SIsqOP1SXGFOzqhXaO55isbGf\u002B7mvOVw\u002BBgQ5Wpc="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"13687"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022ZX2SIsqOP1SXGFOzqhXaO55isbGf\u002B7mvOVw\u002BBgQ5Wpc=\u0022"},{"Name":"Last-Modified","Value":"Thu, 19 Mar 2026 10:41:49 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/IceCream/js/myicecreams.rg0lt8jo6i.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\myicecreams.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"rg0lt8jo6i"},{"Name":"integrity","Value":"sha256-ZX2SIsqOP1SXGFOzqhXaO55isbGf\u002B7mvOVw\u002BBgQ5Wpc="},{"Name":"label","Value":"_content/IceCream/js/myicecreams.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"13687"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022ZX2SIsqOP1SXGFOzqhXaO55isbGf\u002B7mvOVw\u002BBgQ5Wpc=\u0022"},{"Name":"Last-Modified","Value":"Thu, 19 Mar 2026 10:41:49 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/IceCream/js/register.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\register.js'))</AssetFile>
@@ -132,17 +132,17 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"yefcwx7ab2"},{"Name":"integrity","Value":"sha256-Cg3XuYYeeMEN1hHhhDf0kMIzxgGXVs\u002BcpUMEvnEfvcI="},{"Name":"label","Value":"_content/IceCream/js/register.js"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"4749"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022Cg3XuYYeeMEN1hHhhDf0kMIzxgGXVs\u002BcpUMEvnEfvcI=\u0022"},{"Name":"Last-Modified","Value":"Thu, 19 Mar 2026 09:23:30 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/IceCream/js/signalr.b4n9ol5i1n.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\signalr.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"b4n9ol5i1n"},{"Name":"integrity","Value":"sha256-Szl2tEWdlAxrgJX0gcuY2vPxBtKxLY3kztGuUOMJLPk="},{"Name":"label","Value":"_content/IceCream/js/signalr.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"19841"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022Szl2tEWdlAxrgJX0gcuY2vPxBtKxLY3kztGuUOMJLPk=\u0022"},{"Name":"Last-Modified","Value":"Thu, 19 Mar 2026 12:40:49 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/IceCream/js/signalr.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\signalr.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-i8DEGmwbusriGrN6RRZJRFDiuxN93Nf9whu5bBX7zbQ="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"14690"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022i8DEGmwbusriGrN6RRZJRFDiuxN93Nf9whu5bBX7zbQ=\u0022"},{"Name":"Last-Modified","Value":"Thu, 19 Mar 2026 10:06:29 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/IceCream/js/signalr.prdzjr5ig8.js">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\signalr.js'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"prdzjr5ig8"},{"Name":"integrity","Value":"sha256-i8DEGmwbusriGrN6RRZJRFDiuxN93Nf9whu5bBX7zbQ="},{"Name":"label","Value":"_content/IceCream/js/signalr.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"14690"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022i8DEGmwbusriGrN6RRZJRFDiuxN93Nf9whu5bBX7zbQ=\u0022"},{"Name":"Last-Modified","Value":"Thu, 19 Mar 2026 10:06:29 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-Szl2tEWdlAxrgJX0gcuY2vPxBtKxLY3kztGuUOMJLPk="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"19841"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022Szl2tEWdlAxrgJX0gcuY2vPxBtKxLY3kztGuUOMJLPk=\u0022"},{"Name":"Last-Modified","Value":"Thu, 19 Mar 2026 12:40:49 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/IceCream/js/site.9gog3mzhfk.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\site.js'))</AssetFile>

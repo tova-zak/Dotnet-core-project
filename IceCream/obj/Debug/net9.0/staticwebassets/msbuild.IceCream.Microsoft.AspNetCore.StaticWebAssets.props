@@ -174,8 +174,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>3vs128756s</Fingerprint>
-      <Integrity>X1rwck9L5A9jqdUvQWr4vbUMzC9ApxMc0PF3F5XdxrM=</Integrity>
+      <Fingerprint>rg0lt8jo6i</Fingerprint>
+      <Integrity>ZX2SIsqOP1SXGFOzqhXaO55isbGf+7mvOVw+BgQ5Wpc=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\myicecreams.js'))</OriginalItemSpec>
@@ -210,8 +210,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>prdzjr5ig8</Fingerprint>
-      <Integrity>i8DEGmwbusriGrN6RRZJRFDiuxN93Nf9whu5bBX7zbQ=</Integrity>
+      <Fingerprint>b4n9ol5i1n</Fingerprint>
+      <Integrity>Szl2tEWdlAxrgJX0gcuY2vPxBtKxLY3kztGuUOMJLPk=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\signalr.js'))</OriginalItemSpec>

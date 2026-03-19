@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "bEc1M8nXTFnsxIgl7Dad2ZnoC2qdqteY4aaJzBANUQI=",
+  "Hash": "hykCUF8hK5OuTyjH1VuMHlqo/YvQKb/gDLD+EKtZZzs=",
   "Source": "IceCream",
   "BasePath": "_content/IceCream",
   "Mode": "Default",
@@ -164,12 +164,12 @@
       "OriginalItemSpec": "C:\\Users\\לאה הצדיקה\\Desktop\\ניסוי\\Dotnet-core-project\\IceCream\\wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\Users\\לאה הצדיקה\\Desktop\\ניסוי\\Dotnet-core-project\\IceCream\\obj\\Debug\\net9.0\\compressed\\k45cpam8c3-prdzjr5ig8.gz",
+      "Identity": "C:\\Users\\לאה הצדיקה\\Desktop\\ניסוי\\Dotnet-core-project\\IceCream\\obj\\Debug\\net9.0\\compressed\\k45cpam8c3-b4n9ol5i1n.gz",
       "SourceId": "IceCream",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\לאה הצדיקה\\Desktop\\ניסוי\\Dotnet-core-project\\IceCream\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/IceCream",
-      "RelativePath": "js/signalr#[.{fingerprint=prdzjr5ig8}]?.js.gz",
+      "RelativePath": "js/signalr#[.{fingerprint=b4n9ol5i1n}]?.js.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -178,8 +178,8 @@
       "RelatedAsset": "C:\\Users\\לאה הצדיקה\\Desktop\\ניסוי\\Dotnet-core-project\\IceCream\\wwwroot\\js\\signalr.js",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "5uhl1989by",
-      "Integrity": "c437dppiOsO0+0hkNLD3UvBXk9A17/seigxfbtQnADQ=",
+      "Fingerprint": "kfo4gjhkxw",
+      "Integrity": "UF/adyqWYO26F6v3N4xUoczQVDXc9xPSmjWZygwCy4o=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\לאה הצדיקה\\Desktop\\ניסוי\\Dotnet-core-project\\IceCream\\wwwroot\\js\\signalr.js"
@@ -248,12 +248,12 @@
       "OriginalItemSpec": "C:\\Users\\לאה הצדיקה\\Desktop\\ניסוי\\Dotnet-core-project\\IceCream\\wwwroot\\js\\user.js"
     },
     {
-      "Identity": "C:\\Users\\לאה הצדיקה\\Desktop\\ניסוי\\Dotnet-core-project\\IceCream\\obj\\Debug\\net9.0\\compressed\\v11stny2d8-3vs128756s.gz",
+      "Identity": "C:\\Users\\לאה הצדיקה\\Desktop\\ניסוי\\Dotnet-core-project\\IceCream\\obj\\Debug\\net9.0\\compressed\\v11stny2d8-rg0lt8jo6i.gz",
       "SourceId": "IceCream",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\לאה הצדיקה\\Desktop\\ניסוי\\Dotnet-core-project\\IceCream\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/IceCream",
-      "RelativePath": "js/myicecreams#[.{fingerprint=3vs128756s}]?.js.gz",
+      "RelativePath": "js/myicecreams#[.{fingerprint=rg0lt8jo6i}]?.js.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -262,8 +262,8 @@
       "RelatedAsset": "C:\\Users\\לאה הצדיקה\\Desktop\\ניסוי\\Dotnet-core-project\\IceCream\\wwwroot\\js\\myicecreams.js",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "c581hwh0wy",
-      "Integrity": "gN+O7E+ksH2ZcAfziMGDZH2dEdxGLklgINRWhI7AQps=",
+      "Fingerprint": "pgijlaok7x",
+      "Integrity": "x/5La6ppmXTSZEJBEbiRHNWMsl3jq6ZLh/Cf49HaKI4=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\לאה הצדיקה\\Desktop\\ניסוי\\Dotnet-core-project\\IceCream\\wwwroot\\js\\myicecreams.js"
@@ -472,8 +472,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "3vs128756s",
-      "Integrity": "X1rwck9L5A9jqdUvQWr4vbUMzC9ApxMc0PF3F5XdxrM=",
+      "Fingerprint": "rg0lt8jo6i",
+      "Integrity": "ZX2SIsqOP1SXGFOzqhXaO55isbGf+7mvOVw+BgQ5Wpc=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\myicecreams.js"
@@ -514,8 +514,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "prdzjr5ig8",
-      "Integrity": "i8DEGmwbusriGrN6RRZJRFDiuxN93Nf9whu5bBX7zbQ=",
+      "Fingerprint": "b4n9ol5i1n",
+      "Integrity": "Szl2tEWdlAxrgJX0gcuY2vPxBtKxLY3kztGuUOMJLPk=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\signalr.js"
@@ -2815,13 +2815,13 @@
       ]
     },
     {
-      "Route": "js/myicecreams.3vs128756s.js",
-      "AssetFile": "C:\\Users\\לאה הצדיקה\\Desktop\\ניסוי\\Dotnet-core-project\\IceCream\\obj\\Debug\\net9.0\\compressed\\v11stny2d8-3vs128756s.gz",
+      "Route": "js/myicecreams.js",
+      "AssetFile": "C:\\Users\\לאה הצדיקה\\Desktop\\ניסוי\\Dotnet-core-project\\IceCream\\obj\\Debug\\net9.0\\compressed\\v11stny2d8-rg0lt8jo6i.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000314169023"
+          "Quality": "0.000312402374"
         }
       ],
       "ResponseHeaders": [
@@ -2831,19 +2831,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3182"
+          "Value": "3200"
         },
         {
           "Name": "ETag",
-          "Value": "\"gN+O7E+ksH2ZcAfziMGDZH2dEdxGLklgINRWhI7AQps=\""
+          "Value": "\"x/5La6ppmXTSZEJBEbiRHNWMsl3jq6ZLh/Cf49HaKI4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 19 Mar 2026 09:23:30 GMT"
+          "Value": "Thu, 19 Mar 2026 10:41:49 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
+          "Value": "no-cache"
         },
         {
           "Name": "Content-Encoding",
@@ -2859,26 +2859,18 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"X1rwck9L5A9jqdUvQWr4vbUMzC9ApxMc0PF3F5XdxrM=\""
+          "Value": "W/\"ZX2SIsqOP1SXGFOzqhXaO55isbGf+7mvOVw+BgQ5Wpc=\""
         }
       ],
       "EndpointProperties": [
         {
-          "Name": "fingerprint",
-          "Value": "3vs128756s"
-        },
-        {
-          "Name": "label",
-          "Value": "js/myicecreams.js"
-        },
-        {
           "Name": "integrity",
-          "Value": "sha256-X1rwck9L5A9jqdUvQWr4vbUMzC9ApxMc0PF3F5XdxrM="
+          "Value": "sha256-ZX2SIsqOP1SXGFOzqhXaO55isbGf+7mvOVw+BgQ5Wpc="
         }
       ]
     },
     {
-      "Route": "js/myicecreams.3vs128756s.js",
+      "Route": "js/myicecreams.js",
       "AssetFile": "C:\\Users\\לאה הצדיקה\\Desktop\\ניסוי\\Dotnet-core-project\\IceCream\\wwwroot\\js\\myicecreams.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -2888,7 +2880,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "13616"
+          "Value": "13687"
         },
         {
           "Name": "Content-Type",
@@ -2896,11 +2888,156 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"X1rwck9L5A9jqdUvQWr4vbUMzC9ApxMc0PF3F5XdxrM=\""
+          "Value": "\"ZX2SIsqOP1SXGFOzqhXaO55isbGf+7mvOVw+BgQ5Wpc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 19 Mar 2026 09:23:30 GMT"
+          "Value": "Thu, 19 Mar 2026 10:41:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZX2SIsqOP1SXGFOzqhXaO55isbGf+7mvOVw+BgQ5Wpc="
+        }
+      ]
+    },
+    {
+      "Route": "js/myicecreams.js.gz",
+      "AssetFile": "C:\\Users\\לאה הצדיקה\\Desktop\\ניסוי\\Dotnet-core-project\\IceCream\\obj\\Debug\\net9.0\\compressed\\v11stny2d8-rg0lt8jo6i.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3200"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"x/5La6ppmXTSZEJBEbiRHNWMsl3jq6ZLh/Cf49HaKI4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 19 Mar 2026 10:41:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-x/5La6ppmXTSZEJBEbiRHNWMsl3jq6ZLh/Cf49HaKI4="
+        }
+      ]
+    },
+    {
+      "Route": "js/myicecreams.rg0lt8jo6i.js",
+      "AssetFile": "C:\\Users\\לאה הצדיקה\\Desktop\\ניסוי\\Dotnet-core-project\\IceCream\\obj\\Debug\\net9.0\\compressed\\v11stny2d8-rg0lt8jo6i.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000312402374"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3200"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"x/5La6ppmXTSZEJBEbiRHNWMsl3jq6ZLh/Cf49HaKI4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 19 Mar 2026 10:41:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"ZX2SIsqOP1SXGFOzqhXaO55isbGf+7mvOVw+BgQ5Wpc=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "rg0lt8jo6i"
+        },
+        {
+          "Name": "label",
+          "Value": "js/myicecreams.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZX2SIsqOP1SXGFOzqhXaO55isbGf+7mvOVw+BgQ5Wpc="
+        }
+      ]
+    },
+    {
+      "Route": "js/myicecreams.rg0lt8jo6i.js",
+      "AssetFile": "C:\\Users\\לאה הצדיקה\\Desktop\\ניסוי\\Dotnet-core-project\\IceCream\\wwwroot\\js\\myicecreams.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "13687"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ZX2SIsqOP1SXGFOzqhXaO55isbGf+7mvOVw+BgQ5Wpc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 19 Mar 2026 10:41:49 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2910,7 +3047,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "3vs128756s"
+          "Value": "rg0lt8jo6i"
         },
         {
           "Name": "label",
@@ -2918,13 +3055,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-X1rwck9L5A9jqdUvQWr4vbUMzC9ApxMc0PF3F5XdxrM="
+          "Value": "sha256-ZX2SIsqOP1SXGFOzqhXaO55isbGf+7mvOVw+BgQ5Wpc="
         }
       ]
     },
     {
-      "Route": "js/myicecreams.3vs128756s.js.gz",
-      "AssetFile": "C:\\Users\\לאה הצדיקה\\Desktop\\ניסוי\\Dotnet-core-project\\IceCream\\obj\\Debug\\net9.0\\compressed\\v11stny2d8-3vs128756s.gz",
+      "Route": "js/myicecreams.rg0lt8jo6i.js.gz",
+      "AssetFile": "C:\\Users\\לאה הצדיקה\\Desktop\\ניסוי\\Dotnet-core-project\\IceCream\\obj\\Debug\\net9.0\\compressed\\v11stny2d8-rg0lt8jo6i.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2933,7 +3070,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3182"
+          "Value": "3200"
         },
         {
           "Name": "Content-Type",
@@ -2941,11 +3078,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"gN+O7E+ksH2ZcAfziMGDZH2dEdxGLklgINRWhI7AQps=\""
+          "Value": "\"x/5La6ppmXTSZEJBEbiRHNWMsl3jq6ZLh/Cf49HaKI4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 19 Mar 2026 09:23:30 GMT"
+          "Value": "Thu, 19 Mar 2026 10:41:49 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2963,7 +3100,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "3vs128756s"
+          "Value": "rg0lt8jo6i"
         },
         {
           "Name": "label",
@@ -2971,144 +3108,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-gN+O7E+ksH2ZcAfziMGDZH2dEdxGLklgINRWhI7AQps="
-        }
-      ]
-    },
-    {
-      "Route": "js/myicecreams.js",
-      "AssetFile": "C:\\Users\\לאה הצדיקה\\Desktop\\ניסוי\\Dotnet-core-project\\IceCream\\obj\\Debug\\net9.0\\compressed\\v11stny2d8-3vs128756s.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000314169023"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "3182"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"gN+O7E+ksH2ZcAfziMGDZH2dEdxGLklgINRWhI7AQps=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 19 Mar 2026 09:23:30 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"X1rwck9L5A9jqdUvQWr4vbUMzC9ApxMc0PF3F5XdxrM=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-X1rwck9L5A9jqdUvQWr4vbUMzC9ApxMc0PF3F5XdxrM="
-        }
-      ]
-    },
-    {
-      "Route": "js/myicecreams.js",
-      "AssetFile": "C:\\Users\\לאה הצדיקה\\Desktop\\ניסוי\\Dotnet-core-project\\IceCream\\wwwroot\\js\\myicecreams.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "13616"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"X1rwck9L5A9jqdUvQWr4vbUMzC9ApxMc0PF3F5XdxrM=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 19 Mar 2026 09:23:30 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-X1rwck9L5A9jqdUvQWr4vbUMzC9ApxMc0PF3F5XdxrM="
-        }
-      ]
-    },
-    {
-      "Route": "js/myicecreams.js.gz",
-      "AssetFile": "C:\\Users\\לאה הצדיקה\\Desktop\\ניסוי\\Dotnet-core-project\\IceCream\\obj\\Debug\\net9.0\\compressed\\v11stny2d8-3vs128756s.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "3182"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"gN+O7E+ksH2ZcAfziMGDZH2dEdxGLklgINRWhI7AQps=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 19 Mar 2026 09:23:30 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-gN+O7E+ksH2ZcAfziMGDZH2dEdxGLklgINRWhI7AQps="
+          "Value": "sha256-x/5La6ppmXTSZEJBEbiRHNWMsl3jq6ZLh/Cf49HaKI4="
         }
       ]
     },
@@ -3411,13 +3411,13 @@
       ]
     },
     {
-      "Route": "js/signalr.js",
-      "AssetFile": "C:\\Users\\לאה הצדיקה\\Desktop\\ניסוי\\Dotnet-core-project\\IceCream\\obj\\Debug\\net9.0\\compressed\\k45cpam8c3-prdzjr5ig8.gz",
+      "Route": "js/signalr.b4n9ol5i1n.js",
+      "AssetFile": "C:\\Users\\לאה הצדיקה\\Desktop\\ניסוי\\Dotnet-core-project\\IceCream\\obj\\Debug\\net9.0\\compressed\\k45cpam8c3-b4n9ol5i1n.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000245579568"
+          "Quality": "0.000193573364"
         }
       ],
       "ResponseHeaders": [
@@ -3427,19 +3427,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4071"
+          "Value": "5165"
         },
         {
           "Name": "ETag",
-          "Value": "\"c437dppiOsO0+0hkNLD3UvBXk9A17/seigxfbtQnADQ=\""
+          "Value": "\"UF/adyqWYO26F6v3N4xUoczQVDXc9xPSmjWZygwCy4o=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 19 Mar 2026 10:06:29 GMT"
+          "Value": "Thu, 19 Mar 2026 12:40:49 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "no-cache"
+          "Value": "max-age=31536000, immutable"
         },
         {
           "Name": "Content-Encoding",
@@ -3455,18 +3455,26 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"i8DEGmwbusriGrN6RRZJRFDiuxN93Nf9whu5bBX7zbQ=\""
+          "Value": "W/\"Szl2tEWdlAxrgJX0gcuY2vPxBtKxLY3kztGuUOMJLPk=\""
         }
       ],
       "EndpointProperties": [
         {
+          "Name": "fingerprint",
+          "Value": "b4n9ol5i1n"
+        },
+        {
+          "Name": "label",
+          "Value": "js/signalr.js"
+        },
+        {
           "Name": "integrity",
-          "Value": "sha256-i8DEGmwbusriGrN6RRZJRFDiuxN93Nf9whu5bBX7zbQ="
+          "Value": "sha256-Szl2tEWdlAxrgJX0gcuY2vPxBtKxLY3kztGuUOMJLPk="
         }
       ]
     },
     {
-      "Route": "js/signalr.js",
+      "Route": "js/signalr.b4n9ol5i1n.js",
       "AssetFile": "C:\\Users\\לאה הצדיקה\\Desktop\\ניסוי\\Dotnet-core-project\\IceCream\\wwwroot\\js\\signalr.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -3476,7 +3484,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "14690"
+          "Value": "19841"
         },
         {
           "Name": "Content-Type",
@@ -3484,121 +3492,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"i8DEGmwbusriGrN6RRZJRFDiuxN93Nf9whu5bBX7zbQ=\""
+          "Value": "\"Szl2tEWdlAxrgJX0gcuY2vPxBtKxLY3kztGuUOMJLPk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 19 Mar 2026 10:06:29 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-i8DEGmwbusriGrN6RRZJRFDiuxN93Nf9whu5bBX7zbQ="
-        }
-      ]
-    },
-    {
-      "Route": "js/signalr.js.gz",
-      "AssetFile": "C:\\Users\\לאה הצדיקה\\Desktop\\ניסוי\\Dotnet-core-project\\IceCream\\obj\\Debug\\net9.0\\compressed\\k45cpam8c3-prdzjr5ig8.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "4071"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"c437dppiOsO0+0hkNLD3UvBXk9A17/seigxfbtQnADQ=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 19 Mar 2026 10:06:29 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-c437dppiOsO0+0hkNLD3UvBXk9A17/seigxfbtQnADQ="
-        }
-      ]
-    },
-    {
-      "Route": "js/signalr.prdzjr5ig8.js",
-      "AssetFile": "C:\\Users\\לאה הצדיקה\\Desktop\\ניסוי\\Dotnet-core-project\\IceCream\\obj\\Debug\\net9.0\\compressed\\k45cpam8c3-prdzjr5ig8.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000245579568"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "4071"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"c437dppiOsO0+0hkNLD3UvBXk9A17/seigxfbtQnADQ=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 19 Mar 2026 10:06:29 GMT"
+          "Value": "Thu, 19 Mar 2026 12:40:49 GMT"
         },
         {
           "Name": "Cache-Control",
           "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"i8DEGmwbusriGrN6RRZJRFDiuxN93Nf9whu5bBX7zbQ=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "prdzjr5ig8"
+          "Value": "b4n9ol5i1n"
         },
         {
           "Name": "label",
@@ -3606,13 +3514,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-i8DEGmwbusriGrN6RRZJRFDiuxN93Nf9whu5bBX7zbQ="
+          "Value": "sha256-Szl2tEWdlAxrgJX0gcuY2vPxBtKxLY3kztGuUOMJLPk="
         }
       ]
     },
     {
-      "Route": "js/signalr.prdzjr5ig8.js",
-      "AssetFile": "C:\\Users\\לאה הצדיקה\\Desktop\\ניסוי\\Dotnet-core-project\\IceCream\\wwwroot\\js\\signalr.js",
+      "Route": "js/signalr.b4n9ol5i1n.js.gz",
+      "AssetFile": "C:\\Users\\לאה הצדיקה\\Desktop\\ניסוי\\Dotnet-core-project\\IceCream\\obj\\Debug\\net9.0\\compressed\\k45cpam8c3-b4n9ol5i1n.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3621,7 +3529,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "14690"
+          "Value": "5165"
         },
         {
           "Name": "Content-Type",
@@ -3629,56 +3537,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"i8DEGmwbusriGrN6RRZJRFDiuxN93Nf9whu5bBX7zbQ=\""
+          "Value": "\"UF/adyqWYO26F6v3N4xUoczQVDXc9xPSmjWZygwCy4o=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 19 Mar 2026 10:06:29 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "prdzjr5ig8"
-        },
-        {
-          "Name": "label",
-          "Value": "js/signalr.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-i8DEGmwbusriGrN6RRZJRFDiuxN93Nf9whu5bBX7zbQ="
-        }
-      ]
-    },
-    {
-      "Route": "js/signalr.prdzjr5ig8.js.gz",
-      "AssetFile": "C:\\Users\\לאה הצדיקה\\Desktop\\ניסוי\\Dotnet-core-project\\IceCream\\obj\\Debug\\net9.0\\compressed\\k45cpam8c3-prdzjr5ig8.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "4071"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"c437dppiOsO0+0hkNLD3UvBXk9A17/seigxfbtQnADQ=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 19 Mar 2026 10:06:29 GMT"
+          "Value": "Thu, 19 Mar 2026 12:40:49 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3696,7 +3559,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "prdzjr5ig8"
+          "Value": "b4n9ol5i1n"
         },
         {
           "Name": "label",
@@ -3704,7 +3567,144 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-c437dppiOsO0+0hkNLD3UvBXk9A17/seigxfbtQnADQ="
+          "Value": "sha256-UF/adyqWYO26F6v3N4xUoczQVDXc9xPSmjWZygwCy4o="
+        }
+      ]
+    },
+    {
+      "Route": "js/signalr.js",
+      "AssetFile": "C:\\Users\\לאה הצדיקה\\Desktop\\ניסוי\\Dotnet-core-project\\IceCream\\obj\\Debug\\net9.0\\compressed\\k45cpam8c3-b4n9ol5i1n.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000193573364"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5165"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UF/adyqWYO26F6v3N4xUoczQVDXc9xPSmjWZygwCy4o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 19 Mar 2026 12:40:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"Szl2tEWdlAxrgJX0gcuY2vPxBtKxLY3kztGuUOMJLPk=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Szl2tEWdlAxrgJX0gcuY2vPxBtKxLY3kztGuUOMJLPk="
+        }
+      ]
+    },
+    {
+      "Route": "js/signalr.js",
+      "AssetFile": "C:\\Users\\לאה הצדיקה\\Desktop\\ניסוי\\Dotnet-core-project\\IceCream\\wwwroot\\js\\signalr.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "19841"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Szl2tEWdlAxrgJX0gcuY2vPxBtKxLY3kztGuUOMJLPk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 19 Mar 2026 12:40:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Szl2tEWdlAxrgJX0gcuY2vPxBtKxLY3kztGuUOMJLPk="
+        }
+      ]
+    },
+    {
+      "Route": "js/signalr.js.gz",
+      "AssetFile": "C:\\Users\\לאה הצדיקה\\Desktop\\ניסוי\\Dotnet-core-project\\IceCream\\obj\\Debug\\net9.0\\compressed\\k45cpam8c3-b4n9ol5i1n.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5165"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UF/adyqWYO26F6v3N4xUoczQVDXc9xPSmjWZygwCy4o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 19 Mar 2026 12:40:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-UF/adyqWYO26F6v3N4xUoczQVDXc9xPSmjWZygwCy4o="
         }
       ]
     },

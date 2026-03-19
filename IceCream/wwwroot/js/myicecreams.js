@@ -263,6 +263,9 @@ function _displayAllShops(shops, token) {
     
     shops.forEach(shop => {
         let tr = tBody.insertRow();
+        // assign an id so signalr helpers can find and update this row
+        const shopUserId = shop.id || shop.userId || shop.UserId || shop.shopId;
+        if (shopUserId !== undefined && shopUserId !== null) tr.id = `shop-row-${shopUserId}`;
         
         // עמודה 1: שם החנות
         let td1 = tr.insertCell(0);
@@ -282,8 +285,6 @@ function _displayAllShops(shops, token) {
         let td3 = tr.insertCell(2);
         let manageButton = document.createElement('button');
         manageButton.innerText = 'נהל אוסף';
-        // determine the user id for this shop object (support multiple possible property names)
-        const shopUserId = shop.id || shop.userId || shop.UserId || shop.shopId;
         const shopNameForBtn = shop.shopName || shop.ShopName || '';
         manageButton.addEventListener('click', function () { viewShopIceCreams(shopUserId, shopNameForBtn); });
         td3.appendChild(manageButton);

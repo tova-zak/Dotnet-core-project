@@ -121,6 +121,46 @@ function addNewShopToTable(newUser) {
     console.log('Added shop row for new user:', newUser.ShopName || newUser.shopName || newUser.id);
 }
 
+// Adjust the ice-count cell in the shops table for a specific user by a delta (can be negative)
+function adjustShopIceCount(userId, delta) {
+    try {
+        const row = document.getElementById(`shop-row-${userId}`);
+        if (!row) return;
+        const cell = row.cells[1];
+        if (!cell) return;
+        const text = cell.innerText || '';
+        const m = text.match(/(\d+)/);
+        if (m) {
+            const curr = parseInt(m[1], 10);
+            const next = Math.max(0, curr + delta);
+            cell.innerText = next === 0 ? 'אוסף ריק' : `${next} גלידות`;
+        } else if (delta > 0) {
+            // was 'אוסף ריק' or empty -> set to 1
+            cell.innerText = `${delta} גלידות`;
+        }
+    } catch (e) {
+        console.warn('adjustShopIceCount error', e);
+    }
+}
+
+// Refresh the currently viewed shop's ice list if admin is viewing that shop
+function refreshIfViewingShop(userId) {
+    try {
+        if (typeof viewingShopId !== 'undefined' && viewingShopId != null) {
+            // viewingShopId might be number or string
+            if (String(viewingShopId) === String(userId)) {
+                if (typeof viewShopIceCreams === 'function') {
+                    // small debounce to avoid rapid repeated refreshes
+                    if (refreshIfViewingShop._timer) clearTimeout(refreshIfViewingShop._timer);
+                    refreshIfViewingShop._timer = setTimeout(() => viewShopIceCreams(userId), 150);
+                }
+            }
+        }
+    } catch (e) {
+        console.warn('refreshIfViewingShop error', e);
+    }
+}
+
 // Helper function to fetch a single user from server and add to list
 function fetchAndAddUserToList(userId) {
     console.log('fetchAndAddUserToList called for userId:', userId, 'type:', typeof userId);
@@ -249,6 +289,17 @@ function onNotificationReceived(message) {
             case 'ice_deleted':
                 title = '🗑️ גלידה נמחקה';
                 description = `גלידה נמחקה`;
+                try {
+                    // if this client is the affected user, refresh their list
+                    if (typeof getMyIceCreams === 'function') {
+                        if (onNotificationReceived._delTimer) clearTimeout(onNotificationReceived._delTimer);
+                        onNotificationReceived._delTimer = setTimeout(() => getMyIceCreams(), 150);
+                    } else if (typeof refreshIfViewingShop === 'function') {
+                        try { refreshIfViewingShop(details.userId || details.userID || details.user || getCurrentUserId()); } catch (e) {}
+                    }
+                } catch (e) {
+                    console.warn('auto-refresh on ice_deleted failed', e);
+                }
                 break;
             case 'user_added_ice':
                 title = '➕ משתמש הוסיף גלידה';
@@ -288,6 +339,10 @@ function onNotificationReceived(message) {
                 title = '✅ הפרופיל שלך עודכן';
                 description = 'הנתונים שלך עודכנו בהצלחה';
                 break;
+            case 'you_were_deleted':
+                title = 'החשבון הוסר';
+                description = 'הוסרת מרשימת החנויות על ידי המנהל';
+                break;
 
             // Notifications for User
             case 'ice_added':
@@ -298,6 +353,10 @@ function onNotificationReceived(message) {
                 title = '🗑️ הוסר מרשימתך';
                 description = `"${details.iceName}" הוסר מרשימת הגלידות שלך`;
                 break;
+            case 'ice_updated':
+                title = '🔁 גלידה עודכנה';
+                description = `"${details.iceName}" עודכנה`;
+                break;
 
             default:
                 title = '📢 הודעה';
@@ -306,6 +365,54 @@ function onNotificationReceived(message) {
 
         showNotification(`${title}\n${description}`, 'info');
         console.log('Notification:', notification);
+
+        // --- UI sync for ice events (centralized) ---
+        try {
+            const uid = details.userId || details.userID || details.user;
+
+            // Admin-visible events (change overview counts and refresh viewed shop if relevant)
+            if (action === 'user_added_ice') {
+                try { adjustShopIceCount(uid, +1); } catch (e) {}
+                try { refreshIfViewingShop(uid); } catch (e) {}
+            }
+            if (action === 'user_deleted_ice') {
+                try { adjustShopIceCount(uid, -1); } catch (e) {}
+                try { refreshIfViewingShop(uid); } catch (e) {}
+            }
+            if (action === 'user_updated_ice') {
+                try { refreshIfViewingShop(uid); } catch (e) {}
+            }
+
+            // User-visible events (refresh the user's own list)
+            if (action === 'ice_added' || action === 'ice_deleted' || action === 'ice_updated') {
+                // if this client exposes getMyIceCreams (user view), call it
+                if (typeof getMyIceCreams === 'function') {
+                    // debounce
+                    const key = `_sync_${action}`;
+                    if (onNotificationReceived[key]) clearTimeout(onNotificationReceived[key]);
+                    onNotificationReceived[key] = setTimeout(() => {
+                        try { getMyIceCreams(); } catch (e) { console.warn('getMyIceCreams failed', e); }
+                    }, 150);
+                } else {
+                    // fallback: refresh viewed shop if it's the affected one
+                    try { refreshIfViewingShop(uid || getCurrentUserId()); } catch (e) {}
+                }
+            }
+
+            // If the current client was deleted by admin, clear token and redirect home
+            if (action === 'you_were_deleted') {
+                try {
+                    // remove token so session is effectively logged out
+                    localStorage.removeItem('token');
+                } catch (e) {}
+                // redirect after short delay so notification can be seen
+                setTimeout(() => {
+                    try { window.location.href = '/index.html'; } catch (e) { location.href = '/'; }
+                }, 900);
+            }
+        } catch (e) {
+            console.warn('UI sync for notification failed', e);
+        }
 
     } catch (error) {
         console.error('Error parsing notification:', error);
