@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\לאה הצדיקה\\Desktop\\ערב\\Dotnet-core-project\\IceCream\\IceCream.csproj": {}
+    "C:\\Users\\לאה הצדיקה\\Desktop\\ניסוי\\Dotnet-core-project\\IceCream\\IceCream.csproj": {}
   },
   "projects": {
-    "C:\\Users\\לאה הצדיקה\\Desktop\\ערב\\Dotnet-core-project\\IceCream\\IceCream.csproj": {
+    "C:\\Users\\לאה הצדיקה\\Desktop\\ניסוי\\Dotnet-core-project\\IceCream\\IceCream.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\לאה הצדיקה\\Desktop\\ערב\\Dotnet-core-project\\IceCream\\IceCream.csproj",
+        "projectUniqueName": "C:\\Users\\לאה הצדיקה\\Desktop\\ניסוי\\Dotnet-core-project\\IceCream\\IceCream.csproj",
         "projectName": "IceCream",
-        "projectPath": "C:\\Users\\לאה הצדיקה\\Desktop\\ערב\\Dotnet-core-project\\IceCream\\IceCream.csproj",
+        "projectPath": "C:\\Users\\לאה הצדיקה\\Desktop\\ניסוי\\Dotnet-core-project\\IceCream\\IceCream.csproj",
         "packagesPath": "C:\\Users\\לאה הצדיקה\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\לאה הצדיקה\\Desktop\\ערב\\Dotnet-core-project\\IceCream\\obj\\",
+        "outputPath": "C:\\Users\\לאה הצדיקה\\Desktop\\ניסוי\\Dotnet-core-project\\IceCream\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -210,8 +210,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>9441w4jahr</Fingerprint>
-      <Integrity>GSvJFYw8hI5kmWYh8rQiktDFJoxVMpMLlOO25y3s9pE=</Integrity>
+      <Fingerprint>prdzjr5ig8</Fingerprint>
+      <Integrity>i8DEGmwbusriGrN6RRZJRFDiuxN93Nf9whu5bBX7zbQ=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\signalr.js'))</OriginalItemSpec>
@@ -246,8 +246,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>e1g9v9zbdd</Fingerprint>
-      <Integrity>jhNSHvcu076RxfZCrsKak6Kz76Jc8vdrd+qfDw+OkSE=</Integrity>
+      <Fingerprint>uavt8prsu8</Fingerprint>
+      <Integrity>tv//eHNCMZ8UGsAivf7lHt5eIWgLLRWMx/0h6R4iQ6w=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\user.js'))</OriginalItemSpec>

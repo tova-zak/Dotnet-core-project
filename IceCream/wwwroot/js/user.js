@@ -1,12 +1,12 @@
 const uri = '/user';
 let users = [];
 
-function parseJwt (token) {
+function parseJwt(token) {
     if (!token) return null;
     try {
         const payload = token.split('.')[1];
         if (!payload) return null;
-        return JSON.parse(decodeURIComponent(Array.prototype.map.call(atob(payload.replace(/-/g, '+').replace(/_/g, '/')), function(c) {
+        return JSON.parse(decodeURIComponent(Array.prototype.map.call(atob(payload.replace(/-/g, '+').replace(/_/g, '/')), function (c) {
             return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
         }).join('')));
     } catch (e) {
@@ -33,11 +33,11 @@ function getUsers() {
     if (isAdmin()) {
         // Admin: fetch all users
         fetch(uri, {
-                headers: {
-                    'Accept': 'application/json',
-                    ...(token ? { 'Authorization': `Bearer ${token}` } : {})
-                }
-            })
+            headers: {
+                'Accept': 'application/json',
+                ...(token ? { 'Authorization': `Bearer ${token}` } : {})
+            }
+        })
             .then(response => {
                 if (!response.ok) return response.text().then(t => { throw new Error(`${response.status} ${response.statusText}: ${t}`); });
                 return response.json();
@@ -62,11 +62,11 @@ function getUsers() {
 function deleteUser(id) {
     const token = localStorage.getItem('token'); // מסביר: מוסיף טוקן למחיקת משתמש
     fetch(`${uri}/${id}`, {
-            method: 'DELETE',
-            headers: {
-                ...(token ? { 'Authorization': `Bearer ${token}` } : {})
-            }
-        })
+        method: 'DELETE',
+        headers: {
+            ...(token ? { 'Authorization': `Bearer ${token}` } : {})
+        }
+    })
         .then(response => {
             if (!response.ok) return response.text().then(t => { throw new Error(`${response.status} ${response.statusText}: ${t}`); });
             return response.text();
@@ -115,36 +115,36 @@ function displayEditForm(id) {
             ...(token ? { 'Authorization': `Bearer ${token}` } : {})
         }
     })
-    .then(response => {
-        if (!response.ok) return response.text().then(t => { throw new Error(`${response.status} ${response.statusText}: ${t}`); });
-        return response.json();
-    })
-    .then(user => {
-        const shop = user.ShopName || user.shopName || '';
-        const email = user.Email || user.email || '';
-        const address = user.Address || user.address || '';
+        .then(response => {
+            if (!response.ok) return response.text().then(t => { throw new Error(`${response.status} ${response.statusText}: ${t}`); });
+            return response.json();
+        })
+        .then(user => {
+            const shop = user.ShopName || user.shopName || '';
+            const email = user.Email || user.email || '';
+            const address = user.Address || user.address || '';
 
-        if (document.getElementById('profile-id')) document.getElementById('profile-id').value = user.id;
-        if (document.getElementById('pwd-id')) document.getElementById('pwd-id').value = user.id;
-        if (document.getElementById('profile-shopName')) document.getElementById('profile-shopName').value = shop;
-        if (document.getElementById('profile-email')) document.getElementById('profile-email').value = email;
-        if (document.getElementById('profile-address')) document.getElementById('profile-address').value = address;
+            if (document.getElementById('profile-id')) document.getElementById('profile-id').value = user.id;
+            if (document.getElementById('pwd-id')) document.getElementById('pwd-id').value = user.id;
+            if (document.getElementById('profile-shopName')) document.getElementById('profile-shopName').value = shop;
+            if (document.getElementById('profile-email')) document.getElementById('profile-email').value = email;
+            if (document.getElementById('profile-address')) document.getElementById('profile-address').value = address;
 
-        if (document.getElementById('adminProfileSection')) document.getElementById('adminProfileSection').style.display = 'none';
-        if (document.getElementById('editForm')) document.getElementById('editForm').style.display = 'none';
-        if (document.getElementById('profileSection')) document.getElementById('profileSection').style.display = 'block';
-    })
-    .catch(error => {
-        console.error('Unable to load user for edit.', error);
-        alert('שגיאה בטעינת פרטי המשתמש: ' + (error.message || error));
-    });
+            if (document.getElementById('adminProfileSection')) document.getElementById('adminProfileSection').style.display = 'none';
+            if (document.getElementById('editForm')) document.getElementById('editForm').style.display = 'none';
+            if (document.getElementById('profileSection')) document.getElementById('profileSection').style.display = 'block';
+        })
+        .catch(error => {
+            console.error('Unable to load user for edit.', error);
+            alert('שגיאה בטעינת פרטי המשתמש: ' + (error.message || error));
+        });
 }
 
 function updateUser() {
     // עדכון פרופיל: רק המוכר (המשתמש המחובר) יכול לקרוא לעדכון זה
     const userId = document.getElementById('edit-id').value;
     const currentId = getCurrentUserId();
-    if (!currentId || parseInt(currentId,10) !== parseInt(userId,10)) {
+    if (!currentId || parseInt(currentId, 10) !== parseInt(userId, 10)) {
         alert('אין הרשאה לעדכן משתמש זה.');
         return false;
     }
@@ -160,14 +160,14 @@ function updateUser() {
     const token = localStorage.getItem('token'); // מסביר: מוסיף טוקן לעדכון
 
     fetch(`${uri}/${userId}`, {
-            method: 'PUT',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                ...(token ? { 'Authorization': `Bearer ${token}` } : {})
-            },
-            body: JSON.stringify(user)
-        })
+        method: 'PUT',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            ...(token ? { 'Authorization': `Bearer ${token}` } : {})
+        },
+        body: JSON.stringify(user)
+    })
         .then(response => {
             if (!response.ok) return response.text().then(t => { throw new Error(`${response.status} ${response.statusText}: ${t}`); });
             return response.text();
@@ -197,31 +197,31 @@ function changePassword() {
         },
         body: JSON.stringify({ CurrentPassword: current, NewPassword: neu })
     })
-    .then(response => {
-        if (!response.ok) {
-            // אם הסטטוס הוא 401 או 400 (למשל סיסמה שגויה), נזרוק שגיאה
-            return response.text().then(t => { 
-                throw new Error("InvalidPassword"); 
-            });
-        }
-        const ct = response.headers.get('content-type') || '';
-        return ct.includes('application/json') || ct.includes('text/plain') ? response.text() : Promise.resolve();
-    })
-    .then(tokenString => {
-        // אם הגענו לכאן, סימן שהעדכון הצליח
-        alert("עדכון הסיסמא עבר בהצלחה");
+        .then(response => {
+            if (!response.ok) {
+                // אם הסטטוס הוא 401 או 400 (למשל סיסמה שגויה), נזרוק שגיאה
+                return response.text().then(t => {
+                    throw new Error("InvalidPassword");
+                });
+            }
+            const ct = response.headers.get('content-type') || '';
+            return ct.includes('application/json') || ct.includes('text/plain') ? response.text() : Promise.resolve();
+        })
+        .then(tokenString => {
+            // אם הגענו לכאן, סימן שהעדכון הצליח
+            alert("עדכון הסיסמא עבר בהצלחה");
 
-        if (tokenString && tokenString.length > 10) {
-            localStorage.setItem('token', tokenString);
-        }
-        document.getElementById('current-password').value = '';
-        document.getElementById('new-password').value = '';
-    })
-    .catch(error => {
-        // כאן אנחנו תופסים גם שגיאות רשת וגם את השגיאה שזרקנו למעלה
-        console.error('Unable to change password.', error);
-        alert("אחת מהסיסמאות שהזנת שגויות, נסה שנית");
-    });
+            if (tokenString && tokenString.length > 10) {
+                localStorage.setItem('token', tokenString);
+            }
+            document.getElementById('current-password').value = '';
+            document.getElementById('new-password').value = '';
+        })
+        .catch(error => {
+            // כאן אנחנו תופסים גם שגיאות רשת וגם את השגיאה שזרקנו למעלה
+            console.error('Unable to change password.', error);
+            alert("אחת מהסיסמאות שהזנת שגויות, נסה שנית");
+        });
 }
 
 
@@ -255,55 +255,55 @@ function showProfile(userId, options) {
             ...(token ? { 'Authorization': `Bearer ${token}` } : {})
         }
     })
-    .then(response => {
-        if (!response.ok) return response.text().then(t => { throw new Error(`${response.status} ${response.statusText}: ${t}`); });
-        return response.json();
-    })
-    .then(user => {
-        console.log('showProfile got user.id=', user && user.id);
-        const claims = parseJwt(token);
-        const isAdminUser = claims && claims.type === 'Admin';
+        .then(response => {
+            if (!response.ok) return response.text().then(t => { throw new Error(`${response.status} ${response.statusText}: ${t}`); });
+            return response.json();
+        })
+        .then(user => {
+            console.log('showProfile got user.id=', user && user.id);
+            const claims = parseJwt(token);
+            const isAdminUser = claims && claims.type === 'Admin';
 
-        if (isAdminUser) {
-            // Admin: show admin profile section (read-only) and hide editing UI
-            const profileEl = document.getElementById('profileSection'); if (profileEl) profileEl.style.display = 'none';
-            const editEl = document.getElementById('editForm'); if (editEl) editEl.style.display = 'none';
-            const adminEl = document.getElementById('adminProfileSection'); if (adminEl) adminEl.style.display = 'block';
+            if (isAdminUser) {
+                // Admin: show admin profile section (read-only) and hide editing UI
+                const profileEl = document.getElementById('profileSection'); if (profileEl) profileEl.style.display = 'none';
+                const editEl = document.getElementById('editForm'); if (editEl) editEl.style.display = 'none';
+                const adminEl = document.getElementById('adminProfileSection'); if (adminEl) adminEl.style.display = 'block';
 
-            // fill with the fetched user's data (not admin claims)
-            const adminId = document.getElementById('admin-id'); if (adminId) adminId.innerText = user.id;
-            const adminShop = document.getElementById('admin-shopName'); if (adminShop) adminShop.innerText = user.ShopName || user.shopName || '';
-            const adminEmail = document.getElementById('admin-email'); if (adminEmail) adminEmail.innerText = user.Email || user.email || '';
-            const adminAddress = document.getElementById('admin-address'); if (adminAddress) adminAddress.innerText = user.Address || user.address || '';
-            const adminIce = document.getElementById('admin-icecount'); if (adminIce) adminIce.innerText = (user.IceCreams && user.IceCreams.length) || (user.iceCreams && user.iceCreams.length) || 0;
+                // fill with the fetched user's data (not admin claims)
+                const adminId = document.getElementById('admin-id'); if (adminId) adminId.innerText = user.id;
+                const adminShop = document.getElementById('admin-shopName'); if (adminShop) adminShop.innerText = user.ShopName || user.shopName || '';
+                const adminEmail = document.getElementById('admin-email'); if (adminEmail) adminEmail.innerText = user.Email || user.email || '';
+                const adminAddress = document.getElementById('admin-address'); if (adminAddress) adminAddress.innerText = user.Address || user.address || '';
+                const adminIce = document.getElementById('admin-icecount'); if (adminIce) adminIce.innerText = (user.IceCreams && user.IceCreams.length) || (user.iceCreams && user.iceCreams.length) || 0;
 
-            // hide users list only after successfully loaded the selected user's data
-            if (options && options.hideList) {
-                const usersListEl = document.getElementById('usersList'); if (usersListEl) usersListEl.style.display = 'none';
+                // hide users list only after successfully loaded the selected user's data
+                if (options && options.hideList) {
+                    const usersListEl = document.getElementById('usersList'); if (usersListEl) usersListEl.style.display = 'none';
+                }
+            } else {
+                // Non-admin: show editable profile
+                const adminEl = document.getElementById('adminProfileSection'); if (adminEl) adminEl.style.display = 'none';
+                const profileEl = document.getElementById('profileSection'); if (profileEl) profileEl.style.display = 'block';
+                const editEl = document.getElementById('editForm'); if (editEl) editEl.style.display = 'none';
+
+                const profileIdEl = document.getElementById('profile-id'); if (profileIdEl) profileIdEl.value = user.id;
+                const pwdEl = document.getElementById('pwd-id'); if (pwdEl) pwdEl.value = user.id;
+
+                const shopEl = document.getElementById('profile-shopName'); if (shopEl) shopEl.value = user.ShopName || user.shopName || '';
+                const emailEl = document.getElementById('profile-email'); if (emailEl) emailEl.value = user.Email || user.email || '';
+                const addressEl = document.getElementById('profile-address'); if (addressEl) addressEl.value = user.Address || user.address || '';
+
+                // ensure users list is hidden for non-admin view (only if asked)
+                if (options && options.hideList) {
+                    const usersListEl = document.getElementById('usersList'); if (usersListEl) usersListEl.style.display = 'none';
+                }
             }
-        } else {
-            // Non-admin: show editable profile
-            const adminEl = document.getElementById('adminProfileSection'); if (adminEl) adminEl.style.display = 'none';
-            const profileEl = document.getElementById('profileSection'); if (profileEl) profileEl.style.display = 'block';
-            const editEl = document.getElementById('editForm'); if (editEl) editEl.style.display = 'none';
-
-            const profileIdEl = document.getElementById('profile-id'); if (profileIdEl) profileIdEl.value = user.id;
-            const pwdEl = document.getElementById('pwd-id'); if (pwdEl) pwdEl.value = user.id;
-
-            const shopEl = document.getElementById('profile-shopName'); if (shopEl) shopEl.value = user.ShopName || user.shopName || '';
-            const emailEl = document.getElementById('profile-email'); if (emailEl) emailEl.value = user.Email || user.email || '';
-            const addressEl = document.getElementById('profile-address'); if (addressEl) addressEl.value = user.Address || user.address || '';
-
-            // ensure users list is hidden for non-admin view (only if asked)
-            if (options && options.hideList) {
-                const usersListEl = document.getElementById('usersList'); if (usersListEl) usersListEl.style.display = 'none';
-            }
-        }
-    })
-    .catch(error => {
-        console.error('Unable to get user.', error);
-        alert('שגיאה בטעינת פרטי המשתמש: ' + (error.message || error));
-    });
+        })
+        .catch(error => {
+            console.error('Unable to get user.', error);
+            alert('שגיאה בטעינת פרטי המשתמש: ' + (error.message || error));
+        });
 }
 
 function updateProfile() {
@@ -319,21 +319,21 @@ function updateProfile() {
     const token = localStorage.getItem('token');
 
     fetch(`${uri}/${id}`, {
-            method: 'PUT',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                ...(token ? { 'Authorization': `Bearer ${token}` } : {})
-            },
-            body: JSON.stringify(user)
-        })
+        method: 'PUT',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            ...(token ? { 'Authorization': `Bearer ${token}` } : {})
+        },
+        body: JSON.stringify(user)
+    })
         .then(response => {
             if (!response.ok) return response.text().then(t => { throw new Error(`${response.status} ${response.statusText}: ${t}`); });
             return response.text();
         })
         .then(() => {
             // עדכון המטמון בצד לקוח כדי שהשינויים ייראו מיד
-            const idx = users.findIndex(u => parseInt(u.id,10) === parseInt(id,10));
+            const idx = users.findIndex(u => parseInt(u.id, 10) === parseInt(id, 10));
             if (idx !== -1) {
                 users[idx].ShopName = user.ShopName;
                 users[idx].shopName = user.ShopName;
@@ -396,42 +396,42 @@ function _displayUsers(data) {
                     ...(token ? { 'Authorization': `Bearer ${token}` } : {})
                 }
             })
-            .then(r => {
-                if (!r.ok) return r.text().then(t => { throw new Error(`${r.status} ${r.statusText}: ${t}`); });
-                return r.json();
-            })
-            .then(selectedUser => {
-                // הסתר את הרשימה והצג את כרטיס הפרטים של המשתמש שנבחר
-                const usersListEl = document.getElementById('usersList'); if (usersListEl) usersListEl.style.display = 'none';
-                const adminEl = document.getElementById('adminProfileSection'); if (adminEl) adminEl.style.display = 'block';
-                const profileEl = document.getElementById('profileSection'); if (profileEl) profileEl.style.display = 'none';
-                const editEl = document.getElementById('editForm'); if (editEl) editEl.style.display = 'none';
+                .then(r => {
+                    if (!r.ok) return r.text().then(t => { throw new Error(`${r.status} ${r.statusText}: ${t}`); });
+                    return r.json();
+                })
+                .then(selectedUser => {
+                    // הסתר את הרשימה והצג את כרטיס הפרטים של המשתמש שנבחר
+                    const usersListEl = document.getElementById('usersList'); if (usersListEl) usersListEl.style.display = 'none';
+                    const adminEl = document.getElementById('adminProfileSection'); if (adminEl) adminEl.style.display = 'block';
+                    const profileEl = document.getElementById('profileSection'); if (profileEl) profileEl.style.display = 'none';
+                    const editEl = document.getElementById('editForm'); if (editEl) editEl.style.display = 'none';
 
-                const adminId = document.getElementById('admin-id'); if (adminId) adminId.innerText = selectedUser.id;
-                const adminShop = document.getElementById('admin-shopName'); if (adminShop) adminShop.innerText = selectedUser.ShopName || selectedUser.shopName || '';
-                const adminEmail = document.getElementById('admin-email'); if (adminEmail) adminEmail.innerText = selectedUser.Email || selectedUser.email || '';
-                const adminAddress = document.getElementById('admin-address'); if (adminAddress) adminAddress.innerText = selectedUser.Address || selectedUser.address || '';
-                const adminIce = document.getElementById('admin-icecount'); if (adminIce) adminIce.innerText = (selectedUser.IceCreams && selectedUser.IceCreams.length) || (selectedUser.iceCreams && selectedUser.iceCreams.length) || 0;
+                    const adminId = document.getElementById('admin-id'); if (adminId) adminId.innerText = selectedUser.id;
+                    const adminShop = document.getElementById('admin-shopName'); if (adminShop) adminShop.innerText = selectedUser.ShopName || selectedUser.shopName || '';
+                    const adminEmail = document.getElementById('admin-email'); if (adminEmail) adminEmail.innerText = selectedUser.Email || selectedUser.email || '';
+                    const adminAddress = document.getElementById('admin-address'); if (adminAddress) adminAddress.innerText = selectedUser.Address || selectedUser.address || '';
+                    const adminIce = document.getElementById('admin-icecount'); if (adminIce) adminIce.innerText = (selectedUser.IceCreams && selectedUser.IceCreams.length) || (selectedUser.iceCreams && selectedUser.iceCreams.length) || 0;
 
-                // וודא שהכפתור מחיקה פועל על המשתמש הנבחר
-                const delBtn = document.getElementById('admin-delete-btn');
-                if (delBtn) {
-                    // נתק את המאזין הקודם
-                    delBtn.onclick = null;
-                    delBtn.onclick = function () {
-                        if (confirm('אתה בטוח שברצונך למחוק את המשתמש?')) {
-                            deleteUser(selectedUser.id);
-                            // אחרי מחיקה הצג את הרשימה מחדש
-                            const adminEl2 = document.getElementById('adminProfileSection'); if (adminEl2) adminEl2.style.display = 'none';
-                            const usersListEl2 = document.getElementById('usersList'); if (usersListEl2) usersListEl2.style.display = 'block';
-                        }
-                    };
-                }
-            })
-            .catch(err => {
-                console.error('Unable to load selected user', err);
-                alert('שגיאה בטעינת פרטי המשתמש שנבחר: ' + (err.message || err));
-            });
+                    // וודא שהכפתור מחיקה פועל על המשתמש הנבחר
+                    const delBtn = document.getElementById('admin-delete-btn');
+                    if (delBtn) {
+                        // נתק את המאזין הקודם
+                        delBtn.onclick = null;
+                        delBtn.onclick = function () {
+                            if (confirm('אתה בטוח שברצונך למחוק את המשתמש?')) {
+                                deleteUser(selectedUser.id);
+                                // אחרי מחיקה הצג את הרשימה מחדש
+                                const adminEl2 = document.getElementById('adminProfileSection'); if (adminEl2) adminEl2.style.display = 'none';
+                                const usersListEl2 = document.getElementById('usersList'); if (usersListEl2) usersListEl2.style.display = 'block';
+                            }
+                        };
+                    }
+                })
+                .catch(err => {
+                    console.error('Unable to load selected user', err);
+                    alert('שגיאה בטעינת פרטי המשתמש שנבחר: ' + (err.message || err));
+                });
         };
 
         // מנהל יכול למחוק
@@ -476,7 +476,7 @@ if (window.location.pathname.endsWith('/user.html')) {
 }
 
 // call getUsers when relevant DOM is ready (protect against pages without these elements)
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     if (!(document.getElementById('profileSection') || document.getElementById('adminProfileSection') || document.getElementById('usersList'))) return;
     const params = new URLSearchParams(window.location.search);
     const idParam = params.get('id');
@@ -507,4 +507,49 @@ document.addEventListener('click', function (e) {
         // refresh list
         getUsers();
     }
+    // --- SignalR Connection & Listener ---
+    // יצירת החיבור ל-Hub
+    const connection = new signalR.HubConnectionBuilder()
+        .withUrl("/notificationHub", {
+            // צירוף הטוקן כדי שהשרת יזהה את המשתמש וידע אם הוא מנהל
+            accessTokenFactory: () => localStorage.getItem('token')
+        })
+        .build();
+
+    // האזנה לצעקות מהשרת תחת מילת המפתח "Notify"
+    connection.on("Notify", function (message) {
+        try {
+            const data = JSON.parse(message);
+
+            // בודקים אם ההודעה היא על הרשמה או יצירה של חנות חדשה
+            if (data.action === "new_user_registered" || data.action === "new_user_created") {
+                console.log("חנות חדשה נוספה, מרענן את הרשימה...");
+
+                // אם המשתמש שצופה במסך עכשיו הוא מנהל, נרענן לו את הרשימה בלי ריענון דף
+                if (isAdmin()) {
+                    getUsers();
+                }
+            }
+
+            // אפשר גם להוסיף כאן האזנה לעדכונים/מחיקות בעתיד:
+            // if (data.action === "user_deleted" || data.action === "user_updated") { ... }
+
+        } catch (e) {
+            console.error("שגיאה בפענוח הודעת SignalR", e);
+        }
+    });
+
+    // הפעלת החיבור
+    if (getCurrentUserId()) { // מתחברים רק אם יש משתמש מחובר
+        connection.start().then(function () {
+            console.log("SignalR Connected!");
+        }).catch(function (err) {
+            console.error("SignalR Connection Error: ", err.toString());
+        });
+    }
+
+
+
+
+
 });

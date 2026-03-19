@@ -62,6 +62,65 @@ function addNewUserToList(newUser) {
     console.log('User card added to DOM:', shopName);
 }
 
+// Add a new shop row into the admin shops table (`#iceCreams`) when admin views all shops
+function addNewShopToTable(newUser) {
+    const tBody = document.getElementById('iceCreams');
+    if (!tBody) {
+        console.log('iceCreams table not found - cannot add shop row');
+        return;
+    }
+
+    // avoid duplicates: check if a row for this user id already exists
+    const existingRow = document.getElementById(`shop-row-${newUser.id}`);
+    if (existingRow) {
+        console.log('Shop row already exists for user', newUser.id);
+        return;
+    }
+
+    const tr = tBody.insertRow();
+    tr.id = `shop-row-${newUser.id}`;
+
+    // column 1: shop name
+    const td1 = tr.insertCell(0);
+    td1.appendChild(document.createTextNode(newUser.ShopName || newUser.shopName || ''));
+
+    // column 2: ice count (may be empty initially)
+    const iceCount = (newUser.IceCreams && newUser.IceCreams.length) || (newUser.iceCreams && newUser.iceCreams.length) || 0;
+    const td2 = tr.insertCell(1);
+    td2.innerText = iceCount === 0 ? 'אוסף ריק' : `${iceCount} גלידות`;
+
+    // column 3: manage button
+    const td3 = tr.insertCell(2);
+    const manageButton = document.createElement('button');
+    manageButton.innerText = 'נהל אוסף';
+    manageButton.addEventListener('click', function () { 
+        if (typeof viewShopIceCreams === 'function') {
+            viewShopIceCreams(newUser.id, newUser.ShopName || newUser.shopName || '');
+        } else {
+            // fallback: refresh the page's shops list
+            if (typeof getMyIceCreams === 'function') setTimeout(() => getMyIceCreams(), 200);
+        }
+    });
+    td3.appendChild(manageButton);
+
+    // update counter if available
+    try {
+        const counter = document.getElementById('counter');
+        if (counter && counter.innerText) {
+            // try to increment the count shown (format: "X חנויות")
+            const m = counter.innerText.match(/(\d+)/);
+            if (m) {
+                const n = parseInt(m[1], 10) + 1;
+                counter.innerText = counter.innerText.replace(m[1], n);
+            }
+        }
+    } catch (e) {
+        // ignore
+    }
+
+    console.log('Added shop row for new user:', newUser.ShopName || newUser.shopName || newUser.id);
+}
+
 // Helper function to fetch a single user from server and add to list
 function fetchAndAddUserToList(userId) {
     console.log('fetchAndAddUserToList called for userId:', userId, 'type:', typeof userId);
@@ -107,6 +166,12 @@ function fetchAndAddUserToList(userId) {
         
         // Add to DOM if container exists
         addNewUserToList(user);
+        // also add to shops table if admin overview is shown
+        try {
+            addNewShopToTable(user);
+        } catch (e) {
+            console.warn('addNewShopToTable failed', e);
+        }
     })
     .catch(error => {
         console.error('Error fetching user:', error);

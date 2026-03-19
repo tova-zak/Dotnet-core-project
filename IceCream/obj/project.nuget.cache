@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "adee0afkTGo=",
+  "dgSpecHash": "appiRHXpGXo=",
   "success": true,
-  "projectFilePath": "C:\\Users\\לאה הצדיקה\\Desktop\\ערב\\Dotnet-core-project\\IceCream\\IceCream.csproj",
+  "projectFilePath": "C:\\Users\\לאה הצדיקה\\Desktop\\ניסוי\\Dotnet-core-project\\IceCream\\IceCream.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\לאה הצדיקה\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.4\\microsoft.aspnetcore.authentication.jwtbearer.5.0.4.nupkg.sha512",
     "C:\\Users\\לאה הצדיקה\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
