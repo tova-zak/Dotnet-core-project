@@ -6,13 +6,11 @@ using Microsoft.Extensions.Logging;
 
 namespace IceCream.Services
 {
-    // שירות ברקע שצורך הודעות תור ומייצר קובץ לוג
     public class LogWorker : BackgroundService
     {
         private readonly LogQueue queue;
         private readonly ILogger<LogWorker> logger;
         private readonly string logPath = Path.Combine("logs", "requests.log");
-
         public LogWorker(LogQueue queue, ILogger<LogWorker> logger)
         {
             this.queue = queue;

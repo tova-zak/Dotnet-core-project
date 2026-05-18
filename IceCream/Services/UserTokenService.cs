@@ -12,7 +12,6 @@ namespace IceCream.Services
 {
 public static class UserTokenService
     {
-        // סוד (מפתח) חייב להיות ארוך מספיק בשביל HMACSHA256 - החלפתי למחרוזת ארוכה יותר
         private static SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("THIS_IS_A_LONG_SECRET_FOR_DEVELOPMENT_ONLY_ChangeMeToStrongValue"));
         private static string issuer = "https://fbi-demo.com";
         public static SecurityToken GetToken(List<Claim> claims) =>
@@ -30,7 +29,7 @@ public static class UserTokenService
                 ValidIssuer = issuer,
                 ValidAudience = issuer,
                 IssuerSigningKey = key,
-                ClockSkew = TimeSpan.Zero // remove delay of token when expire
+                ClockSkew = TimeSpan.Zero 
             };
 
         public static string WriteToken(SecurityToken token) =>

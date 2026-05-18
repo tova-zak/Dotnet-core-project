@@ -84,18 +84,14 @@ public class UserController : ControllerBase
         if (service.Get().Any(u => u.ShopName.Equals(newUser.ShopName, System.StringComparison.OrdinalIgnoreCase)))
             return Conflict("ShopName already exists");
 
-        // password strength validation
         if (!IsStrongPassword(newUser.Password, out var pwdErrors))
             return BadRequest(string.Join("; ", pwdErrors));
 
-        // prevent reuse of same password by different users
         if (service.Get().Any(u => !string.IsNullOrEmpty(u.Password) && PasswordHasher.Verify(newUser.Password, u.Password)))
             return Conflict("Password is already used by another user. Please choose a different password.");
 
         newUser.Role = "User";
         var created = service.Create(newUser);
-        
-        // Notify admins about new user registration
         var adminMessage = System.Text.Json.JsonSerializer.Serialize(new { 
             action = "new_user_registered", 
             userId = created.Id,
@@ -119,12 +115,10 @@ public class UserController : ControllerBase
         if (service.Get().Any(u => !string.IsNullOrEmpty(u.Password) && PasswordHasher.Verify(newUser.Password, u.Password)))
             return Conflict("Password is already used by another user. Please choose a different password.");
 
-        // ensure Role default if not supplied
         if (string.IsNullOrWhiteSpace(newUser.Role)) newUser.Role = "User";
 
         service.Create(newUser);
         
-        // Notify admins about new user creation
         var adminMessage = System.Text.Json.JsonSerializer.Serialize(new { 
             action = "new_user_created", 
             userId = newUser.Id,
@@ -173,7 +167,6 @@ public class UserController : ControllerBase
 
         service.Update(id, newUser);
         
-        // Notify admin about user update
         var adminMessage = System.Text.Json.JsonSerializer.Serialize(new { 
             action = "user_updated", 
             userId = id,
@@ -181,7 +174,6 @@ public class UserController : ControllerBase
         });
         _ = NotificationHub.NotifyAdmins(hubContext, adminMessage);
         
-        // Notify user about their update
         var userMessage = System.Text.Json.JsonSerializer.Serialize(new { 
             action = "your_profile_updated"
         });
@@ -196,7 +188,6 @@ public class UserController : ControllerBase
     {
         var existing = service.Get(id);
         if (existing == null) return NotFound();
-        // Notify the user that they were removed by an admin (send before deleting so connection still exists)
         var userMessage = System.Text.Json.JsonSerializer.Serialize(new {
             action = "you_were_deleted",
             reason = "removed_by_admin",
@@ -206,7 +197,6 @@ public class UserController : ControllerBase
 
         service.Delete(id);
 
-        // Notify admins about user deletion
         var adminMessage = System.Text.Json.JsonSerializer.Serialize(new { 
             action = "user_deleted", 
             userId = id,
@@ -216,8 +206,6 @@ public class UserController : ControllerBase
 
         return NoContent();
     }
-
-    // per-user ice creams
     [HttpGet("{id}/icecreams")]
     [Authorize(Policy = "AllUsers")]
     public ActionResult<IEnumerable<IceCreamModel>> GetUserIceCreams(int id)
@@ -255,12 +243,8 @@ public class UserController : ControllerBase
         ice.Id = maxId + 1;
         user.IceCreams.Add(ice);
         service.Update(id, user);
-
-        // notify user
         var userMessage = System.Text.Json.JsonSerializer.Serialize(new { action = "ice_added", iceName = ice.Name });
         _ = NotificationHub.NotifyUser(hubContext, user.Id.ToString(), userMessage);
-        
-        // notify admins
         var adminMessage = System.Text.Json.JsonSerializer.Serialize(new { 
             action = "user_added_ice", 
             userId = id,
@@ -292,12 +276,8 @@ public class UserController : ControllerBase
 
         user.IceCreams.Remove(ice);
         service.Update(id, user);
-
-        // notify user
         var userMessage = System.Text.Json.JsonSerializer.Serialize(new { action = "ice_deleted", iceName = ice.Name });
         _ = NotificationHub.NotifyUser(hubContext, user.Id.ToString(), userMessage);
-        
-        // notify admins
         var adminMessage = System.Text.Json.JsonSerializer.Serialize(new { 
             action = "user_deleted_ice",
             userId = id,
@@ -332,11 +312,9 @@ public class UserController : ControllerBase
 
         service.Update(id, user);
 
-        // notify user
         var userMessage = System.Text.Json.JsonSerializer.Serialize(new { action = "ice_updated", iceName = ice.Name });
         _ = NotificationHub.NotifyUser(hubContext, user.Id.ToString(), userMessage);
         
-        // notify admins
         var adminMessage = System.Text.Json.JsonSerializer.Serialize(new { 
             action = "user_updated_ice",
             userId = id,
@@ -392,7 +370,6 @@ public class UserController : ControllerBase
             return BadRequest(new { used = false });
 
         var users = service.Get();
-        // check if any existing user's hashed password matches the provided plain password
         foreach (var u in users)
         {
             if (!string.IsNullOrEmpty(u.Password) && PasswordHasher.Verify(model.Password, u.Password))
@@ -406,8 +383,6 @@ public class UserController : ControllerBase
     {
         public string Password { get; set; } = string.Empty;
     }
-
-    // helper: at least 8 chars, at least 2 letters and 2 digits
     private static bool IsStrongPassword(string pwd, out List<string> errors)
     {
         errors = new List<string>();

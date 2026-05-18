@@ -6,14 +6,8 @@
     <link rel="stylesheet" href="../css/site.css" />
 </head>
 <body>
-    <!-- הוספתי שורת ניווט קטנה בראש עם כפתורים לדף הבית ולכניסה -->
     <div style="direction:rtl;text-align:right;padding:10px;">
-        <!-- קישור מעודכן לדף הבית הראשי עם עיצוב התמונה -->
         <a href="/index.html"><button style="margin-right:8px;">דף הבית</button></a>
-        <!-- <a href="./login.html"><button>כניסה</button></a> -->
-         <!-- קישור לחזרה לאוסף הגלידות  -->
-        <!-- <a href="myicecreams.html"><button style="margin-right:8px;">האוספים שלי</button></a> -->
-         <!-- קישור חזרה לאוסף הגלידות עבור מנהל -->
             <a href="myicecreams.html"><button style="margin-right:8px;">כל החנויות והאוספים שלהן</button></a>
     </div>
 
@@ -25,8 +19,6 @@
                 <input type="checkbox" id="add-icecream-isdiary"> חלב
                 <input type="submit" value="הוסף גלידה">
             </form>
-            <!-- חדש: הצגת מידע למשתמש/אדמין לגבי המטרה של 'הוספת גלידה' -->
-            <!-- <div id="addTargetInfo" style="margin-top:8px;color:#444;font-weight:600;"></div> -->
         </div>
 
         <div id="editForm" style="display:none;">
@@ -50,14 +42,12 @@
             </tr>
             <tbody id="iceCreams"></tbody>
         </table>
-        <!-- שיניתי את הטקסט של הקישור -->
         <a id="userLink" href="../html/user.html">לפרטי משתמש</a>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/8.0.0/signalr.min.js"></script>
     <script src="../js/signalr.js"></script>
     <script src="../js/myicecreams.js"></script>
     <script type="text/javascript">
-        // בדוק אם אדמין ותעדכן את ה-UI בהתאם
         function setupUI() {
             const token = localStorage.getItem('token');
             const isAdminUser = parseJwt(token) && parseJwt(token).type === 'Admin';

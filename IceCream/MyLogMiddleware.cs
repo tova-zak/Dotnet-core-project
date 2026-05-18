@@ -26,7 +26,6 @@ public class MyLogMiddleware
         var duration = sw.ElapsedMilliseconds;
         var user = c.User?.FindFirst("userId")?.Value ?? "anonymous";
         var message = $"{start:O} | {c.Request.Path} {c.Request.Method} | user: {user} | durationMs: {duration}";
-        // enqueue to background worker
         logQueue.Enqueue(message);
         logger.LogInformation(message);
         

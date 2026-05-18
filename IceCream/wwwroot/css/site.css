@@ -1,7 +1,5 @@
-/* ייבוא פונטים מרהיבים מגוגל */
-@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;700;800&family=Heebo:wght@800&display=swap');
 
-/* --- Login Page Fullscreen Image Background --- */
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;700;800&family=Heebo:wght@800&display=swap');
 .login-bg {
     min-height: 100vh;
     min-width: 100vw;
@@ -10,7 +8,6 @@
     background: url('/img/1.png'), url('img/1.png'), url('./img/1.png') no-repeat center center fixed;
     background-size: cover;
     position: relative;
-    /* שינוי הפונט הכללי לפונט Assistant המודרני */
     font-family: 'Assistant', sans-serif;
     overflow: hidden;
 }
@@ -30,9 +27,7 @@
 
 .login-welcome-box {
     margin: 0 40px 40px 0;
-    /* שקיפות גבוהה יותר עם אפקט זכוכית יוקרתי */
     background: rgba(255, 255, 255, 0.05); 
-    /* עיגול פינות מרשים מאוד */
     border-radius: 45px; 
     box-shadow: 0 15px 35px rgba(0,0,0,0.1);
     padding: 40px 50px;
@@ -42,7 +37,6 @@
     align-items: center; 
     pointer-events: auto;
     z-index: 20;
-    /* אפקט הטשטוש שיוצר את המראה המרשים */
     backdrop-filter: blur(15px) saturate(1.5);
     -webkit-backdrop-filter: blur(15px) saturate(1.5);
     border: 1px solid rgba(255, 255, 255, 0.4);
@@ -50,16 +44,14 @@
 }
 
 .login-welcome-text {
-    /* שימוש בפונט Heebo עבה ומרשים לכותרת */
     font-family: 'Heebo', sans-serif;
     font-weight: 800;
-    color: #9d0d02; /* אדום שטראוס */
+    color: #9d0d02; 
     font-size: 3em;
     margin-bottom: 25px;
     text-align: center;
     width: 100%;
     letter-spacing: -1px;
-    /* צל עדין מאוד שנותן עומק לטקסט */
     text-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
@@ -72,13 +64,12 @@
 }
 
 .login-btn {
-    /* גרדיאנט שמתאים לצבעי הלוגו בתמונה */
     background: linear-gradient(135deg, #009A44 0%, #0072CE 100%);
     color: #fff;
     font-family: 'Assistant', sans-serif;
     font-weight: 700;
     font-size: 1.15em;
-    border-radius: 50px; /* כפתורים עגולים לגמרי */
+    border-radius: 50px; 
     padding: 14px 35px;
     border: none;
     cursor: pointer;
@@ -93,22 +84,7 @@
     box-shadow: 0 8px 25px rgba(0, 114, 206, 0.3);
 }
 
-
-
-/* עיצוב מגניב וצבעוני לחנות גלידות - צבעים עזים וגרדיאנטים */
 :root {
-    /* --ice-pink: #ff0080;
-    --ice-blue: #00eaff;
-    --ice-yellow: #ffe600;
-    --ice-purple: #a800ff;
-    --ice-green: #00ff85;
-    --ice-orange: #ff7a00;
-    --ice-white: #fff;
-    --ice-dark: #222;
-    --ice-shadow: 0 8px 32px 0 rgba(0,0,0,0.18);
-    --ice-gradient: linear-gradient(135deg, #ff0080 0%, #00eaff 50%, #ffe600 100%);
-    --ice-gradient2: linear-gradient(135deg, #a800ff 0%, #ff7a00 100%);
-    --ice-gradient3: linear-gradient(135deg, #00ff85 0%, #ff0080 100%); */
     --ice-pink: #7fd0f5;
     --ice-blue: #00eaff;
     --ice-yellow: #dcc705;
@@ -121,19 +97,15 @@
     --ice-gradient: linear-gradient(135deg, #b00505 0%, #00eaff 50%, #eed707 100%);
     --ice-gradient2: linear-gradient(135deg, #2f07be 0%, #06e66f 100%);
     --ice-gradient3: linear-gradient(135deg, #00ff85 0%, #c20303 100%);
-
-
-
 }
 
-/* typography + רקע כללי */
 html, body {
     height: 100%;
     font-family: 'Varela Round', 'Segoe UI', Arial, sans-serif;
     color: var(--ice-dark);
     letter-spacing: 0.5px;
 }
-/* 🍦 עיצוב מרשים לחנות גלידות שטראוס - מודרני וייפה */
+
     body {
         padding: 0;
         margin: 0;
@@ -149,7 +121,6 @@ html, body {
         100% { background: var(--ice-gradient); background-position: 0% 50%; }
     }
 
-    /* אפקט "צף" של בועות צבע ברקע */
     .ice-bubble {
         position: absolute;
         border-radius: 50%;
@@ -372,8 +343,6 @@ html, body {
 #editForm { display: none; }
 [aria-label]{ padding:8px 12px; border-radius:10px; }
 
-
-/* Register card styles */
 .register-page { background: linear-gradient(135deg, #f7fbff 0%, #f0fff4 100%); min-height: 100vh; display:flex; align-items:center; justify-content:center; }
 .register-container { width:100%; max-width:980px; padding: 40px 20px; box-sizing: border-box; }
 .card { background: linear-gradient(135deg, #00c98a 0%, #3a35ff 100%); border-radius: 24px; padding: 48px 40px 32px 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.12); color: #fff; position: relative; overflow: visible; }
@@ -389,8 +358,6 @@ html, body {
 .login-link { text-align:center; margin-top:12px; color: rgba(255,255,255,0.95); }
 
 @media (max-width:600px){ .card{ padding:24px 18px; } .logo-wrapper{ top:-40px; } }
-
-/* Login page styles */
 .login-container { min-height: 100vh; display:flex; align-items:center; justify-content:center; padding: 40px 20px; }
 .login-card { width: 100%; max-width:420px; background: #fff; border-radius: 20px; padding: 44px 28px 30px; box-shadow: 0 20px 60px rgba(160,0,120,0.08); position:relative; }
 .login-card .logo-wrapper { position:absolute; top:-54px; left:50%; transform:translateX(-50%); }

@@ -4,7 +4,6 @@ using IceCream.Interfaces;
 
 namespace IceCream.Services
 {
-    // Middleware that populates IActiveUser from JWT claims for the current request
     public class ActiveUserMiddleware
     {
         private readonly RequestDelegate _next;
@@ -21,7 +20,6 @@ namespace IceCream.Services
                 var idClaim = context.User.FindFirst("userId");
                 var roleClaim = context.User.FindFirst("type");
                 var shopClaim = context.User.FindFirst("userShopName");
-
                 if (idClaim != null && int.TryParse(idClaim.Value, out var id))
                     activeUser.Id = id;
                 activeUser.Role = roleClaim?.Value;

@@ -2,7 +2,6 @@ using System.Collections.Concurrent;
 
 namespace IceCream.Services
 {
-    // פשוט תור לוגים שניתן להזריק לשירות שיכתוב לקובץ ברקע
     public class LogQueue
     {
         private readonly ConcurrentQueue<string> queue = new ConcurrentQueue<string>();

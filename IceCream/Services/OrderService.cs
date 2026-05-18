@@ -13,7 +13,7 @@ namespace IceCream.Services{
 
 public class OrderService:IOrderService
 {
-    private /*static */List<IceCreamModel> list;
+    private List<IceCreamModel> list;
     private string filePath;
         public OrderService()
         {
@@ -96,10 +96,7 @@ public class OrderService:IOrderService
     {
         public static void AddOrderServices(this IServiceCollection services)
         {
-            services.AddSingleton<IOrderService, OrderService>();
-            // services.AddSingleton<IOrderSender, OrderSenderHttp>();
-            //services.AddScope<IOrderManager, OrderManager>();
-            //services.AddTransient<IOrderSender, OrderSenderHttp>();            
+            services.AddSingleton<IOrderService, OrderService>();       
         }
     }
 }

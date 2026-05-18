@@ -6,13 +6,11 @@
     <title>פרטי משתמש</title>
     <link rel="stylesheet" href="../css/site.css" />
     <script>
-        // Check for token
         if (!localStorage.getItem('token')) {
-            window.location.href = 'login.html'; // Redirect to the login page if no token is found
+            window.location.href = 'login.html'; 
         }
     </script>
     <style>
-        /* פשטות ל־cards */
         .user-card {
             background: #fff;
             border-radius: 10px;
@@ -35,20 +33,13 @@
 </head>
 
 <body style="direction:rtl;text-align:right;">
-    <!-- ניווט מקוצר: רק חזרה לדף הבית כפי שהתבקש -->
     <div style="direction:rtl;text-align:right;padding:10px;">
-        <!-- קישור מעודכן לדף הבית הראשי עם עיצוב התמונה -->
-        
         <a href="/index.html"><button style="margin-right:8px;">חזרה לדף הבית</button></a>
-        <!-- קישור נוסף לאוספים שלי (אם המשתמש הוא לא אדמין) -->
-
         <a href="myicecreams.html"><button style="margin-right:8px;"> חזרה לאוסף הגלידות שלי</button></a>
     </div>
 
     <div class="container">
         <h1>פרטי משתמש</h1>
-
-        <!-- אזור לעריכת פרופיל של המשתמש המחובר -->
         <div id="profileSection" style="display:none;">
             <h3>הפרטים שלי</h3>
             <form id="profileForm" action="javascript:void(0);" onsubmit="updateProfile()">
@@ -71,7 +62,6 @@
             </form>
         </div>
 
-        <!-- אזור תצוגת פרטי משתמש למנהל (קריאה בלבד + מחיקה) -->
         <div id="adminProfileSection" style="display:none;">
             <h3>פרטי משתמש (מנהל)</h3>
             <p>Id: <span id="admin-id"></span></p>
@@ -84,8 +74,6 @@
                 <button id="admin-back-btn">חזור</button>
             </div>
         </div>
-
-        <!-- רשימת משתמשים להצגה למנהל -->
         <div id="usersList" style="margin-top:18px;"></div>
 
     </div>
@@ -94,15 +82,13 @@
     <script src="../js/signalr.js"></script>
     <script src="../js/user.js"></script>
     <script type="text/javascript">
-        // Initialize page for admin or non-admin user
         document.addEventListener('DOMContentLoaded', function() {
             const token = localStorage.getItem('token');
             if (!token) {
                 window.location.href = 'login.html';
                 return;
             }
-            
-            // Call getUsers which will display users if admin, or profile if non-admin
+        
             getUsers();
         });
     </script>

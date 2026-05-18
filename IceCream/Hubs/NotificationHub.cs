@@ -8,7 +8,6 @@ namespace IceCream.Hubs
 {
     public class NotificationHub : Hub
     {
-        // map userId -> set of connection ids (inner ConcurrentDictionary used as a thread-safe set)
         private static readonly ConcurrentDictionary<string, ConcurrentDictionary<string, byte>> connections = new();
 
         public override Task OnConnectedAsync()
@@ -16,8 +15,6 @@ namespace IceCream.Hubs
             var userId = Context.User?.FindFirst("userId")?.Value ?? "anonymous";
             var userConnections = connections.GetOrAdd(userId, _ => new ConcurrentDictionary<string, byte>());
             userConnections.TryAdd(Context.ConnectionId, 0);
-            
-            // Add admin to admin group
             var userType = Context.User?.FindFirst("type")?.Value;
             if (userType == "Admin")
             {
@@ -41,7 +38,6 @@ namespace IceCream.Hubs
             return base.OnDisconnectedAsync(exception);
         }
 
-        // server can call this to notify a specific user by id
         public static Task NotifyUser(IHubContext<NotificationHub> hubContext, string userId, string message)
         {
             if (connections.TryGetValue(userId, out var userConnections))
@@ -55,7 +51,6 @@ namespace IceCream.Hubs
             return Task.CompletedTask;
         }
 
-        // notify all admins
         public static Task NotifyAdmins(IHubContext<NotificationHub> hubContext, string message)
         {
             return hubContext.Clients.Group("admin").SendAsync("Notify", message);
