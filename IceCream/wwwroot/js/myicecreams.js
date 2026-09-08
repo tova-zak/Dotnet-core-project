@@ -25,10 +25,8 @@ function isAdmin() {
     return claims && (claims.type === 'Admin');
 }
 
-let viewingShopId = null; // מזהה החנות שמוצגת ברגע זה (יכול להיות של המשתמש או של חנות אחרת אם Admin)
-let viewingShopName = null; // שם החנות שמוצגת כעת (לממשק מידע)
-
-// helper to update the 'פרטי משתמש' link based on context
+let viewingShopId = null; 
+let viewingShopName = null; 
 function updateUserLink(targetId, shopName) {
     try {
         const link = document.getElementById('userLink');
@@ -82,7 +80,6 @@ function getMyIceCreams() {
         return;
     }
     
-    // אם אדמין - הצג את כל החנויות עם האוספים שלהן
     if (isAdmin()) {
         fetch(`${uri}`, {
             headers: {
@@ -95,7 +92,7 @@ function getMyIceCreams() {
             return response.json();
         })
         .then(data => {
-            viewingShopId = null; viewingShopName = null; // עדיין לא מציגים אוסף ספציפי
+            viewingShopId = null; viewingShopName = null; 
             _displayAllShops(data, token);
             updateUserLink(null); // show users list link for admin
             // hide add form on the admin overview
@@ -105,7 +102,6 @@ function getMyIceCreams() {
         })
         .catch(error => console.error('Unable to get shops.', error));
     } else {
-        // משתמש רגיל - הצג רק את האוסף שלו
         viewingShopId = myId; viewingShopName = 'שלי';
         fetch(`${uri}/${myId}/icecreams`, {
             headers: {
@@ -147,7 +143,6 @@ function addIceCream() {
         return response.json();
     })
     .then(() => {
-        // רענון התצוגה של האוסף שמוצג כעת
         if (viewingShopId) viewShopIceCreams(viewingShopId); else getMyIceCreams();
         document.getElementById('add-icecream-name').value = '';
         document.getElementById('add-icecream-isdiary').checked = false;
@@ -267,12 +262,10 @@ function _displayAllShops(shops, token) {
         const shopUserId = shop.id || shop.userId || shop.UserId || shop.shopId;
         if (shopUserId !== undefined && shopUserId !== null) tr.id = `shop-row-${shopUserId}`;
         
-        // עמודה 1: שם החנות
         let td1 = tr.insertCell(0);
         let shopNameNode = document.createTextNode(shop.shopName || shop.ShopName);
         td1.appendChild(shopNameNode);
         
-        // עמודה 2: מספר גלידות באוסף
         let td2 = tr.insertCell(1);
         let iceCreamCount = (shop.iceCreams && shop.iceCreams.length) || (shop.IceCreams && shop.IceCreams.length) || 0;
         if (iceCreamCount === 0) {
@@ -281,7 +274,6 @@ function _displayAllShops(shops, token) {
             td2.innerText = `${iceCreamCount} גלידות`;
         }
         
-        // עמודה 3: כפתור לנהל את הגלידות של החנות
         let td3 = tr.insertCell(2);
         let manageButton = document.createElement('button');
         manageButton.innerText = 'נהל אוסף';
@@ -293,8 +285,8 @@ function _displayAllShops(shops, token) {
 
 function viewShopIceCreams(shopId, shopName) {
     const token = localStorage.getItem('token');
-    viewingShopId = shopId; viewingShopName = shopName || shopId; // נעדכן את ההקשר — עכשיו כל פעולות העריכה יתמקדו בחנות זו
-    updateUserLink(shopId, shopName); // נקשר את כפתור "לפרטי משתמש" לפרטי המשתמש של החנות שנבחרה
+    viewingShopId = shopId; viewingShopName = shopName || shopId; 
+    updateUserLink(shopId, shopName); 
     fetch(`${uri}/${shopId}/icecreams`, {
         headers: {
             'Accept': 'application/json',

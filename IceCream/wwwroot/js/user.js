@@ -76,20 +76,16 @@ function deleteUser(id) {
 }
 
 function displayEditForm(id) {
-    // בטיחות בצד לקוח: אפשר לערוך רק את הפרופיל של המשתמש המחובר
     const currentId = getCurrentUserId();
     if (!currentId) { window.location.href = 'login.html'; return; }
 
-    // אם הבקשה היא לערוך משתמש שאינו המשתמש המחובר, אין הרשאה
     if (parseInt(currentId, 10) !== parseInt(id, 10)) {
         alert('אין הרשאה לערוך משתמש זה. ניתן לערוך רק את הפרופיל האישי שלך.');
         return;
     }
 
-    // במצב זה — המשתמש עורך את הפרופיל שלו: הצג את ה־profileSection למילוי ועריכה
     const user = users.find(u => u.id === id) || users.find(u => u.id === parseInt(id, 10));
     if (user) {
-        // מלא את שדות הפרופיל עם הנתונים הקיימים (תומך בשמות שדות שונים)
         const shop = user.ShopName || user.shopName || '';
         const email = user.Email || user.email || '';
         const address = user.Address || user.address || '';
@@ -100,14 +96,12 @@ function displayEditForm(id) {
         if (document.getElementById('profile-email')) document.getElementById('profile-email').value = email;
         if (document.getElementById('profile-address')) document.getElementById('profile-address').value = address;
 
-        // הצג אזור עריכת הפרופיל והסתר אזורים אחרים
         if (document.getElementById('adminProfileSection')) document.getElementById('adminProfileSection').style.display = 'none';
         if (document.getElementById('editForm')) document.getElementById('editForm').style.display = 'none';
         if (document.getElementById('profileSection')) document.getElementById('profileSection').style.display = 'block';
         return;
     }
 
-    // אם לא נמצא במטמון, נטען מהשרת ואז נמלא
     const token = localStorage.getItem('token');
     fetch(`${uri}/${id}`, {
         headers: {
@@ -141,7 +135,6 @@ function displayEditForm(id) {
 }
 
 function updateUser() {
-    // עדכון פרופיל: רק המוכר (המשתמש המחובר) יכול לקרוא לעדכון זה
     const userId = document.getElementById('edit-id').value;
     const currentId = getCurrentUserId();
     if (!currentId || parseInt(currentId, 10) !== parseInt(userId, 10)) {
@@ -157,7 +150,7 @@ function updateUser() {
         Password: "" // ריק -> UserService.Update ישמור את הסיסמה הקיימת
     };
 
-    const token = localStorage.getItem('token'); // מסביר: מוסיף טוקן לעדכון
+    const token = localStorage.getItem('token'); 
 
     fetch(`${uri}/${userId}`, {
         method: 'PUT',
@@ -199,7 +192,6 @@ function changePassword() {
     })
         .then(response => {
             if (!response.ok) {
-                // אם הסטטוס הוא 401 או 400 (למשל סיסמה שגויה), נזרוק שגיאה
                 return response.text().then(t => {
                     throw new Error("InvalidPassword");
                 });
@@ -208,7 +200,6 @@ function changePassword() {
             return ct.includes('application/json') || ct.includes('text/plain') ? response.text() : Promise.resolve();
         })
         .then(tokenString => {
-            // אם הגענו לכאן, סימן שהעדכון הצליח
             alert("עדכון הסיסמא עבר בהצלחה");
 
             if (tokenString && tokenString.length > 10) {
@@ -218,7 +209,6 @@ function changePassword() {
             document.getElementById('new-password').value = '';
         })
         .catch(error => {
-            // כאן אנחנו תופסים גם שגיאות רשת וגם את השגיאה שזרקנו למעלה
             console.error('Unable to change password.', error);
             alert("אחת מהסיסמאות שהזנת שגויות, נסה שנית");
         });
@@ -332,7 +322,6 @@ function updateProfile() {
             return response.text();
         })
         .then(() => {
-            // עדכון המטמון בצד לקוח כדי שהשינויים ייראו מיד
             const idx = users.findIndex(u => parseInt(u.id, 10) === parseInt(id, 10));
             if (idx !== -1) {
                 users[idx].ShopName = user.ShopName;
@@ -343,7 +332,6 @@ function updateProfile() {
                 users[idx].address = user.Address;
             }
 
-            // עדכון תצוגה נוכחית
             alert('הפרטים עודכנו בהצלחה');
             showProfile(id);
         })
@@ -356,10 +344,8 @@ function updateProfile() {
 }
 
 function _displayUsers(data) {
-    // הצג רשימת משתמשים בתוך ה-div #usersList — מיועד למנהל בלבד
     const container = document.getElementById('usersList');
     if (!container) {
-        // אם אין אלמנט כזה - אין מה לעשות (ייתכן שמדובר בעמוד משתמש בלבד)
         return;
     }
 
@@ -386,7 +372,6 @@ function _displayUsers(data) {
         const detailsBtn = document.createElement('button');
         detailsBtn.innerText = 'פרטים';
         detailsBtn.onclick = () => {
-            // עבור מנהל: הבאת פרטי המשתמש הספציפי ישירות מהשרת והצגתם
             const idNum = Number(user.id);
             if (Number.isNaN(idNum)) return;
             const token = localStorage.getItem('token');
@@ -401,7 +386,6 @@ function _displayUsers(data) {
                     return r.json();
                 })
                 .then(selectedUser => {
-                    // הסתר את הרשימה והצג את כרטיס הפרטים של המשתמש שנבחר
                     const usersListEl = document.getElementById('usersList'); if (usersListEl) usersListEl.style.display = 'none';
                     const adminEl = document.getElementById('adminProfileSection'); if (adminEl) adminEl.style.display = 'block';
                     const profileEl = document.getElementById('profileSection'); if (profileEl) profileEl.style.display = 'none';
@@ -413,15 +397,12 @@ function _displayUsers(data) {
                     const adminAddress = document.getElementById('admin-address'); if (adminAddress) adminAddress.innerText = selectedUser.Address || selectedUser.address || '';
                     const adminIce = document.getElementById('admin-icecount'); if (adminIce) adminIce.innerText = (selectedUser.IceCreams && selectedUser.IceCreams.length) || (selectedUser.iceCreams && selectedUser.iceCreams.length) || 0;
 
-                    // וודא שהכפתור מחיקה פועל על המשתמש הנבחר
                     const delBtn = document.getElementById('admin-delete-btn');
                     if (delBtn) {
-                        // נתק את המאזין הקודם
                         delBtn.onclick = null;
                         delBtn.onclick = function () {
                             if (confirm('אתה בטוח שברצונך למחוק את המשתמש?')) {
                                 deleteUser(selectedUser.id);
-                                // אחרי מחיקה הצג את הרשימה מחדש
                                 const adminEl2 = document.getElementById('adminProfileSection'); if (adminEl2) adminEl2.style.display = 'none';
                                 const usersListEl2 = document.getElementById('usersList'); if (usersListEl2) usersListEl2.style.display = 'block';
                             }
@@ -434,7 +415,6 @@ function _displayUsers(data) {
                 });
         };
 
-        // מנהל יכול למחוק
         const deleteBtn = document.createElement('button');
         deleteBtn.innerText = 'מחק';
         deleteBtn.onclick = () => {
@@ -452,7 +432,6 @@ function _displayUsers(data) {
         container.appendChild(card);
     });
 
-    // שמירת מטמון
     users = data;
 }
 
@@ -508,39 +487,32 @@ document.addEventListener('click', function (e) {
         getUsers();
     }
     // --- SignalR Connection & Listener ---
-    // יצירת החיבור ל-Hub
     const connection = new signalR.HubConnectionBuilder()
         .withUrl("/notificationHub", {
-            // צירוף הטוקן כדי שהשרת יזהה את המשתמש וידע אם הוא מנהל
             accessTokenFactory: () => localStorage.getItem('token')
         })
         .build();
 
-    // האזנה לצעקות מהשרת תחת מילת המפתח "Notify"
     connection.on("Notify", function (message) {
         try {
             const data = JSON.parse(message);
 
-            // בודקים אם ההודעה היא על הרשמה או יצירה של חנות חדשה
             if (data.action === "new_user_registered" || data.action === "new_user_created") {
                 console.log("חנות חדשה נוספה, מרענן את הרשימה...");
 
-                // אם המשתמש שצופה במסך עכשיו הוא מנהל, נרענן לו את הרשימה בלי ריענון דף
                 if (isAdmin()) {
                     getUsers();
                 }
             }
 
-            // אפשר גם להוסיף כאן האזנה לעדכונים/מחיקות בעתיד:
-            // if (data.action === "user_deleted" || data.action === "user_updated") { ... }
+           
 
         } catch (e) {
             console.error("שגיאה בפענוח הודעת SignalR", e);
         }
     });
 
-    // הפעלת החיבור
-    if (getCurrentUserId()) { // מתחברים רק אם יש משתמש מחובר
+    if (getCurrentUserId()) { 
         connection.start().then(function () {
             console.log("SignalR Connected!");
         }).catch(function (err) {

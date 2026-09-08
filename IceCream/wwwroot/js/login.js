@@ -14,8 +14,7 @@ function loginUser() {
     })
     .then(response => {
         if (response.ok) {
-            // השרת מחזיר מחרוזת עם הטוקן, לכן נקרא את התוכן כ-text ולא כ-json
-            return response.text(); // מסביר: קורא את גוף התשובה כמחרוזת
+            return response.text(); 
         } else {
             alert('Login failed. Please check your credentials.');
             throw new Error('Login failed');
@@ -23,9 +22,7 @@ function loginUser() {
     })
     .then(token => {
         if (token) {
-            // שומר את הטוקן ב-localStorage
-            localStorage.setItem('token', token); // מסביר: מאחסן את הטוקן
-            // הפניה לעמוד שמציג את האוספים האישיים
+            localStorage.setItem('token', token); 
             window.location.href = '../html/myicecreams.html';
         }
         
